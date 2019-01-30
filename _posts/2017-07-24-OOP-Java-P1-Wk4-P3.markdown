@@ -1,0 +1,170 @@
+---
+layout: post
+title:  "OOP Java P1 Wk4 P3"
+date:   2017-07-24 3:41:30
+categories: MOOC
+tags: [java]
+comments: true
+---
+
+# Week 4 Ends using Random()
+
+We will end <strong>Week 4</strong> with <strong> Exercises 81 and 82</strong>. In previous post, we learn how to use `Random ()` in the most simple way. Now how about `Random()` with a `String`?
+
+## PasswordRandomizer
+
+What <strong>Exercise 81</strong> wants:
+
+- constructor `PasswordRandomizer` creates a new object, which uses the given password length
+- method `createPassword` returns a new password, which consists of symbols a-z and is of the length given as a parameter to the constructor
+
+It gave a hint, recommending to turn a number into character using `charAt()`. We will take a look at two classes, and their skeletons.
+
+<div style="-webkit-column-count: 2; -moz-column-count: 2; column-count: 2; width: 750px; height: 400px; margin: auto">
+  <div style="float: left; width: 372px; height: auto">
+      <h2>Main Class</h2>
+      <pre style="width: 370px; height: 270px; font-size: 50%">
+        <code class="language-java">
+public class Program {
+    public static void main(String[] args) {
+        PasswordRandomizer randomizer = new PasswordRandomizer(13);
+        System.out.println("Password: " + randomizer.createPassword());
+        System.out.println("Password: " + randomizer.createPassword());
+        System.out.println("Password: " + randomizer.createPassword());
+        System.out.println("Password: " + randomizer.createPassword());
+    }
+}
+        </code>
+      </pre>
+  </div>
+  <div style="float: right; width: 372px; height: auto; margin-top: .5px">
+      <h2>PasswordRandomizer Class</h2>
+      <pre style="width: 370px; height: 270px; font-size: 50%">
+        <code class="language-java">
+import java.util.Random;
+
+public class PasswordRandomizer {
+    // Define the variables
+
+    public PasswordRandomizer(int length) {
+        // Initialize the variable
+    }
+
+    public String createPassword() {
+        // write code that returns a randomized password
+    }
+}
+        </code>
+      </pre>
+  </div>
+</div>
+
+Let's start with an encapsulation. We learned from the last post on <strong> Dice Exercise</strong> that we need a `private Random` variable, and the hint implies that we will need a `private int` variable to turn into a character. Encapsulation then constructor and initialize variables.
+
+```java
+import java.util.Random;
+
+public class PasswordRandomizer{                 //encapsulation
+  private Random random;
+  private int number;
+  private int length;
+
+  public PasswordRandomizer(int length) {        // constructor
+    this.length;                                 // initializing the length
+    this.number;                                 // initializes the value
+    random = new Random();                       // initializes the random
+  }
+}
+```
+
+The next step is creating a method `createPassword()`. A hint is given saying we could do this:
+
+```java
+int number = 17;
+char symbol = "abcdefghijklmnopqrstuvwxyz".charAt(number);
+```
+
+In this method `createPassword`, it has to be able to do three things:
+
+- randomize a number
+  - use `random.nextInt()`
+- convert `number` into a character
+- return a password that is long as the `length`
+  - create a string `str` that adds up characters
+  - using `i` counter variable
+
+```java
+public createPassword(){           // constructor
+  String str = "";                 // start a open string
+  int i = length;                  // counter same number as length
+
+  while (i > 0){                   // counter decrement
+    number = random.nextInt(26);      
+    char symbol = "abcdefghijklmnopqrstuvwxyz".charAt(number);
+    str = str + symbol;
+    i--;
+  }
+  return str;
+}
+```
+
+There are 26 letters in alphabets, hence `random.nextInt(26)`, I double check to make sure `a` or `z` are in it as if they are within a boundary. The rest of coding can be understood from previous post on Dice.
+
+## Lottery
+
+Another exercise that covers `Random()`, but this time it uses an array and a new feature `.clear()`, which will be explained later on. This exercise wants us to:
+
+- create `LotteryNumbers` class that draws 7 numbers between 1 and 39
+- constructor `LotteryNumbers` creates a new `LotteryNumbers` object containing new drawn numbers
+- method `numbers` returns the drawn numbers of this draw
+- method `drawNumbers` draws new numbers
+- method `containsNumber` reveals if the number is among the drawn numbers.
+
+The templates on Main Class and Non-main Class look like this below:
+
+<div style="-webkit-column-count: 2; -moz-column-count: 2; column-count: 2; width: 750px; height: 400px; margin: auto">
+  <div style="float: left; width: 372px; height: auto">
+      <h2>Main Class</h2>
+      <pre style="width: 370px; height: 270px; font-size: 50%">
+        <code class="language-java">
+import java.util.ArrayList;
+
+public class Main {
+    public static void main(String[] args) {
+        LotteryNumbers lotteryNumbers = new LotteryNumbers();
+        ArrayList<Integer> numbers = lotteryNumbers.numbers();
+
+        System.out.println("Lottery numbers:");
+        for (int number : numbers) {
+            System.out.print(number + " ");
+        }
+        System.out.println("");
+    }
+}
+
+        </code>
+      </pre>
+  </div>
+  <div style="float: right; width: 372px; height: auto; margin-top: .5px">
+      <h2>PasswordRandomizer Class</h2>
+      <pre style="width: 370px; height: 270px; font-size: 50%">
+        <code class="language-java">
+import java.util.Random;
+
+public class PasswordRandomizer {
+    // Define the variables
+
+    public PasswordRandomizer(int length) {
+        // Initialize the variable
+    }
+
+    public String createPassword() {
+        // write code that returns a randomized password
+    }
+}
+        </code>
+      </pre>
+  </div>
+</div>
+
+## Testing
