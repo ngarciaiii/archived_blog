@@ -2,7 +2,7 @@
 title: ngarciaiii
 tagline: 'Blog on learning programming languages'
 description: blog on learning programming languages
-baseurl: ""
+baseurl: ''
 url: http://ngarciaiii.github.io
 logo: '/public/logo.png'
 
@@ -11,7 +11,7 @@ plugins: [jekyll-paginate]
 markdown: kramdown
 kramdown:
   input: GFM
-excerpt_separator: "<!-- more -->"
+excerpt_separator: '<!-- more -->'
 sass:
   style: compressed
   sass_dir: _scss
@@ -27,10 +27,10 @@ author:
   description: A <strong>deaf researcher</strong> learning to be a <strong>programmer and developer</strong>
   gravatar: 947a7657a5f0f9ae51b585eb98787696 # md5 hash of your email address
   contact:
-    linkedin:  https://www.linkedin.com/in/nicolas-garcia-iii
-    github:    https://github.com/ngarciaiii
+    linkedin: https://www.linkedin.com/in/nicolas-garcia-iii
+    github: https://github.com/ngarciaiii
     # facebook:  <hide>
-    twitter:   https://twitter.com/NicoGiii
+    twitter: https://twitter.com/NicoGiii
 
 # Navigation (2nd level links supported)
 nav:
