@@ -7,7 +7,6 @@ tags: [certifications, A+]
 comments: true
 ---
 
-# Testing testing github push
 # A+ certifications without taking a course!
 
 I am going to get A+ certifications, both 901 and 902. Do I need to take the class to pass the exam? <b>Let's use the internet first.</b> There are probably better resources online, but I think these links below will do.
