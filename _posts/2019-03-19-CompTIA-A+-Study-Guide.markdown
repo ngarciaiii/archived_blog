@@ -16,16 +16,18 @@ Stumbled into these study guides below from [reddit][reddit]. If you don't know 
 - [A+ 901 Study Guide][A+ 901 Study Guide]
 - [A+ 902 Study Guide][A+ 902 Study Guide]
 
-Why need a textbook when there are PDFs out online for free? These PDFs below are what I decide to use. Both of these are bit different. Ask me if I am going to read these slowly and carefully... <b>the answer is no</b>. I am going to skim, use my best judgement on where to read carefully.
+Why need a textbook when there are PDFs out online for free? These PDFs below are what I decide to use. Both of these are bit different. <b>Ask me if I am going to read these slowly and carefully... the answer is no</b>. I am going to skim, use my best judgement on where to read carefully.
 
-- http://ccilearning.com/comptia/CCILearning-Aplus-901-g186eng-sample.pdf
-- https://nh.lochoice.com/WCR/WCRContentDirectory/20066/093013s_ebook_v11.pdf
+- [PDF 1][PDF 1]
+- [PDF 2][PDF 2]
 
-Lastly, [Exam Compass][Exam Compass] has all kinds of mock exams for IT related certifications. I used it to get an ASTQB certification and it worked. I barely read the textbook. I just keep failing the mock exams until I passed twice or thrice in row, and then I took the exam first time and passed it with 82% which is somewhat impressive. The mock exam is pretty similar and accurate with the real exam. That is for ASTQB. I am not sure about A+ which is why I am going to be actually reading off PDFs. I will let you know if [Exam Compass][Exam Compass] is accurate again!
+Lastly, [Exam Compass][Exam Compass] has all kinds of mock exams for IT related certifications. I used it to get an <b>ASTQB certification</b> and it worked. I barely read the textbook. <b>I just keep failing the mock exams until I passed twice or thrice in row, and then I took the exam first time and passed it with 82% which is somewhat impressive.</b> The mock exam is pretty similar and accurate with the real exam. That is for ASTQB. I am not sure about A+ which is why I am going to be actually reading off PDFs. I will let you know if [Exam Compass][Exam Compass] is accurate again!
 
 ## Are you ready to study to ACE the exam?!
 
 [A+ 901 Study Guide]:https://docs.google.com/document/d/1Shh_BNuw4xh2mlr3UVBpBWqbvWJNnTtuSq12RFsjvAo/edit
 [A+ 902 Study Guide]:https://docs.google.com/document/d/11TZ8TvhUlRI4yhMBSnULgwE2p4plTptIKZOJ96QdXKc/edit
+[PDF 1]:http://ccilearning.com/comptia/CCILearning-Aplus-901-g186eng-sample.pdf
+[PDF 2]:https://nh.lochoice.com/WCR/WCRContentDirectory/20066/093013s_ebook_v11.pdf
 [reddit]:www.reddit.com
 [Exam Compass]:https://www.examcompass.com/
