@@ -332,7 +332,6 @@ while ( i < 121 ) {
     }
 
     seconds.next();
-    i++;
 }
 ```
 
