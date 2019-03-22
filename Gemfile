@@ -14,3 +14,6 @@ gem 'jekyll-paginate'
 gem 'github-pages', versions['github-pages']
 gem 'kramdown', versions['kramdown']
 gem 'rake'
+gem 'jekyll-assets', group: :jekyll_plugins
+gem "jekyll-assets", git: "https://github.com/envygeeks/jekyll-assets", group: :jekyll_plugins
+gem "jekyll-assets", "~> x.x.alpha", group: :jekyll_plugins

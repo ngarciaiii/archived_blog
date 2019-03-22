@@ -2,8 +2,8 @@
 layout: post
 title: "CompTIA A+ Study Guide"
 date: 2019-03-19 09:08:30 -0400
-categories: CompTIA A+
-tags: [certifications, A+]
+categories: CompTIA
+tags: [A+]
 comments: true
 ---
 

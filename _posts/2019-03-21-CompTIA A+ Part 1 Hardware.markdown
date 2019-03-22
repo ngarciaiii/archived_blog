@@ -2,8 +2,8 @@
 layout: post
 title: "CompTIA A+ Hardware Part 1"
 date: 2019-03-19 09:08:30 -0400
-categories: CompTIA A+
-tags: [certifications, A+]
+categories: CompTIA
+tags: [A+]
 comments: true
 ---
 
@@ -17,15 +17,20 @@ I noticed that this [A+ 901 Study Guide][A+ 901 Study Guide] started with BIOS a
 
 I ordered all parts and built my PC. I remember that the first thing I looked to buy was a `Computer Case` or some people would say `Desktop PC Tower`. It encases as a protector of all parts together. There are different sizes depending on the size of motherboard and CPU cooler.
 
-![desktop tower](/public/img/A+/tower-sizes.png){: .center-image }
+![desktop tower](/public/img/A+/pctowers.png){: .center-image }
 
-Full and or mid towers are the most common. The sizes are not limited to as displayed in the image. There are other sizes. Notice XL-ATX, ATX, EATX, mATX, ITX, and Mini-ITX listed under towers in the image, these are just names of motherboard designs that have their own specifications matching to power supply configurations.
+Full and or mid towers are the most common. The sizes are not limited to as displayed in the image. There are other sizes. Notice XL-ATX, ATX, EATX, mATX, ITX, and Mini-ITX listed under towers in the image, these are just names of motherboard designs that have their own specifications matching to power supply configurations. Nevermind the "bays" listed, they are what hold disk drives.
 
-`Motherboard` is one of the most important hardwares. It serves as a backbone for entire computer system which is why some people call it a `system board`. <b>FUN FACT:</b> Apple call it `logic board`. PC builders would call it `mobo` for short. Mobo has some components soldered in, and some sockets/slots ready to be pinned in. Components will be listed after the image of sizes of motherboards below.
+`Motherboard` is one of the most important hardwares. It serves as a backbone for entire computer system which is why some people call it a `system board`. <b>FUN FACT:</b> Apple call it `logic board`. PC builders would call it `mobo` for short. Mobo has some components soldered in, and some sockets/slots ready to be pinned in. Components will be detailed after the image of sizes of motherboards below.
 
+![mobos](/public/img/A+/mobos.jpg){: .center-image }
 
+To be honest, I don't know why it's generally called ATX (Advanced Technology eXtended), but they varies in sizes and designs according to specification which is called `form factor`. <b>Form factor</b> include specifications like the <b> dimensions, power supply type, locations of mounting holes, number of ports on the back panel, etc</b>. Take a closer look on a mobo below.
 
+![mobospecs](/public/img/A+/mobospecs.png){: .center-image }
+## CPU
 
+I will assume that the most important component on the motherboard is CPU.
 
 
 
