@@ -11,7 +11,7 @@ comments: true
 
 I am going to get A+ certifications, both 901 and 902. Do I need to take the class to pass the exam? <b>Let's use the internet first.</b> There are probably better resources online, but I think these links below will do.
 
-Stumbled into these study guides below from [reddit][reddit]. If you don't know what reddit is, it is literally the people of internet sharing information. It might be hard to navigate as a first-timer. Get hang of it and you will find all the information just about <b>anything</b> you need.
+Stumbled into these study guides below from [reddit][reddit]. If you don't know what [reddit][reddit] is, it is literally the people of internet sharing information. It might be hard to navigate as a first-timer. Get hang of it and you will find all the information just about <b>anything</b> you need.
 
 - [A+ 901 Study Guide][A+ 901 Study Guide]
 - [A+ 902 Study Guide][A+ 902 Study Guide]
