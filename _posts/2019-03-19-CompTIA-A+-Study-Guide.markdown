@@ -21,7 +21,7 @@ Why need a textbook when there are PDFs out online for free? These PDFs below ar
 - [PDF 1][PDF 1]
 - [PDF 2][PDF 2]
 
-Lastly, [Exam Compass][Exam Compass] has all kinds of mock exams for IT related certifications. I used it to get an <b>ASTQB certification</b> and it worked. I barely read the textbook. <b>I just keep failing the mock exams until I passed twice or thrice in row, and then I took the exam first time and passed it with 82% which is somewhat impressive.</b> The mock exam is pretty similar and accurate with the real exam. That is for ASTQB. I am not sure about A+ which is why I am going to be actually reading off PDFs. I will let you know if [Exam Compass][Exam Compass] is accurate again!
+Lastly, [Exam Compass][Exam Compass] has all kinds of mock exams for IT related certifications. I used it to get an <b>ASTQB certification</b> and it worked. I read the PDFs, meanwhile <b>I just keep failing the mock exams until I passed twice or thrice in row, and then I took the exam first time and passed it with 82% which is somewhat impressive.</b> The mock exam is pretty similar and accurate with the real exam. That is for ASTQB. I am not sure about A+ which is why I am going to be actually reading off PDFs. I will let you know if [Exam Compass][Exam Compass] is accurate again!
 
 ## Are you ready to study to ACE the exam?!
 

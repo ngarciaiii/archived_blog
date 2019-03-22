@@ -9,7 +9,7 @@ comments: true
 
 # Memorizing the Hardware
 
-Learning online without taking class can be little daunting at the beginning. Focus on `fun facts` and everything will be all good. There are `A+ 901 and 902 certifications`, so let's <b>separate</b> these two by starting with this [A+ 901 Study Guide][A+ 901 Study Guide].  PDFs are just to help me understand the study guides better. If need a link to either [PDF 1][PDF 1] and or [PDF 2][PDF 2] that I am using, click on these to new tab with right click.
+Learning online without taking class can be little daunting at the beginning. Focus on fun facts and everything will be all good. There are `A+ 901 and 902 certifications`, so let's <b>separate</b> these two by starting with this [A+ 901 Study Guide][A+ 901 Study Guide].  PDFs are just to help me understand the study guides better. If need a link to either [PDF 1][PDF 1] and or [PDF 2][PDF 2] that I am using.
 
 I noticed that this [A+ 901 Study Guide][A+ 901 Study Guide] started with BIOS and I am not sure why. I will start with Hardware, and then BIOS afterward.
 
@@ -20,8 +20,13 @@ I noticed that this [A+ 901 Study Guide][A+ 901 Study Guide] started with BIOS a
   - Display Devices
   - Audio and Multimedia Devices
   - Removable Storage Devices
+- System Components
+-
+-
+-
+-
 
-The listed above is what we will be cover in this post. I will try my best to slim this post up. 
+The listed above is what we will be cover in this post. I will try my best to slim this post up.
 
 
 
