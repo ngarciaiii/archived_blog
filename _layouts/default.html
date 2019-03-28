@@ -19,14 +19,27 @@
             <small>{{ site.tagline }}</small>
           </h3>
         </div>
+        <!-- <a href="<i class="fas fa-adjust"> -->
+        <button for="nightmode" class="night-mode-button"><i class="fa fa-moon-o"></i></button>
+        <!-- </i></a> -->
       </div>
-
       <div class="container content">
         {{ content }}
       </div>
     </div>
 
     <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+     $(document).ready(function(){
+        var button = $('.night-mode-button');
+        var container = $('.wrap');
+
+        button.click(function() {
+          container.toggleClass('-nightmode');
+        });
+      });
+   </script>
 
     <script>
       (function(document) {

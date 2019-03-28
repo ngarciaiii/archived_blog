@@ -7,7 +7,7 @@ url: http://ngarciaiii.github.io
 logo: '/public/logo.png'
 
 # Site configurations
-plugins: [jekyll-paginate]
+plugins: [jekyll-paginate, jekyll-assets]
 markdown: kramdown
 kramdown:
   input: GFM
