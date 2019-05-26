@@ -1,21 +1,31 @@
 ---
 layout: post
-title: "CompTIA A+ Hardware Part 1"
+title: "CompTIA A+ Safety and Hardware Part 1"
 date: 2019-03-19 09:08:30 -0400
 categories: CompTIA
 tags: [A+]
 comments: true
 ---
 
-# Memorizing the Hardware
+# Safety first
 
-Learning online without taking class can be a little daunting at the beginning. Focus on `fun facts` and everything will be all good. There are `A+ 901 and 902 certifications`, so let's <b>separate</b> these two by starting with this [A+ 901 Study Guide][A+ 901 Study Guide].  PDFs are just to help me understand the study guides better. Here are the links to either [PDF 1][PDF 1] and or [PDF 2][PDF 2] that I am using from online.
+When working with computer hardware can be dangerous when it is plugged. I can't think of any reason to assemble or disassemble computer while it is plugged. So <b>NEVER LEAVE IT PLUGGED</b> when working with computer and its components. If it was already plugged, unplug and wait at least 5 minutes before upgrading/replacing component. When ordering components, they usually come in `antistatic bags`, typically made from plastic <i>polyethylene terephthalate</i> (PET) to protect components that are sensitive to electrostatic discharge. It works by being slightly conductive, forming what is known as <b>Faraday Cage</b>.
 
-I noticed that this [A+ 901 Study Guide][A+ 901 Study Guide] started with BIOS and I am not sure why. I will start with Hardware, and then BIOS afterward.
+![antistatic bag](/public/img/A+/antistatic_bag.jpg){: .center-image }
+
+It is recommended to wear `ESD (electrostatic discharge) strap` when taking components out of the antistatic bags and installing into computer. There are many types, but wrist strap is the most common. Follow the same example as the image below, clip onto metal frame of the computer case.  
+
+![ESD_strap](/public/img/A+/ESD_strap.png){: .center-image }
+
+I suspect those are the most important to know. There are other ways to prevent electrical charges like `ESD mat`, where you place computer equipments on, or another way is `Self-grounding` where you touch the any non-computer equipment metal object to let go of electrical charges from your body before resumes working on components.
+
+Electrical fire rarely occurs but when it does, be sure to use the right fire extinguisher. It should have a C letter marked on it. `Class C fire extinguisher`, easy to remember C for computer.
+
+Worn out computer components like batteries and or CRTs do not go into trash. They should be recycled to prevent soil and water contamination. `CRTs (Cathode-ray tube)` are <b>stone age computer and television</b>, huge heavy monitor.
 
 # Hardware Part 1
 
-I ordered all parts and built my PC. I remember that the first thing I looked to buy was a `computer case`, `enclosure`, or some people would say `Desktop PC Tower`. It encases as a protector of all parts together. There are different sizes depending on the size of motherboard and CPU cooler. The sizes are not limited to as displayed in the figure below.
+I ordered all parts and built my PC. Check out [PCPartPicker][PCPartPicker] if you are interested in building a PC. I remember that the first thing I looked to buy was a `computer case`, `enclosure`, or some people would say `Desktop PC Tower`. It encases as a protector of all parts together. There are different sizes depending on the size of motherboard and CPU cooler. The sizes are not limited to as displayed in the figure below.
 
 *Figure: Sizes of Towers*
 ![desktop tower](/public/img/A+/pctowers.png){: .center-image }
@@ -25,17 +35,23 @@ Full and or mid towers are the most common because people intend to get ATX moth
 *Figure: Types of Motherboards*
 ![mobos](/public/img/A+/mobos.jpg){: .center-image }
 
-`Motherboard` is one of the most important hardwares. It serves as a backbone for entire computer system which is why some people call it a `system board`. <b>FUN FACT:</b> Apple call it `logic board`. PC builders would call it `mobo` for short. Mobo has some components soldered in, and some sockets/slots ready to be pinned in. Components will be detailed after the image of sizes of motherboards below. Take a closer look on a mobo below.
+`Motherboard` is one of the most important hardwares. It serves as a backbone for entire computer system which is why some people call it either `main board`, or `system board`. <b>FUN FACT:</b> Apple call it `logic board`. PC builders would call it `mobo` for short. Mobo has some components soldered in like <b>RAM slots and driver connectors which are irreplaceable</b>. These sockets/slots ready to be pinned in. There are few components like <b>CPU and CMOS battery that are replaceable</b>. Components will be detailed after the image of sizes of motherboards below. Take a closer look on a mobo below.
 
 *Figure: Motherboard Form Factor*
 ![mobospecs](/public/img/A+/mobospecs.png){: .center-image }
+
 ## CPU
 
-I will assume that the most important component on the motherboard is CPU.
+![CPU](/public/img/A+/cpu.jpg){: .center-image }
+
+`CPU` is short for <b><i>Central Processing Unit</i></b>, a silicon microchip that processes all instructions from computer's hardware and software. The CPU has two primary components: <b><i>control unit (CU)</i></b> and <b><i>arithmetic logic unit (ALU)</i></b>. CU fetches instructions from memory, decodes, and executes them, calling on the ALU to perform arithmetic and logic operations when necessary.
+
+The speed of CPU is in megahertz or `MHz`, number of million of instructions or cycles the CPU can process in a second. The number of `cores` is the best way to determine the speed CPU has. `Core` is an independent processor embedded onto CPU. Multiple cores allow the CPU to process multiple instructions at once.
+
+
 
 
 
 
 [A+ 901 Study Guide]:https://docs.google.com/document/d/1Shh_BNuw4xh2mlr3UVBpBWqbvWJNnTtuSq12RFsjvAo/edit
-[PDF 1]:http://ccilearning.com/comptia/CCILearning-Aplus-901-g186eng-sample.pdf
-[PDF 2]:https://nh.lochoice.com/WCR/WCRContentDirectory/20066/093013s_ebook_v11.pdf
+[PCPartPicker]:https://pcpartpicker.com/
