@@ -44,7 +44,7 @@ Full and or mid towers are the most common because people intend to get ATX moth
 
 `CPU` is short for <b><i>Central Processing Unit</i></b>, a silicon microchip that processes all instructions from computer's hardware and software. The CPU has two primary components: <b><i>control unit (CU)</i></b> and <b><i>arithmetic logic unit (ALU)</i></b>. CU fetches instructions from memory, decodes, and executes them, calling on the ALU to perform arithmetic and logic operations when necessary.
 
-![CPU](/public/img/A+/cpu.jpg){: .center-image height="300px" width="auto" }
+![CPU](/public/img/A+/CPU.jpg){: .center-image height="300px" width="auto" }
 
 The speed of CPU is in megahertz or `MHz`, number of million of instructions or cycles the CPU can process in a second. The number of `cores` is the best way to determine the speed CPU has. `Core` is an independent processor embedded onto CPU. Multiple cores allow the CPU to process multiple instructions at once. Typically newer laptops have 6 cores, but I believe most of people who use 10 year old or fair-priced laptops have 4 cores.
 
