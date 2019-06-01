@@ -21,7 +21,7 @@ I suspect those are the most important to know. There are other ways to prevent 
 
 Electrical fire rarely occurs but when it does, be sure to use the right fire extinguisher. It should have a C letter marked on it. `Class C fire extinguisher`, easy to remember C for computer.
 
-Worn out computer components like batteries and or CRTs do not go into trash. They should be recycled to prevent soil and water contamination. `CRTs (Cathode-ray tube)` are huge heavy <b>stone age computer and television</b> monitors.
+Worn out computer components like batteries and or CRTs do not go into trash. They should be recycled to prevent soil and water contamination. `CRTs (Cathode-ray tube)` are huge heavy <b>stone age computer and television monitors</b>.
 
 # Hardware Part 1
 
@@ -60,7 +60,7 @@ Other considerations when selecting CPU is those with ability to do `virtualizat
 
 There are two different types of CPU sockets, <b><i>pin grid array</i> (PGA)</b> and <b><i>land grid array</i> (LGA)</b>. `PGA` cpu socket is where CPU is inserted by pinning pins in. `LGA` cpu socket replaces the pins with gold pads called lands. The pins are already located in the socket instead. I would prefer LGA, because pins on PGA can be damaged easily if forced to be inserted. LGA just snaps the CPU in. There are over 1000 pins for both LGA and PGA. Intel and AMD CPUs are not same and they have different numbers of pins.
 
-There are CPU slot types. <b><i>Single Edge Contact Cartridge</i> (SECC)</b> is plastic housing covered CPU. Would have heat sink and fan attached to the housing. <b><i>SECC v2</i></b> doesn't use heat sink thermal plate. <b><i>Single Edge Processor</i> (SEP)</b> is similar to SECC, just doesn't use plastic housing.       
+There are CPU slot types. <b><i>Single Edge Contact Cartridge</i> (SECC)</b> is plastic housing covered CPU. Would have heat sink and fan attached to the housing. <b><i>SECC v2</i></b> doesn't use heat sink thermal plate. <b><i>Single Edge Processor</i> (SEP)</b> is similar to SECC, just doesn't use plastic housing. <b><i>Pin Array Cartridge</i> (PAC)</b> is designed to lay flat in a socket on the motherboard.      
 
 There are about five different <b>CPU cooling methods</b>:
 - `Cooling fans`: sits over on the top of CPU and pulls the warm air away to maintain a temperature of 32-43°C (90-110°F)
@@ -81,13 +81,64 @@ There are about five different <b>CPU cooling methods</b>:
 
 ## CMOS Battery
 
+Lithium coin cell <b>CMOS battery</b> (shown in motherboard form factor figure above) provides continuous power to the computer's real-time clock and maintains the system BIOS settings. CMOS batter can last from 2 to 10 years before needing a replacement. Knowing when might need a replacement:
+- incorrect or slow date system and time
+- losing BIOS settings when computer is powered off
+
 ## RAM Slot
+
+Mobo usually have 2 to 4 RAM slots to hold the memory chips. One RAM chip would be usually from 2 to 8 GB. If have multiple chips, then these GB add up. The 30Bird textbook focus on components on the motherboard for now.The <b><i>Random Access Memory</i> (RAM)</b> will be covered later in different post.
 
 ## Northbridge/Southbridge chipset
 
-## SATA
+The `Northbridge chipset` connects directly to few components: CPU (via Front Side Bus (FSB)), RAMS, PCI Express graphics bus, and the Accelerated Graphics Port (AGP). Memory controller is located on the Northbridge which gives CPU faster access to the memory. Information from CPU has to go through Northbridge before reaching to the `Southbridge chipset`, which why Southbridge is slower. Northbridge is the only real communication bridge, connecting Southbridge chip to the CPU.  Many manufacturers would incorporate Northbridge onto the CPU itself to save cost and to improve the performance.
 
-## IDE
+There are busses that connects to Southbridge chipset to the PCI bus, USB ports, IDE, SATA and or hard disk connections.
+
+## Bus
+
+`Bus` is a circuit that connects a component to another component. We saw FSB mentioned above about Northbridge and CPU, and there are several other busses. The faster (measured in MHz) bus is, the more data it can carry over at time. If people discuss about the speed of bus, they are likely talking about FSB because that's the most important part, CPU hello! Take a good look at the figure of busses below
+
+![busses](/public/img/A+/busses.jpg){: .center-image height="300px" width="auto" }
+
+- <b><i>FSB</i> (Front Side Bus)</b> connects Northbridge to CPU, and speed ranges from 66 to over 800 MHz
+- <b><i>BSB</i> (Back Side Bus)</b>  connects CPU to L2 cache(s), CPU determines the speed
+- <b><i>IDE or ATA Bus</i></b> connects Southbridge to the disk drives
+- <b><i>PCI Bus</i></b> connects PCI slots to Southbridge and they average at 33 MHz speed, <b><i>PCI Express</i></b> (set of wires vs circuits) will replace PCI and AGP busses.
+
+## SATA driver connectors
+
+`Serial AT Attachment (SATA) driver connectors` connect modern hard disk drives HDD, solid state drives SSD, and optical drives to the circuity. AT is short for Advanced Technology in case you are wondering!  
+
+## IDE driver connectors
+
+`Integrated Drive Electornics (IDE) drive connectors` hooks up HDD/SSD to busses of the motherboard, two IDE drivers share one data cable, and it wil configure one as the master and the other as the slave.
+
+## Other connectors
+
+There are two types of power supplies: <b><i>AT/LPX and ATX</i></b>. Older PC motherboard uses AT/LPX power supplies whereas newer motherboards use ATX power supply.
+
+- <b><i>ATX power connector</i></b> connects the 24-pin power cable of the power supply unit to provide the power, and it spuulies three spearate voltage levels: 3.3, 5, and 12V DC
+
+- <b><i>ATX 12V power connector</i></b> is connects the 12 volt, 4-pin power cable of the power supply unit to provide low-voltage, high-ampere power to the CPU. There are motherboards that require 8-pin EPS 12 V power connector.
+
+- <b><i>Fan connectors</i></b> typically have 3 or 4 pins. Three common pins are electrical ground, power, and a "sense output" pin that singals fan speed, if there are a fourth pin (control poin) it is used to adjust the rotation speed of the fan without adjusting the voltage. Some are for RGB LED colors too.
+
+- <b><i>Front panel connector (fpanel or system panel connector)</i></b> contains socket to plug in five system cable: computer's power button, reset button, internal speaker, Hard disk activity LED light, and computer power LED light.
+
+## Motherboard ports
+
+Motherboard ports are the exposed part through the tower case cover (usually through back side of the tower). They are used for peripheral devices to plug in.
+
+![mobo_ports](/public/img/A+/mobo_ports.jpeg){: .center-image height="270px" width="auto" }
+
+- `Universal Serial Bus (USB)` plugs in all peripheral devices such as keyboard, mouse, digital cameras, printers, external disk drives and etc to the motherboard. There are USB types: A, B, and C. Let's focus on USB Type A for now. There are three specifications: 1.x, 2.x, and 3.x. Each have differences, look at the chart below. I would like to note that there are difference between <b><i>megabit per second (mbps)</i></b> and <b><i>megabyte per second (MBps)</i></b>. A 8 of bits are a byte but both speed unit have different use for speed. Speed unit mbps is used to measure a download speed while MBps is used to measure the file size.  
+
+| USB | 1.x | 2.x | 3.0 | 3.1 |
+|-------|-------|-------|-------|
+| mbps | 12 | 480 | 5 Gbps | 10 Gbps |
+| MBps | 1.5 | 60 | 625 | 1.21 GB/s |
+| colors | white | black | blue | blue |
 
 
 
