@@ -4,10 +4,10 @@ title: About
 ---
 
 <p class="message">
-  Hi! I am Nicolas Garcia, a Washington D.C. based web developer and programmer. Junior level at this moment, hey I am still young!
+  Hi! I am Nicolas Garcia, a Washington D.C. based web developer and junior level programmer.
 </p>
 
-In this blog, I will be putting down everything that I learned relating to programming and web development. All things I encounter.
+In this blog, I record down what I learned relating to programming and web development.
 
  * Tricks
  * Shortcuts

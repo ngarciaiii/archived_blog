@@ -132,15 +132,19 @@ Motherboard ports are the exposed part through the tower case cover (usually thr
 
 ![mobo_ports](/public/img/A+/mobo_ports.jpeg){: .center-image height="270px" width="auto" }
 
-- `Universal Serial Bus (USB)` plugs in all peripheral devices such as keyboard, mouse, digital cameras, printers, external disk drives and etc to the motherboard. There are USB types: A, B, and C. Let's focus on USB Type A for now. There are three specifications: 1.x, 2.x, and 3.x. Each have differences, look at the chart below. I would like to note that there are difference between <b><i>megabit per second (mbps)</i></b> and <b><i>megabyte per second (MBps)</i></b>. A 8 of bits are a byte but both speed unit have different use for speed. Speed unit mbps is used to measure a download speed while MBps is used to measure the file size.  
+- `Universal Serial Bus (USB)` plugs in all peripheral devices such as keyboard, mouse, digital cameras, printers, external disk drives and etc to the motherboard. There are USB types: A, B, and C.
+
+![USB_types](/public/img/A+/USB_types.png){: .center-image height="200px" width="auto" }
+
+Let's focus on USB Type A for now. There are three specifications: 1.x, 2.x, and 3.x. Each have differences, look at the chart below. I would like to note that there are difference between <b><i>megabit per second (mbps)</i></b> and <b><i>megabyte per second (MBps)</i></b>. A 8 of bits are a byte but both speed unit have different use for transmission rate. Speed unit mbps is used to measure a download speed while MBps is used to measure the file size.  
 
 | USB | 1.x | 2.x | 3.0 | 3.1 |
 |-------|-------|-------|-------|
 | mbps | 12 | 480 | 5 Gbps | 10 Gbps |
 | MBps | 1.5 | 60 | 625 | 1.21 GB/s |
-| colors | white | black | blue | blue |
+| port colors | white | white or black | blue | blue |
 
-
+- PS/2 six-pin interface used to connect older keyboards and pointing device (mouse), newer keyboards and mouse uses usb now. They are usually color coded like purple/pink for keyboards and lime/green for mouse.
 
 
 
