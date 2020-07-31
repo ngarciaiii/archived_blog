@@ -1,0 +1,301 @@
+I"�3<h1 id="using-subquery-and-derived-tables">Using Subquery and Derived Tables</h1>
+
+<p>I had difficult time understanding the <code class="highlighter-rouge">world x</code> and <code class="highlighter-rouge">world y</code> concept from the yet completed post “SELECT Quiz”. I found this one small hidden hyperlink “SELECT from SELECT” inside another hidden hyperlink “Using nested SELECT” from “SELECT within SELECT”, expanding more about derived tables. I am going to cover on that first.</p>
+
+<p>Derived table is when I could use result from one query in another query.</p>
+
+<p><strong>1)</strong> Subquery with <code class="highlighter-rouge">FROM</code></p>
+
+<ul>
+  <li>may use a <code class="highlighter-rouge">SELECT</code> statement in the <code class="highlighter-rouge">FROM</code> line</li>
+  <li>in this case the derived table <code class="highlighter-rouge">X</code> has columns <code class="highlighter-rouge">name</code> and <code class="highlighter-rouge">gdp_per_capita</code></li>
+  <li>calculated values in the inner <code class="highlighter-rouge">SELECT</code> can be used in the outer <code class="highlighter-rouge">SELECT</code></li>
+</ul>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">ROUND</span><span class="p">(</span><span class="n">gdp_per_capita</span><span class="p">)</span> <span class="k">FROM</span>
+  <span class="p">(</span><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">gdp</span><span class="o">/</span><span class="n">population</span> <span class="k">AS</span> <span class="n">gdp_per_capita</span> <span class="k">FROM</span> <span class="n">bbc</span><span class="p">)</span> <span class="n">X</span>
+<span class="k">WHERE</span> <span class="n">gdp_per_capita</span><span class="o">&gt;</span><span class="mi">20000</span>
+</code></pre></div></div>
+
+<p>Happening here:</p>
+
+<ul>
+  <li><strong>outer query</strong> gather countries that has gdp_per_capita greater than 20000</li>
+  <li><strong>inner query</strong> gather ALL countries with their gdp_per_capita</li>
+</ul>
+
+<p>Noting:</p>
+
+<ul>
+  <li>inner table is given an <strong>alias</strong> <code class="highlighter-rouge">x</code></li>
+  <li>first column in inner query keeps its <code class="highlighter-rouge">name</code></li>
+  <li>second column in inner query has an alias <code class="highlighter-rouge">gdp/population AS gdp_per_capita</code></li>
+</ul>
+
+<table>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>ROUND(gdp_per..</td>
+    </tr>
+    <tr>
+      <td>Australia</td>
+      <td>26900</td>
+    </tr>
+    <tr>
+      <td>Austria</td>
+      <td>32300</td>
+    </tr>
+    <tr>
+      <td>Belgium</td>
+      <td>31030</td>
+    </tr>
+    <tr>
+      <td>…</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br />
+<strong>2)</strong> Subquery with <code class="highlighter-rouge">IN</code></p>
+
+<ul>
+  <li>find the countries in the same region as Bhutan <br /></li>
+  <li>you may use a SELECT statement in the WHERE line - this returns a list of regions</li>
+</ul>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span> <span class="k">FROM</span> <span class="n">bbc</span>
+<span class="k">WHERE</span> <span class="n">region</span> <span class="k">IN</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">region</span> <span class="k">FROM</span> <span class="n">bbc</span> <span class="k">WHERE</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">'Bhutan'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>no derived table, has a inner query in <code class="highlighter-rouge">WHERE</code></li>
+  <li><strong>inner query</strong> identifies the <code class="highlighter-rouge">region</code> that ‘Bhutan’ is in</li>
+  <li><strong>outer query</strong> gather all countries in the region yet identified until inner query</li>
+</ul>
+
+<table>
+  <tbody>
+    <tr>
+      <td>name</td>
+    </tr>
+    <tr>
+      <td>Afghanistan</td>
+    </tr>
+    <tr>
+      <td>Bangladesh</td>
+    </tr>
+    <tr>
+      <td>Bhutan</td>
+    </tr>
+    <tr>
+      <td>…</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br />
+<strong>3)</strong> Correlated Subquery</p>
+
+<ul>
+  <li>if a value from the outer query appears in the inner query this is “correlated subquery”</li>
+  <li>show the countries where the population is greater than 5 times the average for its region</li>
+</ul>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span> <span class="k">FROM</span> <span class="n">bbc</span> <span class="n">b1</span>
+<span class="k">WHERE</span> <span class="n">population</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="o">*</span> <span class="p">(</span><span class="k">SELECT</span> <span class="k">AVG</span><span class="p">(</span><span class="n">population</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">bbc</span> <span class="k">WHERE</span> <span class="n">region</span><span class="o">=</span><span class="n">b1</span><span class="p">.</span><span class="n">region</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>outer query</strong> gathers countries <code class="highlighter-rouge">FROM</code> aliased <code class="highlighter-rouge">bbc b1</code> table with population greater than 5 times <strong>inner query</strong> result</li>
+  <li><strong>inner query</strong> calculates average population in each region</li>
+</ul>
+
+<table>
+  <tbody>
+    <tr>
+      <td>name</td>
+    </tr>
+    <tr>
+      <td>Brazil</td>
+    </tr>
+    <tr>
+      <td>China</td>
+    </tr>
+    <tr>
+      <td>India</td>
+    </tr>
+    <tr>
+      <td>Nigeria</td>
+    </tr>
+    <tr>
+      <td>Russia</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<h1 id="using-nested-select">Using Nested SELECT</h1>
+
+<ul>
+  <li>result of a SELECT statement may be used as a value in another statement</li>
+  <li>statement SELECT continent FROM world WHERE name = ‘Brazil’ evaluates to ‘South America’</li>
+  <li>can use this value to obtain a list of all countries in the same continent as ‘Brazil’</li>
+</ul>
+
+<p><strong>1)</strong> Using SELECT in SELECT
+List each country in the same continent as ‘Brazil’</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span> <span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">continent</span> <span class="o">=</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">continent</span> <span class="k">FROM</span> <span class="n">world</span> <span class="k">WHERE</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">'Brazil'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h1 id="alias">Alias</h1>
+
+<ul>
+  <li>some versions of SQL insist that you give the subquery an <strong>alias</strong></li>
+  <li>using <code class="highlighter-rouge">AS somename</code> after the closing bracket</li>
+</ul>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span> <span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">continent</span> <span class="o">=</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">continent</span> <span class="k">FROM</span> <span class="n">world</span> <span class="k">WHERE</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Brazil'</span><span class="p">)</span> <span class="k">AS</span> <span class="n">brazil_continent</span>
+</code></pre></div></div>
+
+<p>I decided to research a bit more about <strong>alias</strong> and found this juicy information in <a href="https://en.wikipedia.org/wiki/Alias_(SQL)">wiki</a>. It is a feature of SQL that most of relational database management systems (RDBMSs) support.</p>
+
+<p>What <strong>alias</strong> can do:</p>
+
+<ul>
+  <li>reduce the amount of code required for a query</li>
+  <li>make simpler to understand</li>
+  <li>can be used as an obfuscation technique to protect the real names of database fields</li>
+  <li>can alias tables and columns</li>
+</ul>
+
+<p>Alias table is also called a <strong>correlation name</strong>.</p>
+
+<h1 id="multiple-results">Multiple Results</h1>
+
+<ul>
+  <li>subquery may return more than one result</li>
+  <li>if more than one result, will fail as testing one value against more than one value</li>
+  <li>safer to use <code class="highlighter-rouge">IN</code> to cope with this possibility</li>
+</ul>
+
+<p class="redfont">FAIL: <code class="highlighter-rouge">(SELECT continent FROM world WHERE name = 'Brazil' OR name='Mexico')</code> will return two values (‘North America’ and ‘South America’)</p>
+
+<ul>
+  <li>Saying “apple” and “orange” at the same time is impossible</li>
+</ul>
+
+<p>BETTER:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">continent</span> <span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">continent</span> <span class="k">IN</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">continent</span> <span class="k">FROM</span> <span class="n">world</span> <span class="k">WHERE</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Brazil'</span> <span class="k">OR</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Mexico'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>outer query</strong> gather countries and continents</li>
+  <li><strong>inner query</strong> gather continents where ‘Brazil’ and ‘Mexico’ are in</li>
+</ul>
+
+<p><br />
+<strong>3)</strong> Subquery on the SELECT line</p>
+
+<ul>
+  <li>if certain that only one value will be returned then can use that query on the SELECT line</li>
+  <li>show the population of China as a multiple of the population of the United Kingdom</li>
+</ul>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">population</span><span class="o">/</span><span class="p">(</span><span class="k">SELECT</span> <span class="n">population</span> <span class="k">FROM</span> <span class="n">world</span> <span class="k">WHERE</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">'United Kingdom'</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">world</span> <span class="k">WHERE</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">'China'</span>
+</code></pre></div></div>
+
+<table>
+  <tbody>
+    <tr>
+      <td>population/(S..</td>
+    </tr>
+    <tr>
+      <td>21.2987</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="all-or-any">ALL or ANY</h2>
+
+<ul>
+  <li>can use the words ALL or ANY where the right side of the operator might have multiple values</li>
+</ul>
+
+<p><strong>4)</strong> Show each country that has a population greater than the population of ALL countries in Europe</p>
+
+<p>Note:</p>
+
+<ul>
+  <li>that we mean greater than every single country in Europe</li>
+  <li>not the combined population of Europe.</li>
+</ul>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span> <span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">population</span> <span class="o">&gt;</span> <span class="k">ALL</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">population</span> <span class="k">FROM</span> <span class="n">world</span> <span class="k">WHERE</span> <span class="n">continent</span><span class="o">=</span><span class="s1">'Europe'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<table>
+  <tbody>
+    <tr>
+      <td>name</td>
+    </tr>
+    <tr>
+      <td>Bangladesh</td>
+    </tr>
+    <tr>
+      <td>Brazil</td>
+    </tr>
+    <tr>
+      <td>China</td>
+    </tr>
+    <tr>
+      <td>Egypt</td>
+    </tr>
+    <tr>
+      <td>Ethiopia</td>
+    </tr>
+    <tr>
+      <td>India</td>
+    </tr>
+    <tr>
+      <td>Indonesia</td>
+    </tr>
+    <tr>
+      <td>Japan</td>
+    </tr>
+    <tr>
+      <td>Mexico</td>
+    </tr>
+    <tr>
+      <td>Nigeria</td>
+    </tr>
+    <tr>
+      <td>Pakistan</td>
+    </tr>
+    <tr>
+      <td>Philippines</td>
+    </tr>
+    <tr>
+      <td>Russia</td>
+    </tr>
+    <tr>
+      <td>United States</td>
+    </tr>
+    <tr>
+      <td>Vietnam</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Now I am heading back to older post <a href="https://ngarciaiii.github.io/sql/2017/06/13/SELECT-Quiz/">SELECT Quiz</a> to clarify, since now that I understand a bit more.</p>
+
+:ET

@@ -1,0 +1,142 @@
+I"!<p>I was learning SQL through <a href="http://sqlzoo.net/">SQLZOO</a>, and at first, it looks easy. The deeper I got into it, and I realized that it can become all gibberish. I figured it might have to do with me not understanding the database entirely. I decided to learn database in order to be able use SQL proficiently. I will be using this blog to act as a note on what I learned about databases. I will be learning about database via <a href="https://lagunita.stanford.edu/courses/DB/2014/SelfPaced/about">Stanford University</a> online course.</p>
+
+<h2 id="keywords-to-learn">Keywords to learn</h2>
+
+<p><strong>Database Management Systems (DBMS)</strong><br />
+It provides a means of handling large amount of data primarily</p>
+
+<p><strong>concurrency control</strong><br />
+Used to address conflicts with the simultaneous accessing or altering of data that can occur with a multi-user system</p>
+
+<p><strong>physical data independence</strong><br />
+Data stored in database and directly unaffected or unadulterated by external users/programs, data remains the same</p>
+
+<p><strong>attributes</strong><br />
+Another word for columns in database, each has a type or a domain like int, float, jpeg file</p>
+
+<p><strong>tuples</strong><br />
+Another word for rows in database, hold values</p>
+
+<h1 id="introduction">Introduction</h1>
+
+<h2 id="why-database">Why database?</h2>
+
+<ul>
+  <li>can hold number of terabytes data daily!</li>
+  <li>outlives any programs that execute on that data</li>
+  <li>preserves data, keeping them consistent regardless of what happens, such as a malfunction with: hardware, software, power, and users</li>
+  <li>allows concurrency control where multi-users can access to and use data without overwriting</li>
+  <li>designed to work easily with large amounts of data</li>
+</ul>
+
+<p><strong>Physical data independence</strong> is what makes database useful. Users and programs can do whatever with the data, but data in the database will remains the same, unmoved. Databases are usually queried by <strong>query languages</strong> that are relatively compact to describe the algorithm to get the data out. Query language is very <strong>declarative</strong>.</p>
+
+<p>Database systems are often used in conjunction with <strong>middle-ware</strong>. Middle-ware might be application servers, web servers which help application to interact with database system.</p>
+
+<h2 id="there-are-four-key-concepts-to-start-with">There are <strong>four key concepts</strong> to start with:</h2>
+
+<p><strong>data model</strong><br />
+the description of how the data is structured, often in relational dot. Data would be in a <strong>set of records</strong>. Currently, popular format is <strong>XML document</strong> to store data. Another is <strong>graph data model</strong>.</p>
+
+<p><strong>schema versus data</strong><br />
+Schema are types while data are variables. Database is sometime adhered to schema, which tells the structure of the database, to find where specific data are. Usually, schema is set up at the beginning.</p>
+
+<p><strong>data definition language (DDL)</strong><br />
+DDL is used to set up schema or structure for a particular database.</p>
+
+<p><strong>data manipulation or query language (DML)</strong><br />
+DML is used to querying or modifying the data.</p>
+
+<h2 id="four-key-people-involved-with-database"><strong>Four key people</strong> involved with database:</h2>
+
+<p><strong>DBMS implementer</strong><br />
+Sets up system or database.</p>
+
+<p><strong>Database designer</strong><br />
+Establish schema for databases.</p>
+
+<p><strong>Database application developers</strong><br />
+Builds an application that runs on the database, interfacing between eventual user and the data itself.</p>
+
+<p><strong>Database administrator</strong><br />
+Loads data and keeps it running smoothly.</p>
+
+<p>Database systems have a number of tuning parameters associated. Can make a significant difference in the all important performances.</p>
+
+<h1 id="the-relational-model">The Relational Model</h1>
+
+<ul>
+  <li>Database is a set of <strong>relations</strong> or <strong>tables</strong></li>
+  <li>Each relation has a set of named <strong>attributes</strong> or <strong>columns</strong></li>
+  <li>Each <strong>tuple</strong> or <strong>row</strong> has a value for each attribute</li>
+</ul>
+
+<p>Let’s take a look at the relation <strong>Student</strong> below:
+<img src="/public/img/databases/Slide1.png" alt="student relation" class="center-image" /></p>
+
+<p>Each attribute has a <strong>type</strong> like int, or float, and or jpeg file. Type is sometime referred as a <strong>domain</strong>.</p>
+
+<p>We can see <strong>schema</strong> in relation <strong>Student</strong>, mostly starting with attributes. Attributes are filled with <strong>instances</strong>. Instances are actual content at given point in time, and these do change over the time.</p>
+
+<p>Schema decide to have data of ID, Name, GPA, and Photo. These are instances help identifying a “student” in table <strong>Student</strong>. Attributes is encouraged to be a detectable unique character or <strong>key</strong>. Key is attribute whose value is unique in each tuple.</p>
+
+<p>Look at different relation <strong>College</strong>:
+<img src="/public/img/databases/Slide2.png" alt="college relation" class="center-image" height="300px" width="375px" /></p>
+
+<p>There are probably <strong>SEVERAL colleges with SAME NAME “Washington”</strong>, so it <strong>CAN’T</strong> be really a <strong>key</strong> BUT if state is added next to it. <strong>Two combined values of attributes together CAN</strong>  become a <strong>key</strong>. Key is effective when used as a target for query.</p>
+
+<h2 id="creating-table-in-sql">Creating table in SQL</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">create</span> <span class="k">Table</span> <span class="n">Student</span><span class="p">(</span><span class="n">ID</span><span class="p">,</span> <span class="n">Name</span><span class="p">,</span> <span class="n">GPA</span><span class="p">,</span> <span class="n">Photo</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Another example:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">create</span> <span class="k">Table</span> <span class="n">College</span><span class="p">(</span><span class="n">name</span> <span class="n">string</span><span class="p">,</span> <span class="k">state</span> <span class="nb">char</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">enrollment</span> <span class="nb">integer</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h1 id="querying-relational-databases">Querying Relational Databases</h1>
+
+<p>The basic steps in creating and using relational database goes:</p>
+
+<ul>
+  <li>design the schema</li>
+  <li>create the schema using DDL (starting with attributes)</li>
+  <li>load up the database with initial data (usually from external source)</li>
+</ul>
+
+<p>People have tendency of drawing database as a barrel or a massive disk.
+<br /></p>
+
+<p><img src="/public/img/databases/Slide3.png" alt="database" class="center-image" height="370px" width="auto" /></p>
+
+<p>After that, the next step would be:</p>
+
+<ul>
+  <li>query and modify the data</li>
+  <li>might need to update or insert new data later on</li>
+</ul>
+
+<p>A person who wants to use the database would ask queries and database will provide answers.</p>
+
+<p>Queries would be such:</p>
+
+<ul>
+  <li>all students with GPA &gt; 3.7 applying to Stanford and MIT only</li>
+  <li>all engineering departments in CA with &lt; 500 applicants</li>
+  <li>college with highest average accept rate over last 5 years</li>
+</ul>
+
+<p>When a query 1 would goes over the relations and “create a new relation”, it is called <strong>closed</strong>. If there’s a query 2 coming up and covers the “new relation”, and existing relations then it is <strong>compositionality</strong>.</p>
+
+<p><img src="/public/img/databases/Slide4.png" alt="closed, compositional" /></p>
+
+<h2 id="query-languages">Query languages</h2>
+
+<p><strong>Relational Algebra</strong><br />
+It is a formal language, a very theoretically well-grounded.</p>
+
+<p><strong>SQL</strong><br />
+An actual language, implemented language. It does have a foundation relational algebra. Semantics are defined.</p>
+
+:ET

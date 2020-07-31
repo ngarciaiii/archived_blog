@@ -1,0 +1,275 @@
+I"�=<p>SELECT within SELECT exercise in <a href="http://sqlzoo.net/">SQLZOO</a> teaches how to perform complex queries with one table. I am still new to SQL and yet have to learn how to work with two different tables or more.</p>
+
+<h2 id="new-keywords-to-learn">New Keywords to learn</h2>
+
+<p><strong>CONCAT</strong> <br />
+Its function is used to concatenate two strings to form a single string</p>
+
+<p><strong>ALL</strong> <br />
+This operator returns true if all of the subquery values meet the condition</p>
+
+<h1 id="exercise-4">Exercise 4</h1>
+
+<h2 id="world-table">“world” table</h2>
+
+<table class="mbtablestyle">
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>continent</td>
+      <td>area</td>
+      <td>population</td>
+      <td>gdp</td>
+    </tr>
+    <tr>
+      <td>Afghanistan</td>
+      <td>Asia</td>
+      <td>652230</td>
+      <td>25500100</td>
+      <td>20343000000</td>
+    </tr>
+    <tr>
+      <td>Albania</td>
+      <td>Europe</td>
+      <td>28748</td>
+      <td>2831741</td>
+      <td>12960000000</td>
+    </tr>
+    <tr>
+      <td>Algeria</td>
+      <td>Africa</td>
+      <td>2381741</td>
+      <td>37100000</td>
+      <td>188681000000</td>
+    </tr>
+    <tr>
+      <td>Andorra</td>
+      <td>Europe</td>
+      <td>468</td>
+      <td>78115</td>
+      <td>3712000000</td>
+    </tr>
+    <tr>
+      <td>Angola</td>
+      <td>Africa</td>
+      <td>1246700</td>
+      <td>20609294</td>
+      <td>100990000000</td>
+    </tr>
+    <tr>
+      <td>…</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+<p><br /></p>
+
+<p>The most basic form of using <code class="highlighter-rouge">SELECT</code> within <code class="highlighter-rouge">SELECT</code>  looks something like this:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span> <span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">population</span> <span class="o">&gt;</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">population</span> <span class="k">FROM</span> <span class="n">world</span> <span class="k">WHERE</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">'Russia'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Showing list of <code class="highlighter-rouge">name</code> from table <code class="highlighter-rouge">world</code> and filtering for <code class="highlighter-rouge">population</code> that is larger than <code class="highlighter-rouge">population</code> from table <code class="highlighter-rouge">world</code> with <code class="highlighter-rouge">name</code> of <code class="highlighter-rouge">'Russia'</code>. Extracting two different information from same column <code class="highlighter-rouge">population</code> to compare.</p>
+
+<p>We could gather three or more different information from same column if needed. For example, if somebody want to find which countries that have larger population than Canada but less than Poland. Would like to see result showing names and populations to confirm.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">population</span> <span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">population</span> <span class="o">&gt;</span>  <span class="p">(</span><span class="k">SELECT</span> <span class="n">population</span> <span class="k">FROM</span> <span class="n">world</span> <span class="k">WHERE</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">'Canada'</span><span class="p">)</span>
+  <span class="k">AND</span> <span class="n">population</span> <span class="o">&lt;</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">population</span> <span class="k">FROM</span> <span class="n">world</span> <span class="k">WHERE</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">'Poland'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>RESULT:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>population</td>
+    </tr>
+    <tr>
+      <td>Iraq</td>
+      <td>36004552</td>
+    </tr>
+    <tr>
+      <td>Sudan</td>
+      <td>37289406</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<h1 id="using-concat">Using CONCAT</h1>
+
+<p>Germany (population 80 million) has the largest population of the countries in Europe. Austria (population 8.5 million) has 11% of the population of Germany.</p>
+
+<ul>
+  <li>Show the name and the population of each country in Europe</li>
+  <li>Show the population as a percentage of the population of Germany</li>
+</ul>
+
+<p>I got stuck with this problem for awhile because of a silly mistake and few other reasons which I will explain.</p>
+
+<p><strong>A silly mistake</strong></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span>
+  <span class="n">CONCAT</span><span class="p">(</span><span class="n">ROUND</span><span class="p">(</span><span class="n">population</span><span class="o">/</span><span class="p">(</span><span class="k">SELECT</span> <span class="n">population</span> <span class="k">FROM</span> <span class="n">world</span> <span class="k">WHERE</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Germany'</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span> <span class="o">%</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">population</span> <span class="k">IN</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">population</span> <span class="k">FROM</span> <span class="n">world</span> <span class="k">WHERE</span> <span class="n">continent</span><span class="o">=</span><span class="s1">'Europe'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Didn’t produce any result, I got stuck on that for awhile, A LONG AWHILE. Silly mistake, I thought <code class="highlighter-rouge">%</code> was actually an operator for SQL. It’s just a string or a percentage symbol at least, and I was missing ‘’. Now let’s see if the second change is successful…</p>
+
+<p><strong>2nd change in coding</strong></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span>
+  <span class="n">CONCAT</span><span class="p">(</span><span class="n">ROUND</span><span class="p">(</span><span class="n">population</span><span class="o">/</span><span class="p">(</span><span class="k">SELECT</span> <span class="n">population</span> <span class="k">FROM</span> <span class="n">world</span> <span class="k">WHERE</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Germany'</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span> <span class="s1">'%'</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">population</span> <span class="k">IN</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">population</span> <span class="k">FROM</span> <span class="n">world</span> <span class="k">WHERE</span> <span class="n">continent</span><span class="o">=</span><span class="s1">'Europe'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>The result arrived with a long list of nations having <strong>0%</strong> while few of them having <strong>1%</strong>. Something must be off. I suspected that it must have something to do with <code class="highlighter-rouge">ROUND</code> and decimal position <code class="highlighter-rouge">0</code>. I decided to change from <code class="highlighter-rouge">0</code> to <code class="highlighter-rouge">2</code>. Let’s see what happens.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span>
+  <span class="n">CONCAT</span><span class="p">(</span><span class="n">ROUND</span><span class="p">(</span><span class="n">population</span><span class="o">/</span><span class="p">(</span><span class="k">SELECT</span> <span class="n">population</span> <span class="k">FROM</span> <span class="n">world</span> <span class="k">WHERE</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Germany'</span><span class="p">),</span> <span class="mi">2</span><span class="p">),</span> <span class="s1">'%'</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">population</span> <span class="k">IN</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">population</span> <span class="k">FROM</span> <span class="n">world</span> <span class="k">WHERE</span> <span class="n">continent</span><span class="o">=</span><span class="s1">'Europe'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>RESULT:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>CONCAT(ROUND(..</td>
+    </tr>
+    <tr>
+      <td>Albania</td>
+      <td>0.03%</td>
+    </tr>
+    <tr>
+      <td>Andorra</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>Austria</td>
+      <td>0.11%</td>
+    </tr>
+    <tr>
+      <td>Belarus</td>
+      <td>0.12%</td>
+    </tr>
+    <tr>
+      <td>Belgium</td>
+      <td>0.14%</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Ah-ha! I am getting there! Still little bit off. To be honest, I cheated a little bit. In <a href="http://sqlzoo.net/">SQLZOO</a>, although it doesn’t give off a solution, it gives what an answer should look like. Anybody could deduce that it takes 100 * 0.03% to = 3% as it should be.</p>
+
+<p><strong> Another change </strong></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span>
+  <span class="n">CONCAT</span><span class="p">(</span><span class="n">ROUND</span><span class="p">((</span><span class="n">population</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="k">SELECT</span> <span class="n">population</span> <span class="k">FROM</span> <span class="n">world</span> <span class="k">WHERE</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Germany'</span><span class="p">),</span> <span class="mi">2</span><span class="p">),</span> <span class="s1">'%'</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">population</span> <span class="k">IN</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">population</span> <span class="k">FROM</span> <span class="n">world</span> <span class="k">WHERE</span> <span class="n">continent</span><span class="o">=</span><span class="s1">'Europe'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>RESULT:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>CONCAT(ROUND(..</td>
+    </tr>
+    <tr>
+      <td>Albania</td>
+      <td>3.50%</td>
+    </tr>
+    <tr>
+      <td>Andorra</td>
+      <td>0.09%</td>
+    </tr>
+    <tr>
+      <td>Austria</td>
+      <td>10.54%</td>
+    </tr>
+    <tr>
+      <td>Belarus</td>
+      <td>11.73%</td>
+    </tr>
+    <tr>
+      <td>Belgium</td>
+      <td>13.87%</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Still incorrect, because decimal is present. Time to change <code class="highlighter-rouge">2</code> back to <code class="highlighter-rouge">0</code></p>
+
+<p><strong>Last change</strong></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span>
+  <span class="n">CONCAT</span><span class="p">(</span><span class="n">ROUND</span><span class="p">((</span><span class="n">population</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="k">SELECT</span> <span class="n">population</span> <span class="k">FROM</span> <span class="n">world</span> <span class="k">WHERE</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Germany'</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span> <span class="s1">'%'</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">population</span> <span class="k">IN</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">population</span> <span class="k">FROM</span> <span class="n">world</span> <span class="k">WHERE</span> <span class="n">continent</span><span class="o">=</span><span class="s1">'Europe'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>RESULT:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>CONCAT(ROUND(..</td>
+    </tr>
+    <tr>
+      <td>Albania</td>
+      <td>3%</td>
+    </tr>
+    <tr>
+      <td>Andorra</td>
+      <td>0%</td>
+    </tr>
+    <tr>
+      <td>Austria</td>
+      <td>11%</td>
+    </tr>
+    <tr>
+      <td>Belarus</td>
+      <td>12%</td>
+    </tr>
+    <tr>
+      <td>Belgium</td>
+      <td>14%</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<h1 id="using-all">Using ALL</h1>
+
+<p><code class="highlighter-rouge">ALL</code> is a fast way of checking the list in the table. Supposed we want to know which countries that have greater GDP than every countries in Europe. Can’t be that many..</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span> <span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">gdp</span> <span class="o">&gt;</span> <span class="k">ALL</span> <span class="p">(</span> <span class="k">SELECT</span> <span class="n">gdp</span> <span class="k">FROM</span> <span class="n">world</span> <span class="k">WHERE</span> <span class="n">continent</span> <span class="o">=</span> <span class="s1">'Europe'</span> <span class="k">AND</span> <span class="n">gdp</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">gdp &gt; 0</code> is necessary, because some gdp might have blank or <code class="highlighter-rouge">null</code> values.
+Only three countries that have gdp greater than every countries in Europe are USA, China, and Japan.</p>
+
+<h2 id="i-am-going-to-stop-this-exercise-in-half-and-post-the-second-half-next-select-quiz">I am going to stop this EXERCISE in half, and post the second half next ‘SELECT Quiz’.</h2>
+
+<h2 id="it-requires-more-analyzing-and-explaining-it-involves-using-world-x-and-world-y-i-will-also-cover-the-quiz-in-the-same-post">It requires more analyzing and explaining. It involves using <code class="highlighter-rouge">world x</code> and <code class="highlighter-rouge">world y</code>. I will also cover the QUIZ in the same post.</h2>
+
+<h2 class="redfont" id="update-061917-go-to-using-derived-tables-and-nested-select-post-before-select-quiz">UPDATE (06/19/17) Go to <a href="https://ngarciaiii.github.io/sql/2017/06/13/SELECT-within-SELECT/">Using Derived Tables and Nested SELECT</a> post before “SELECT Quiz”</h2>
+
+:ET

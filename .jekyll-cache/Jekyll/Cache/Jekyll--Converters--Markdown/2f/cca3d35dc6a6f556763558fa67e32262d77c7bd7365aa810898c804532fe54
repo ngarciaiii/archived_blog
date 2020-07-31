@@ -1,0 +1,188 @@
+I"A<p>I have been learning basic javascript on freecodecamp.com, and this is the second problem that I encountered a bit difficult of understanding. It wanted me to modify function multiplyAll so that it multiplies the product variable by each number in the sub-arrays of arr.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">multiplyAll</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">product</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="c1">// Only change code below this line</span>
+
+  <span class="c1">// Only change code above this line</span>
+  <span class="k">return</span> <span class="nx">product</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Modify values below to test your code</span>
+<span class="nx">multiplyAll</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]]);</span>
+</code></pre></div></div>
+
+<h1 id="the-challenge-is">The challenge is:</h1>
+
+<p><strong>Modify function multiplyAll so that it multiplies the product variable by each number in the sub-arrays of arr</strong></p>
+
+<ul>
+  <li><code class="highlighter-rouge">multiplyAll([[1],[2],[3]]);</code> should return <code class="highlighter-rouge">6</code></li>
+  <li><code class="highlighter-rouge">multiplyAll([[1,2],[3,4],[5,6,7]]);</code> should return <code class="highlighter-rouge">5040</code></li>
+  <li><code class="highlighter-rouge">multiplyAll([[5,1],[0.2, 4, 0.5],[3, 9]]);</code> should return <code class="highlighter-rouge">54</code></li>
+</ul>
+
+<p>I wasn’t sure how to manipulate elements inside arrays within an array. I decided to research a bit about array. There are few different types of arrays, and are exemplified below:</p>
+
+<p>homogeneous arrays: stores single type of data (i.e. string, or int, or boolean) in an array</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">Matthew</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">John</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Luke</span><span class="dl">"</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">27</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="kc">true</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">true</span><span class="p">];</span>
+</code></pre></div></div>
+
+<p>heterogeneous array: stores mixed data types in an array</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">Matthew</span><span class="dl">"</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="kc">true</span><span class="p">];</span>
+</code></pre></div></div>
+
+<p>multidimensional array: an array of arrays, or array-ception like inception</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="dl">"</span><span class="s2">Matthew</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">27</span><span class="dl">"</span><span class="p">],</span>
+    <span class="p">[</span><span class="dl">"</span><span class="s2">Simon</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">24</span><span class="dl">"</span><span class="p">],</span>
+    <span class="p">[</span><span class="dl">"</span><span class="s2">Luke</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">30</span><span class="dl">"</span><span class="p">]</span>
+<span class="p">];</span>
+</code></pre></div></div>
+
+<p>jagged array like multidimensional array but not in uniformed set</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="dl">"</span><span class="s2">Matthew</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">27</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Developer</span><span class="dl">"</span><span class="p">],</span>
+    <span class="p">[</span><span class="dl">"</span><span class="s2">Simon</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">24</span><span class="dl">"</span><span class="p">],</span>
+    <span class="p">[</span><span class="dl">"</span><span class="s2">Luke</span><span class="dl">"</span><span class="p">]</span>
+<span class="p">];</span>
+</code></pre></div></div>
+
+<p>The problem I try to solve is multidimensional array, or 2D array since there is array in an array (2 arrays). Meaning two loops needed. I decided to play with the freecodecamp’s provided example using <a href="https://www.repl.it">repl.it</a> a better console to practice with.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="p">];</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">]);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 1, 2, 3, 4, 5, 6</span>
+<span class="c1">// =&gt; undefined</span>
+</code></pre></div></div>
+
+<p>What happens if I used <code class="highlighter-rouge">console.log(arr[i]);</code> without <code class="highlighter-rouge">j</code>? It will print out:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ 1, 2 ]
+[ 1, 2 ]
+[ 3, 4 ]
+[ 3, 4 ]
+[ 5, 6 ]
+[ 5, 6 ]
+</code></pre></div></div>
+
+<p>The invisible action is that <code class="highlighter-rouge">j</code> loop went through each element in the arrays, but <code class="highlighter-rouge">arr[i]</code> prints out its “elements” which are arrays therefore its element was printed twice because of <code class="highlighter-rouge">j</code> loop. If I take out <code class="highlighter-rouge">for (var j=0; j &lt; arr[i].length; j++)</code>, and then it will print <code class="highlighter-rouge">arr[i]</code>’s elements:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[1, 2]
+[2, 4]
+[5, 6]
+</code></pre></div></div>
+
+<p>Now what happens if I used <code class="highlighter-rouge">console.log(arr[j]);</code> instead? It comes out:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ 1, 2 ]
+[ 3, 4 ]
+[ 1, 2 ]
+[ 3, 4 ]
+[ 1, 2 ]
+[ 3, 4 ]
+</code></pre></div></div>
+
+<p>Didn’t even touch third array within primary array. Let’s find out why by this <code class="highlighter-rouge">console.log(arr[i], i);</code> :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ 1, 2 ] 0
+[ 1, 2 ] 0
+[ 3, 4 ] 1
+[ 3, 4 ] 1
+[ 5, 6 ] 2
+[ 5, 6 ] 2
+</code></pre></div></div>
+
+<p>Can deduce that there is a difference between <code class="highlighter-rouge">[i]</code> and <code class="highlighter-rouge">i</code>. <code class="highlighter-rouge">[i]</code> prints elements (secondary arrays in this case) and <code class="highlighter-rouge">i</code> prints its elements’ indexes. Again, test with <code class="highlighter-rouge">console.log(arr[i], j);</code> :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ 1, 2 ] 0
+[ 1, 2 ] 1
+[ 3, 4 ] 0
+[ 3, 4 ] 1
+[ 5, 6 ] 0
+[ 5, 6 ] 1
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">[i]</code> prints all secondary arrays. We can see that <code class="highlighter-rouge">j</code> prints index of each element inside secondary arrays. <code class="highlighter-rouge">[i]</code> loop went every secondary arrays and <code class="highlighter-rouge">j</code> loop went through elements in each secondary array separately. Let’s try <code class="highlighter-rouge">console.log(arr[j], i);</code> :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ 1, 2 ] 0
+[ 3, 4 ] 0
+[ 1, 2 ] 1
+[ 3, 4 ] 1
+[ 1, 2 ] 2
+[ 3, 4 ] 2
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">[j]</code> didn’t cover third array’s elements and <code class="highlighter-rouge">i</code> has a total of three indexes even though there isn’t a third array. Why? Test this one <code class="highlighter-rouge">console.log(arr[j], j);</code> :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ 1, 2 ] 0
+[ 3, 4 ] 1
+[ 1, 2 ] 0
+[ 3, 4 ] 1
+[ 1, 2 ] 0
+[ 3, 4 ] 1
+</code></pre></div></div>
+
+<p>Almost similar result and from these results, it might be obvious because of this <code class="highlighter-rouge">j &lt; arr[i].length;</code> which allowed <code class="highlighter-rouge">j</code> loop to go only twice since <code class="highlighter-rouge">i</code> is the total of three indexes.  <code class="highlighter-rouge">i</code> loop goes through indexes of arrays and <code class="highlighter-rouge">j</code> loop goes through indexes of elements.</p>
+
+<p>Lastly… test <code class="highlighter-rouge">console.log(arr[j], [i]);</code>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1
+2
+3
+4
+undefined
+undefined
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">arr[j]</code> only has two indexes, couldn’t go through third array. <code class="highlighter-rouge">[i]</code> fetches the elements and print them out. <strong> Letters are not really the culprits. It is the matter of loops.</strong> First <code class="highlighter-rouge">[]</code> loop goes through secondary arrays, and second <code class="highlighter-rouge">[]</code> loop prints secondary arrays’ elements out.</p>
+
+<p>So what happened with <code class="highlighter-rouge">arr[i][j]</code>?</p>
+
+<p>1) <code class="highlighter-rouge">[]</code> is an array symbol and focuses on elements rather than indexes. <br />
+2) <code class="highlighter-rouge">[i]</code> loop goes through primary array’s elements which are secondary arrays.<br />
+3) <code class="highlighter-rouge">[j]</code> loop goes through and print secondary arrays’ elements.</p>
+
+<h1 id="back-to-the-challenge-and-the-solution-lies-below">Back to the challenge and the solution lies below:</h1>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">multiplyAll</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">product</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+  <span class="c1">// Only change code below this line</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">product</span> <span class="o">=</span> <span class="nx">product</span> <span class="o">*</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">];</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="c1">// Only change code above this line</span>
+  <span class="k">return</span> <span class="nx">product</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Modify values below to test your code</span>
+<span class="nx">multiplyAll</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]]);</span>
+</code></pre></div></div>
+
+<p>Now we know that <code class="highlighter-rouge">arr[i][j]</code> fetches all secondary arrays’ elements by using two loops.</p>
+
+<ul>
+  <li>Create <code class="highlighter-rouge">product</code> that equals to <code class="highlighter-rouge">1</code>.</li>
+  <li><code class="highlighter-rouge">product</code> follows <code class="highlighter-rouge">j</code> loop in <code class="highlighter-rouge">i</code> loop, and <code class="highlighter-rouge">arr[i][j]</code> fetches an element at a time.</li>
+  <li><code class="highlighter-rouge">product</code> multiples with <code class="highlighter-rouge">arr[i][j]</code> element then becomes the “new” <code class="highlighter-rouge">product</code>.</li>
+  <li><code class="highlighter-rouge">j</code> loops again and “new” <code class="highlighter-rouge">product</code> multiples with the next fetched element.</li>
+  <li><code class="highlighter-rouge">j</code> loop repeats until there is not any element left and leaving the final product.</li>
+</ul>
+
+:ET

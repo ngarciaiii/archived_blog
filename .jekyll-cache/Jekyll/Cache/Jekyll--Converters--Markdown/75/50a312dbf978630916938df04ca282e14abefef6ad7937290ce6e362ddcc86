@@ -1,0 +1,139 @@
+I"�=<h1 id="continuing-oop-java-week-3">Continuing OOP Java Week 3</h1>
+
+<p>In last week, we learned how to use methods and calling arguments from a method into another method. <strong>Exercise #47</strong> to <strong>Exercise #60</strong> focuses on how to manipulate a string or text using methods.</p>
+
+<p>I am going to be concise. <strong>Exercise #47</strong> asks to find how many characters are there in a name. <strong>Exercise #48</strong> wants to identify what the first character’s element. <strong>Exercise #49</strong> wants to find the element of the last character.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Finding the length of a name (counting how many characters)</span>
+<span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+
+<span class="c1">// Identifying the element of the first character</span>
+<span class="kt">char</span> <span class="n">letter</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+
+<span class="c1">// Identifying the element of the last character</span>
+<span class="kt">char</span> <span class="n">letter</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">name</span><span class="o">.</span><span class="na">length</span><span class="o">()-</span><span class="mi">1</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>I would like to review the <strong>Exercise #49</strong>, identifying the element of the last character. Supposedly the name is “Harry”, and <code class="highlighter-rouge">name.length()</code> found 5 characters (i.e. 0, 1, 2, 3, 4). Let’s translate <code class="highlighter-rouge">name.charAt(name.length()-1)</code> into numeric =&gt; <code class="highlighter-rouge">name.charAt(5 - 1)</code> =&gt; <code class="highlighter-rouge">name.charAt(4)</code>. So if I want to find the last character of “Harry”, then I look for <code class="highlighter-rouge">.charAt(4)</code> and it’s the fifth character.</p>
+
+<h2 id="reversing-name">Reversing Name</h2>
+
+<p>Jumping to <strong>Exercise #52</strong>, I usually use <code class="highlighter-rouge">for</code> loop, but <a href="https://www.mooc.fi/">MOOC</a> solutions often use <code class="highlighter-rouge">while</code> loop. To be honest, <code class="highlighter-rouge">while</code> loops often make more sense for these kind of problems than <code class="highlighter-rouge">for</code> loop. Let’s see the difference.</p>
+
+<p><code class="highlighter-rouge">for</code> loop solution:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">--)</span> <span class="o">{</span>
+    <span class="kt">char</span> <span class="n">letter</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">letter</span><span class="o">);</span>
+<span class="o">}</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">while</code> loop solution:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
+<span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+   <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">name</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
+   <span class="n">i</span><span class="o">--;</span>
+<span class="o">}</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>I prefer <code class="highlighter-rouge">for</code> loop this time.</p>
+
+<h2 id="first-part--the-end-part">First Part &amp; The End part</h2>
+
+<p>If I want to extract letters in the first part of the word, I could use this method <code class="highlighter-rouge">.substring()</code> from <code class="highlighter-rouge">String</code> class. It’s similar to JavaScript’s <code class="highlighter-rouge">.slice()</code>.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Type a word: "</span><span class="o">);</span>
+<span class="nc">String</span> <span class="n">word</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
+
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Length of the first part: "</span><span class="o">);</span>
+<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">reader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">());</span>
+
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">word</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">i</span><span class="o">));</span>
+
+<span class="c1">// Type a word: cartwheel</span>
+<span class="c1">// Length of the first part: 3</span>
+<span class="c1">// Result: car</span>
+</code></pre></div></div>
+<p>See how that works? <code class="highlighter-rouge">.substring(beginning, ending)</code>, sometime can do just <code class="highlighter-rouge">.substring(beginning)</code>, taking the first part off. Let’s extract letters from the end part of the word. This time, its a little trickier.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Type a word: "</span><span class="o">);</span>
+<span class="nc">String</span> <span class="n">word</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
+
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Length of the end part: "</span><span class="o">);</span>
+<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">reader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">());</span>
+
+<span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="n">i</span><span class="o">;</span>
+
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Result: "</span> <span class="o">+</span> <span class="n">word</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">j</span><span class="o">));</span>
+
+<span class="c1">// Type a word: example</span>
+<span class="c1">// Length of the end part: 4</span>
+<span class="c1">// Result: mple</span>
+</code></pre></div></div>
+
+<p>Notice how there is a <code class="highlighter-rouge">j</code>. It had to be done, because if I used <code class="highlighter-rouge">.substring(i)</code>, I wouldn’t be able to get the end part that I want without doing any math. Let’s do the math with <code class="highlighter-rouge">j</code>!</p>
+
+<ul>
+  <li>want 4 characters at end of the word i.e. <code class="highlighter-rouge">mple</code></li>
+  <li>if <code class="highlighter-rouge">.substring(4)</code>, will return <code class="highlighter-rouge">ple</code></li>
+  <li><code class="highlighter-rouge">word.length()</code> = 7</li>
+  <li>7 - 4 = 3</li>
+  <li><code class="highlighter-rouge">word.length() - i</code> =&gt; <code class="highlighter-rouge">word.length() - 4</code> =&gt; <code class="highlighter-rouge">3 = j</code> =&gt; <code class="highlighter-rouge">word.substring(j)</code></li>
+</ul>
+
+<p>Might be little hard to get mind around to it at first.</p>
+
+<h1 id="all-about-words">All About Words</h1>
+
+<p>Skimming through from <strong>Exercise #55</strong> to <strong>Exercise #60</strong>, same basic algorithms, different syntax in Java. I am going to cover all String’s methods.</p>
+
+<h2 id="indexof">.indexOf()</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// word1 = glitter</span>
+<span class="c1">//word2 = litter</span>
+
+<span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">word1</span><span class="o">.</span><span class="na">indexOf</span><span class="o">(</span><span class="n">word2</span><span class="o">);</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">index</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+   <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"The word '"</span> <span class="o">+</span> <span class="n">word2</span> <span class="o">+</span> <span class="s">"' is not found in the word '"</span> <span class="o">+</span> <span class="n">word1</span> <span class="o">+</span> <span class="s">"'."</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+   <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"The word '"</span> <span class="o">+</span> <span class="n">word2</span> <span class="o">+</span> <span class="s">"' is found in the word '"</span> <span class="o">+</span> <span class="n">word1</span> <span class="o">+</span> <span class="s">"'."</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">.indexOf()</code> finds the index of an element in an element. If <code class="highlighter-rouge">indexOf()</code> cannot find the element in an element, then it will return <code class="highlighter-rouge">-1</code>. In this case, <code class="highlighter-rouge">word2</code> is found in <code class="highlighter-rouge">word1</code>!</p>
+
+<h2 id="contains">.contains()</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Using while(true) loop</span>
+
+<span class="k">if</span> <span class="o">(</span><span class="n">words</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">word</span><span class="o">)){</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"You gave the word "</span> <span class="o">+</span> <span class="n">word</span> <span class="o">+</span> <span class="s">" twice"</span><span class="o">);</span>
+    <span class="k">break</span><span class="o">;</span>
+<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+    <span class="n">words</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">word</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Coding above covers <code class="highlighter-rouge">.contains()</code>, and what it does is like <code class="highlighter-rouge">indexOf()</code>. There was a debate on whether’s faster.<code class="highlighter-rouge">.contains()</code> seems to be faster but it’s just more convenient. <code class="highlighter-rouge">.indexOf()</code> is faster and is also implemented in <code class="highlighter-rouge">.contains()</code>.</p>
+
+<h2 id="other-string-methods">Other string methods</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// often used as a boolean purpose, seeing whether word or input is empty</span>
+<span class="n">word</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">();</span>
+
+<span class="c1">// reverses the array</span>
+<span class="nc">Collections</span><span class="o">.</span><span class="na">reverse</span><span class="o">(</span><span class="n">words</span><span class="o">)</span>
+
+<span class="c1">// sorts the array in alphabetic order</span>
+<span class="nc">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">words</span><span class="o">)</span>
+</code></pre></div></div>
+
+<p>Will need to do <code class="highlighter-rouge">import java.util.Collections;</code> to use <code class="highlighter-rouge">.reverse()</code> and <code class="highlighter-rouge">.sort()</code></p>
+
+<h2 id="ending-java-wk3-part-2">Ending Java WK3 part 2.</h2>
+
+<h2 id="next-posts-java-wk3-part-3-will-be-covering-arraylist-data-structure">Next post’s Java WK3 part 3 will be covering ArrayList Data Structure</h2>
+
+:ET

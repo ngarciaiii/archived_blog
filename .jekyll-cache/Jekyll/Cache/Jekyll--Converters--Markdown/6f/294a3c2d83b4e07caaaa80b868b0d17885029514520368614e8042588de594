@@ -1,0 +1,105 @@
+I"�8<h1 id="continuing-oop-java-part-1">Continuing OOP Java Part 1</h1>
+
+<p>Continuing OOP Java Part 1 from University of Helsinki’s <a href="https://www.mooc.fi/">MOOC</a> (Massive Open Online Courses). This post will cover <strong>week 1 #20-23</strong> exercises. Last exercise will be used in <a href="https://www.netbeans.org">NetBeans</a>, because that exercise rely on component that is exclusively installed in NetBeans.</p>
+
+<h1 id="using-equals">Using .equals</h1>
+
+<p>Every programming languages have some similarities and differences. I would say that Python and JavaScript are closer to each other than to Java. Java do have some resemblances with both of these languages. This <code class="highlighter-rouge">.equals</code> is different from these. In Java, <strong>String</strong> cannot be compared using equality operator <code class="highlighter-rouge">==</code>. An example in <strong>Exercise #20</strong> shows that.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">usingScanner</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">week1_ex19_21</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="nc">Scanner</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+
+		<span class="nc">String</span> <span class="n">username1</span> <span class="o">=</span> <span class="s">"alex"</span><span class="o">;</span>
+		<span class="nc">String</span> <span class="n">password1</span> <span class="o">=</span> <span class="s">"mightyduck"</span><span class="o">;</span>
+
+		<span class="nc">String</span> <span class="n">username2</span> <span class="o">=</span> <span class="s">"emily"</span><span class="o">;</span>
+		<span class="nc">String</span> <span class="n">password2</span> <span class="o">=</span> <span class="s">"cat"</span><span class="o">;</span>
+
+
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"What is your username?: "</span><span class="o">);</span>
+		<span class="nc">String</span> <span class="n">username</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"What is your password?: "</span><span class="o">);</span>
+		<span class="nc">String</span> <span class="n">password</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
+
+
+		<span class="k">if</span> <span class="o">(</span><span class="n">username</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">username1</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">password</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">password1</span><span class="o">))</span> <span class="o">{</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"You are now logged in!"</span><span class="o">);</span>
+		<span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">username</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">username2</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">password</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">password2</span><span class="o">))</span> <span class="o">{</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"You are now logged in!"</span><span class="o">);</span>
+		<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Your username or password is invalid."</span><span class="o">);</span>
+		<span class="o">}</span>
+</code></pre></div></div>
+
+<p>In that exercise, all variables created are strings. Usernames and passwords are created, and then using conditional statements to verify whether usernames and passwords match or not. <code class="highlighter-rouge">&amp;&amp;</code> is one of operators like in JavaScript, and <code class="highlighter-rouge">and</code> for Python; short for “true AND true” condition. <code class="highlighter-rouge">username.equals(username1) &amp;&amp; password.equals(password1)</code> is a condition saying that username1 and password1 TOGETHER is true. Java’s <code class="highlighter-rouge">.equals</code> will bite us in the butt someday later if we forget about it and for using equality operator instead. NOTE: This is not the proper way to store username and password, just a practice.</p>
+
+<h1 id="leap-years">Leap Years</h1>
+
+<p><strong>Exercise #21</strong> is pretty neat and it’s about using <code class="highlighter-rouge">&amp;&amp;</code>. It wants us to check if the year is a leap year or not. The rules for a year to be a leap year:</p>
+
+<ul>
+  <li>divisible by 4</li>
+  <li>if divisible by 100 then it has to be divisible by 400 too</li>
+</ul>
+
+<p>There are four different years to test: 2011, 2012, 1800, 2000.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Enter the year: "</span><span class="o">);</span>
+  <span class="kt">int</span> <span class="n">year</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">reader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">());</span>
+
+  <span class="k">if</span> <span class="o">(</span><span class="n">year</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">400</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"It is a leap year!"</span><span class="o">);</span>
+  <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">year</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"It is a leap year!"</span><span class="o">);</span>
+  <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"It is NOT a leap year."</span><span class="o">);</span>
+  <span class="o">}</span>
+
+</code></pre></div></div>
+
+<p>It took me awhile to solve this. I tried three different codings and they did not work. It’s mostly about logic processes. I think this exercise is great way of showing how condition is very strict and inflexible. The first <code class="highlighter-rouge">if</code> statement says if year is divisible by 4, 100, and 400 then it is a leap year. It doesn’t worry about year that is divisible by 4 alone. Any year that is divisible by 4 will be considered not a leap year. So add <code class="highlighter-rouge">else if</code> year is divisible by 4 alone and not by 100, or 400 for that matter, then it is a leap year. Important, let computer read that as a second command so that way it will look for a year that’s divisible by both 4, and 100 first. <code class="highlighter-rouge">Else</code> means everything else, therefore is not a leap year.</p>
+
+<h1 id="whiletrue">while(true)</h1>
+
+<p>This <strong>Exercise #23</strong> uses <strong>NetBeans</strong> because it contains a component exclusively. It has a <code class="highlighter-rouge">Graph.java</code> that automatically opens up a graph based on data we write in our java file. Mine is <code class="highlighter-rouge">week1-ex23.java</code>, name yours whatever. In this exercise, <code class="highlighter-rouge">while(true)</code> loop is used. If it is used in a wrong way, could trigger an infinite loop. We don’t want that because it will crash our computer. The way to end a while(true) loop is to have a <code class="highlighter-rouge">break;</code></p>
+
+<p>It wants us to create a program that asks us to:</p>
+
+<ul>
+  <li>input a floating point number as often as we want to</li>
+  <li>numbers inputed need to be between -30 and 40 degree</li>
+  <li>if it is below -30 and above 40, then have program to ignore it and not include it into the Graph</li>
+</ul>
+
+<p><code class="highlighter-rouge">while(true)</code> will repeat endlessly until <code class="highlighter-rouge">break;</code> is triggered, so we will need to make a trigger.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Enter a temperature between -30 and 40: "</span><span class="o">);</span>
+    <span class="kt">double</span> <span class="n">value</span> <span class="o">=</span> <span class="nc">Double</span><span class="o">.</span><span class="na">parseDouble</span><span class="o">(</span><span class="n">reader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">());</span>
+
+
+    <span class="k">if</span> <span class="o">((</span><span class="n">value</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">31</span> <span class="o">&amp;&amp;</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mi">41</span><span class="o">))</span> <span class="o">{</span>
+        <span class="nc">Graph</span><span class="o">.</span><span class="na">addNumber</span><span class="o">(</span><span class="n">value</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Add another value? (y/n): "</span><span class="o">);</span>
+        <span class="nc">String</span> <span class="n">finish</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">finish</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"n"</span><span class="o">))</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"The graph session ended."</span><span class="o">);</span>
+            <span class="k">break</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Value is outside the range"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p>The program above begins with asking an user to enter a temperature. It will loop continuously. If the value input is greater than <code class="highlighter-rouge">-31</code> and less than <code class="highlighter-rouge">41</code>, then it is added onto the graph. The question will pop out asking if another value is to be entered. <code class="highlighter-rouge">y</code> will have loop keep rolling. If <code class="highlighter-rouge">n</code> is entered, then <code class="highlighter-rouge">break;</code> is triggered. <strong>I made a mistake again… I used an equality operator!</strong> I was stuck on this exercise for awhile, and oh right! Use an <code class="highlighter-rouge">.equals</code>! Lastly… if value is outside the range, it will be not included into the graph, and will notify the user to try again and this time in the range.</p>
+
+:ET

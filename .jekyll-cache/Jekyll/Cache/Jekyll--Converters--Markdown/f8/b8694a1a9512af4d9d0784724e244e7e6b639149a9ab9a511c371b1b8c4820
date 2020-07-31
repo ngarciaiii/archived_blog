@@ -1,0 +1,309 @@
+I"a7<p>This is the third exercise from <a href="http://sqlzoo.net/">SQLZOO</a>. First half of the third exercise is just a review on previous exercises. I don’t plan to repeat them. Second half is where it gets harder, and even harder in the next post. This exercise will teach us new SQL tricks, I am going to list some of them below.</p>
+
+<h2 id="new-keywords-to-learn">New Keywords to learn</h2>
+
+<p><strong>ORDER BY</strong> <br />
+Sort results in order</p>
+
+<p><strong>ASC | DESC</strong> <br />
+When using ORDER BY, can sort in either ascending or descending</p>
+
+<h1 id="exercise-3-begins">EXERCISE 3 BEGINS!</h1>
+
+<p>Database “nobel” we are using looks like this:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>yr</th>
+      <th>subject</th>
+      <th>winner</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1960</td>
+      <td>Chemistry</td>
+      <td>Willard F. Libby</td>
+    </tr>
+    <tr>
+      <td>1960</td>
+      <td>Literature</td>
+      <td>Saint-John Perse</td>
+    </tr>
+    <tr>
+      <td>1960</td>
+      <td>Medicine</td>
+      <td>Sir Frank Macfarlane Burnet</td>
+    </tr>
+    <tr>
+      <td>1960</td>
+      <td>Medicine</td>
+      <td>Peter Madawar</td>
+    </tr>
+    <tr>
+      <td>…</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Skipping the first half and starting with the second part. Supposed we want to see all of
+the details of these presidential winners below:</p>
+
+<ul>
+  <li>Theodore Roosevelt</li>
+  <li>Jimmy character</li>
+  <li>Barack Obama</li>
+</ul>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">nobel</span>
+<span class="k">WHERE</span> <span class="n">winner</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'Theodore Roosevelt'</span><span class="p">,</span> <span class="s1">'Jimmy Carter'</span><span class="p">,</span> <span class="s1">'Barack Obama'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>The asterisk <code class="highlighter-rouge">*</code> means all. <code class="highlighter-rouge">SELECT *</code> to gather ALL information/data or on every columns. <code class="highlighter-rouge">WHERE</code> to filter or search for multiple winners using <code class="highlighter-rouge">IN</code> and <code class="highlighter-rouge">(...)</code>.</p>
+
+<p><strong>Another challenge</strong>, supposed want to see Physics winners for 1980 together with Chemistry winners in 1984? It is probably easy, but good to understand how it works.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">yr</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">winner</span>
+<span class="k">FROM</span> <span class="n">nobel</span>
+<span class="k">WHERE</span> <span class="n">subject</span> <span class="o">=</span> <span class="s1">'Physics'</span> <span class="k">AND</span> <span class="n">yr</span> <span class="o">=</span> <span class="s1">'1980'</span> <span class="k">OR</span> <span class="n">subject</span> <span class="o">=</span> <span class="s1">'Chemistry'</span> <span class="k">AND</span> <span class="n">yr</span> <span class="o">=</span> <span class="s1">'1984'</span>
+</code></pre></div></div>
+
+<p>SQL likes to be long and specific. Filling in can get really long. <code class="highlighter-rouge">OR</code> is not like <code class="highlighter-rouge">XOR</code>’s “Either you are with us or against us!”. <code class="highlighter-rouge">OR</code> is in a sense ‘AND’, but without confusing the computer. If we used <code class="highlighter-rouge">AND</code> instead of <code class="highlighter-rouge">OR</code> then it would be overlapping data. Nobody can say “apple” and “orange” at the same time.</p>
+
+<p><strong>Another great example</strong> of how SQL likes to be long! Show the winners for 1980 excluding Chemistry and Medicine.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">yr</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">winner</span>
+<span class="k">FROM</span> <span class="n">nobel</span>
+<span class="k">WHERE</span> <span class="n">yr</span> <span class="o">=</span> <span class="mi">1980</span> <span class="k">AND</span> <span class="n">subject</span> <span class="k">NOT</span> <span class="k">LIKE</span> <span class="s1">'Chemistry'</span> <span class="k">AND</span> <span class="n">subject</span> <span class="k">NOT</span> <span class="k">LIKE</span> <span class="s1">'Medicine'</span>
+</code></pre></div></div>
+
+<p>See! Filters for 1980 <code class="highlighter-rouge">AND</code> subject <code class="highlighter-rouge">NOT LIKE</code> … <code class="highlighter-rouge">AND</code> subject <code class="highlighter-rouge">NOT LIKE</code> … <strong>whew!</strong> I wish could be simple like <code class="highlighter-rouge">AND</code> subject <code class="highlighter-rouge">NOT LIKE</code> subject1 <code class="highlighter-rouge">OR</code> subject2. It doesn’t work that way.</p>
+
+<h1 class="redfont" id="wait-a-minute-isnt-that-contradicting-need-a-update-later-on">Wait a minute, isn’t that contradicting?! NEED A UPDATE LATER ON!</h1>
+
+<p>Why did <code class="highlighter-rouge">AND</code> works this time when have two different same type of data this time? I guess it’s when we use <code class="highlighter-rouge">NOT LIKE</code>. I will need to return here to clarify when I understand SQL better.</p>
+
+<h2 id="different-challenges">Different challenges</h2>
+
+<p>Find all the details of the prize won by Eugene O’Neill. If you typed <code class="highlighter-rouge">Eugene 0'Neill</code>. It won’t be recognized. This is where SQL gets weird.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">yr</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">winner</span>
+<span class="k">FROM</span> <span class="n">nobel</span>
+<span class="k">WHERE</span> <span class="n">winner</span> <span class="o">=</span> <span class="s1">'Eugene O</span><span class="se">''</span><span class="s1">Neill'</span>
+</code></pre></div></div>
+
+<p>That’s right! <code class="highlighter-rouge">"</code> in the between O and Neill. It is to escape the single quotes. I wonder why not <code class="highlighter-rouge">"Eugene O'Neill"</code>, but it doesn’t work like that.</p>
+
+<p><strong>This problem</strong> want to find details of winners that has name start with ‘Sir’. Show the most recent first the name in order. This is where we get to use <code class="highlighter-rouge">ORDER BY</code> and <code class="highlighter-rouge">DESC</code>.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">winner</span><span class="p">,</span> <span class="n">yr</span><span class="p">,</span> <span class="n">subject</span>
+<span class="k">FROM</span> <span class="n">nobel</span>
+<span class="k">WHERE</span> <span class="n">winner</span> <span class="k">LIKE</span> <span class="s1">'Sir%'</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">yr</span> <span class="k">DESC</span>
+</code></pre></div></div>
+
+<p><strong>Last different challenge</strong>, and this one I had hard time with at first. I now understand it. The problem states:</p>
+
+<p>The expression subject IN (‘Chemistry’,’Physics’) can be used as a value - it will be 0 or 1.</p>
+
+<p>Show the 1984 winners and subject ordered by subject and winner name; but list Chemistry and Physics last.</p>
+
+<p>That is the challenge, and the clue it had left to us is this below:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">winner</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">subject</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'Physics'</span><span class="p">,</span><span class="s1">'Chemistry'</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">nobel</span>
+<span class="k">WHERE</span> <span class="n">yr</span><span class="o">=</span><span class="mi">1984</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">subject</span><span class="p">,</span><span class="n">winner</span>
+</code></pre></div></div>
+<p>This is what RESULT will look like.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>winner</th>
+      <th>subject</th>
+      <th>subject IN (‘..</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bruce Merrifield</td>
+      <td>Chemistry</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Richard Stone</td>
+      <td>Economics</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Jaroslav Seifert</td>
+      <td>Literature</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>César Milstein</td>
+      <td>Medicine</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Georges J.F. Köhler</td>
+      <td>Medicine</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Niels K. Jerne</td>
+      <td>Medicine</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Desmond Tutu</td>
+      <td>Peace</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Carlos Rubbia</td>
+      <td>Physics</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Simon van der Meer</td>
+      <td>Physics</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Notice how <code class="highlighter-rouge">0</code> and <code class="highlighter-rouge">1</code> are not ordered. Subject is ordered alphabetically. This challenge teaches us how to set an order by <code class="highlighter-rouge">0</code> and <code class="highlighter-rouge">1</code>. Let’s see that works.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">winner</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">subject</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'Physics'</span><span class="p">,</span><span class="s1">'Chemistry'</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">nobel</span>
+<span class="k">WHERE</span> <span class="n">yr</span><span class="o">=</span><span class="mi">1984</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">subject</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'Physics'</span><span class="p">,</span><span class="s1">'Chemistry'</span><span class="p">),</span> <span class="n">subject</span><span class="p">,</span><span class="n">winner</span>
+</code></pre></div></div>
+
+<p>We arranged data in order by <code class="highlighter-rouge">0</code> and <code class="highlighter-rouge">1</code> and then subjects and winners alphabetically.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>winner</th>
+      <th>subject</th>
+      <th>subject IN (‘..</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Richard Stone</td>
+      <td>Economics</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Jaroslav Seifert</td>
+      <td>Literature</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>César Milstein</td>
+      <td>Medicine</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Georges J.F. Köhler</td>
+      <td>Medicine</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Niels K. Jerne</td>
+      <td>Medicine</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Desmond Tutu</td>
+      <td>Peace</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Bruce Merrifield</td>
+      <td>Chemistry</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Carlos Rubbia</td>
+      <td>Physics</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Simon van der Meer</td>
+      <td>Physics</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This challenge doesn’t want to see the value in index manner. Taking that <code class="highlighter-rouge">subject IN ('...')</code> off from <code class="highlighter-rouge">SELECT</code>.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">winner</span><span class="p">,</span> <span class="n">subject</span>
+<span class="k">FROM</span> <span class="n">nobel</span>
+<span class="k">WHERE</span> <span class="n">yr</span><span class="o">=</span><span class="mi">1984</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">subject</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'Physics'</span><span class="p">,</span><span class="s1">'Chemistry'</span><span class="p">),</span> <span class="n">subject</span><span class="p">,</span><span class="n">winner</span>
+</code></pre></div></div>
+
+<p>RESULT:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>winner</th>
+      <th>subject</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Richard Stone</td>
+      <td>Economics</td>
+    </tr>
+    <tr>
+      <td>Jaroslav Seifert</td>
+      <td>Literature</td>
+    </tr>
+    <tr>
+      <td>César Milstein</td>
+      <td>Medicine</td>
+    </tr>
+    <tr>
+      <td>Georges J.F. Köhler</td>
+      <td>Medicine</td>
+    </tr>
+    <tr>
+      <td>Niels K. Jerne</td>
+      <td>Medicine</td>
+    </tr>
+    <tr>
+      <td>Desmond Tutu</td>
+      <td>Peace</td>
+    </tr>
+    <tr>
+      <td>Bruce Merrifield</td>
+      <td>Chemistry</td>
+    </tr>
+    <tr>
+      <td>Carlos Rubbia</td>
+      <td>Physics</td>
+    </tr>
+    <tr>
+      <td>Simon van der Meer</td>
+      <td>Physics</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>That’s the answer.</p>
+
+<h2 id="next-post-will-be-exercise-3-still-but-covering-the-quiz-new-tricks-coming-up">Next post will be EXERCISE 3 still but covering the quiz. New tricks coming up!</h2>
+
+:ET

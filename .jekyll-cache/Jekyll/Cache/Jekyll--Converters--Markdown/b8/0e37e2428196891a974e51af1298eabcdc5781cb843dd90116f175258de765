@@ -1,0 +1,230 @@
+I"�$<p>I decided to have some exposure on SQL (<i>Structured Query Language</i>). I would like to understand more about SQL and apply my programming skills onto it. This is the first post on SQL, and I am absolutely a beginner. I am sure there will be updates and editions after I dug deep into SQL.</p>
+
+<p>Firstly I want to see if I am able to create a table in this Jekyll Static website. Here goes…</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Priority apples</th>
+      <th>Second priority</th>
+      <th>Third priority</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ambrosia</td>
+      <td>gala</td>
+      <td>red delicious</td>
+    </tr>
+    <tr>
+      <td>pink lady</td>
+      <td>jazz</td>
+      <td>macintosh</td>
+    </tr>
+    <tr>
+      <td>honeycrisp</td>
+      <td>granny smith</td>
+      <td>fuji</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Wow! It certainly doesn’t look like this in Sublime Text 2! Yay, it worked! Going to try a different type of table.</p>
+
+<table class="mbtablestyle">
+  <thead>
+    <tr>
+      <th>Priority apples</th>
+      <th>Second priority</th>
+      <th>Third priority</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ambrosia</td>
+      <td>gala</td>
+      <td>red delicious</td>
+    </tr>
+    <tr>
+      <td>pink lady</td>
+      <td>jazz</td>
+      <td>macintosh</td>
+    </tr>
+    <tr>
+      <td>honeycrisp</td>
+      <td>granny smith</td>
+      <td>fuji</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Hmm… not sure which table I like better. I guess it doesn’t matter. SQL will be extracting information from database, and I will make table as an example of what database might look like. I have researched on which is a great tutorial to start with. I decided to start with <a href="http://sqlzoo.net/">SQLZOO</a>. Anyway let’s start!</p>
+
+<h1 id="starting-with-select-basics">Starting with SELECT basics</h1>
+
+<h2 id="keywords-to-learn">Keywords to learn</h2>
+
+<p><strong>SELECT</strong><br />
+Extracting data from a database. Selecting from column1, column2 or field names of the table</p>
+
+<p><strong>FROM</strong><br />
+From what database …</p>
+
+<p><strong>WHERE</strong><br />
+This clause is used to filter records, it extracts only those that fulfills a specified condition</p>
+
+<p><strong>IN</strong><br />
+Specify multiple values in a WHERE clause, short for multiple OR conditions</p>
+
+<p><strong>BETWEEN</strong><br />
+Selects values in given range, begin and end are included
+<br /></p>
+
+<h2 id="starting-the-first-exercise--quiz">Starting the first exercise / quiz</h2>
+
+<p>Let’s take a look at what this database called <strong>world</strong> might look like. This <strong>world</strong> database contains information about every countries, continents, areas, and populations from A to Z. I am not going to list all of countries in the table.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>continent</th>
+      <th>area</th>
+      <th>population</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Afghanistan</td>
+      <td>Asia</td>
+      <td>652230</td>
+      <td>25500100</td>
+    </tr>
+    <tr>
+      <td>Albania</td>
+      <td>Europe</td>
+      <td>28748</td>
+      <td>2831741</td>
+    </tr>
+    <tr>
+      <td>Algeria</td>
+      <td>Africa</td>
+      <td>2381741</td>
+      <td>37100000</td>
+    </tr>
+    <tr>
+      <td>Andorra</td>
+      <td>Europe</td>
+      <td>468</td>
+      <td>78115</td>
+    </tr>
+    <tr>
+      <td>Angola</td>
+      <td>Africa</td>
+      <td>1246700</td>
+      <td>20609294</td>
+    </tr>
+    <tr>
+      <td>…</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>1)</strong> The first question is to find <i>countries</i> that has a <i>population</i> between 1,000,000 and 1,250,000. All of the information are in the <strong>world</strong> database. What kind of information do I need to look for in the database?</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">population</span>
+<span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">population</span> <span class="k">BETWEEN</span> <span class="mi">1000000</span> <span class="k">AND</span> <span class="mi">1250000</span>
+</code></pre></div></div>
+<p>Easy enough, huh? Name of countries and their population.</p>
+
+<p><br />
+<strong>2)</strong> Second question is pretty much initutive… all the questions are multiple choices. It asks what this SQL code does and what results would look like.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">population</span>
+<span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="nv">"Al%"</span>
+</code></pre></div></div>
+
+<p>We know that SELECT is extracting data from columns <i>name</i> and <i>population</i>. FROM world database obviously, and WHERE filters <i>name</i> that is LIKE “Al%”. I am guessing that anything that starts with “Al”.</p>
+
+<p>Result looks like this:</p>
+
+<table class="mbtablestyle">
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>population</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Albania</td>
+      <td>2831741</td>
+    </tr>
+    <tr>
+      <td>Algeria</td>
+      <td>37100000</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br />
+<strong>3)</strong>  Select the code which shows the countries that end in A or L. “Al%” above gave hints, I am guessing using “%a” and “%l”, since only the first letter of all countries are capitalized. Notice “%” (placeholder) shows what comes before or after. Also if I used <strong>AND</strong>, it will be confusing because “a” cannot overlap with “l” at end of countries’ name. This is the right way to extract the desired data.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span>
+<span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="nv">"%a"</span> <span class="k">OR</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="nv">"%l"</span>
+</code></pre></div></div>
+
+<p><br />
+<strong>4)</strong> If want to extract the European countries that have specific number of letters. Take a look below how it should look like.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="k">length</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="k">length</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="o">=</span><span class="mi">5</span> <span class="k">and</span> <span class="n">continent</span> <span class="o">=</span> <span class="s1">'Europe'</span>
+</code></pre></div></div>
+
+<p>To be honest, I am confused why this uses <strong>and</strong> instead of <strong>AND</strong>. I will research and return to update why.</p>
+
+<p><br />
+<strong>5)</strong> I learned that we could manipulate data from database with mathematic basics. For example:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">area</span><span class="o">*</span><span class="mi">2</span>
+<span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">population</span> <span class="o">=</span> <span class="mi">64000</span>
+</code></pre></div></div>
+
+<p>Result:</p>
+
+<table class="mbtablestyle">
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>population</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Andorra</td>
+      <td>936</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>What happened is that area is multiplied by 2. Country with the same population is extracted also.</p>
+
+<p><br />
+<strong>7)</strong> Select the code that shows the population density of China, Australia, Nigeria and France.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">population</span><span class="o">/</span><span class="n">area</span>
+<span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">name</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'China'</span><span class="p">,</span> <span class="s1">'Australia'</span><span class="p">,</span> <span class="s1">'Nigeria'</span><span class="p">,</span> <span class="s1">'France'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>I think we have covered all usage of keywords, and I skipped the problem #6 because it is easy and involved with greater or lesser operators. Don’t worry about it. We will continue on next exercise in different post!</p>
+
+:ET
