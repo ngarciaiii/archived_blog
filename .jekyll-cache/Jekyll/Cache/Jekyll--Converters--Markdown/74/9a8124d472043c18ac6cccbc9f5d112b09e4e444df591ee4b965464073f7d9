@@ -1,0 +1,135 @@
+I"�@<p>I took a look into this new challenge, and thought it was going to be easy. After few tries, I failed to realize that computer parses, and not necessarily read the same way as I do. I wasn’t accessing right. I miscommunicated with the computer.</p>
+
+<h1 id="the-challenge-is">The Challenge is:</h1>
+
+<ul>
+  <li>Check if <code class="highlighter-rouge">firstName</code> is an actual contact’s <code class="highlighter-rouge">firstName</code> and the given property (<code class="highlighter-rouge">prop</code>) is a property of that contact</li>
+  <li>If both are true, then return the “value” of that property</li>
+  <li>If <code class="highlighter-rouge">firstName</code> does not correspond to any contacts then return <code class="highlighter-rouge">"No such contact"</code></li>
+  <li>If <code class="highlighter-rouge">prop</code> does not correspond to any valid properties then return <code class="highlighter-rouge">"No such property"</code></li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Setup</span>
+<span class="kd">var</span> <span class="nx">contacts</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">firstName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Akira</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">lastName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Laine</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">number</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0543236543</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">likes</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">Pizza</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Coding</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Brownie Points</span><span class="dl">"</span><span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+       <span class="dl">"</span><span class="s2">firstName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Harry</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">lastName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Potter</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">number</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0994372684</span><span class="dl">"</span><span class="p">,</span>
+       <span class="dl">"</span><span class="s2">likes</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">Hogwarts</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Magic</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Hagrid</span><span class="dl">"</span><span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">firstName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Sherlock</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">lastName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Holmes</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">number</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0487345643</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">likes</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">Intriguing Cases</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Violin</span><span class="dl">"</span><span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">firstName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Kristian</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">lastName</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Vos</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">number</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">unknown</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">likes</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">Javascript</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Gaming</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Foxes</span><span class="dl">"</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">];</span>
+
+
+<span class="kd">function</span> <span class="nx">lookUpProfile</span><span class="p">(</span><span class="nx">firstName</span><span class="p">,</span> <span class="nx">prop</span><span class="p">){</span>
+<span class="c1">// Only change code below this line</span>
+
+<span class="c1">// Only change code above this line</span>
+<span class="p">}</span>
+<span class="c1">// Change these values to test your function</span>
+<span class="nx">lookUpProfile</span><span class="p">(</span><span class="dl">"</span><span class="s2">Akira</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">likes</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>The challenge sounds simple, but ah-ha, how do you loop through the nested objects in an array? FreeCodeCamp provided handful of lessons before this challenge. The lesson <strong>Iterate through an Array with a For Loop</strong> explained:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">];</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+<span class="p">}</span>
+
+<span class="c1">//--&gt; 10, 9, 8, 7, 6</span>
+</code></pre></div></div>
+
+<p>All I had to do to loop through an array is putting down array’s name dot <code class="highlighter-rouge">length</code>. Sounds easy, but wait! There are many objects and many <code class="highlighter-rouge">firstName</code> in the array, how am I going to find the specific property <code class="highlighter-rouge">firstName</code> that I am looking for? Another lesson in FreeCodeCamp <strong>Accessing Nest Array</strong> gave an example using array bracket notation and index.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">var</span> <span class="nx">myPlants</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="na">type</span><span class="p">:</span> <span class="dl">"</span><span class="s2">flowers</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">list</span><span class="p">:</span> <span class="p">[</span>
+      <span class="dl">"</span><span class="s2">rose</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">tulip</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">dandelion</span><span class="dl">"</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="na">type</span><span class="p">:</span> <span class="dl">"</span><span class="s2">trees</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">list</span><span class="p">:</span> <span class="p">[</span>
+      <span class="dl">"</span><span class="s2">fir</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">pine</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">birch</span><span class="dl">"</span>
+    <span class="p">]</span>
+  <span class="p">}</span>  
+<span class="p">];</span>
+
+<span class="kd">var</span> <span class="nx">secondTree</span> <span class="o">=</span> <span class="nx">myPlants</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">list</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+
+<span class="c1">//--&gt; secondTree = pine</span>
+</code></pre></div></div>
+<p>However this challenge has nested objects in an array, and these are where <code class="highlighter-rouge">firstName</code> are located in. FCC’s <strong>Accessing Nested Objects</strong> lesson teaches that nested object can be accessed by either using dot or bracket notation.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">var</span> <span class="nx">myStorage</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">"</span><span class="s2">car</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">inside</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">glove box</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">maps</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">passenger seat</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">crumbs</span><span class="dl">"</span>
+     <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">outside</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">trunk</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">jack</span><span class="dl">"</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">gloveBoxContents</span> <span class="o">=</span> <span class="nx">myStorage</span><span class="p">.</span><span class="nx">car</span><span class="p">.</span><span class="nx">inside</span><span class="p">[</span><span class="dl">"</span><span class="s2">glove box</span><span class="dl">"</span><span class="p">]</span> <span class="p">;</span>
+
+<span class="c1">//--&gt;gloveBoxContents = maps</span>
+</code></pre></div></div>
+
+<h1 id="lets-get-to-work">Let’s get to work!</h1>
+
+<p>We need to access into an array <code class="highlighter-rouge">contacts</code> and loop through nested objects until one of arguments matches with the <code class="highlighter-rouge">firstName</code>.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">function</span> <span class="nx">lookUpProfile</span><span class="p">(</span><span class="nx">firstname</span><span class="p">,</span> <span class="nx">prop</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">contacts</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">contacts</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">firstName</span> <span class="o">===</span> <span class="nx">firstName</span><span class="p">)</span> <span class="p">{</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+<p><code class="highlighter-rouge">i</code> loops through each nested objects in an array <code class="highlighter-rouge">contacts</code>, and until <code class="highlighter-rouge">firstName</code> matches. In the challenge, there are rules like if <code class="highlighter-rouge">firstName</code> doesn’t match, and if there isn’t any <code class="highlighter-rouge">prop</code>, would need to return why cannot complete. If <code class="highlighter-rouge">firstName</code> matches and has a <code class="highlighter-rouge">prop</code>, then return the value.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">lookUpProfile</span><span class="p">(</span><span class="nx">firstName</span><span class="p">,</span> <span class="nx">prop</span><span class="p">){</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">contacts</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">contacts</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">firstName</span> <span class="o">===</span> <span class="nx">firstName</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">prop</span> <span class="k">in</span> <span class="nx">contacts</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="nx">contacts</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">prop</span><span class="p">];</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="dl">"</span><span class="s2">No such property</span><span class="dl">"</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="dl">"</span><span class="s2">No such contact</span><span class="dl">"</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+:ET

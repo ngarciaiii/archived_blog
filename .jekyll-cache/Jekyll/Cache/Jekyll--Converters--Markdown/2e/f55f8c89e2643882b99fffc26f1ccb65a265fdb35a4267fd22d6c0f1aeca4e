@@ -1,0 +1,101 @@
+I"e9<h1 id="update-060517">UPDATE (06/05/17)</h1>
+<p><strong>All classes should be capitalized. I didn’t, and started doing that with Week 3.</strong></p>
+
+<h1 id="update-052317">UPDATE (05/23/17)</h1>
+<p><strong>Use Netbeans to unlock Mooc.fi Exercises!!!</strong></p>
+
+<h1 id="intro-to-moocifi">INTRO TO MOOCI.FI</h1>
+
+<p>I learn java from <a href="https://www.udemy.com">Udemy</a> when I am on my friend’s PC and under his account.
+Often I am out of town, and I am mostly using my MAC OSX laptop, I learn java from University of Helsinki’s <a href="https://www.mooc.fi/">MOOC</a> (Massive Open Online Courses) based in Finland. It uses TMC (Test My Codes) <a href="https://www.netbeans.org">NetBeans</a> whereas I use <a href="http://www.eclipse.org/downloads/packages/">Eclipse</a>, but I do switch over to NetBeans when exercises have components that are exclusively in Netbeans.</p>
+
+<h1 id="install-tmc-netbeans">INSTALL TMC NETBEANS</h1>
+
+<p>1) Head over to <a href="http://mooc.fi/courses/general/programming/how-to-get-started.html">downloads</a></p>
+
+<ul>
+  <li>Follow the instructions, and download et cetera et cetera</li>
+  <li>Feel free to use either NETBEANS, or ECLIPSE</li>
+  <li>On that website, click “START LEARNING”</li>
+</ul>
+
+<h1 id="oop-java-p1-course-week-1-begins">OOP JAVA P1 COURSE WEEK 1 BEGINS!</h1>
+
+<p>OOP is short for “object oriented programming”, Java is basically it. Famous “Hello World!” is already explained in post under category “Udemy”. I decided to keep this short and sweet by including exercises that are new to me without needing to cover every exercises. Programming is similar with other different languages such as Python, and JavaScript. Same logic processes, but different syntaxes.</p>
+
+<p>I have been using either <code class="highlighter-rouge">System.out.print();</code> and <code class="highlighter-rouge">System.out.println();</code> frequently throughout exercises, so it might be necessary to explain the difference between those. The former prints out and that’s it. The latter prints out and adds a new line afterward. The latter with an empty inside <code class="highlighter-rouge">.()</code> clears the whole line that way exercises and results will be cleaner and more readable. Another way to create new line is using <code class="highlighter-rouge">System.lineSeparator()</code>. I am going to skip few first exercises and starting with Week 1 Exercise 8 here.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">usingScanner</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">week1_ex08_12</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>A post in Udemy explains top part like <code class="highlighter-rouge">package</code>, <code class="highlighter-rouge">public class</code>, and <code class="highlighter-rouge">public static</code>. I will try to be brief about it. <code class="highlighter-rouge">package</code> points where file is being saved in, making it easier to direct class file right in. <strong> Class file </strong> is what computer can read, compiles our <strong>java files</strong>. Just let computer worry about class files. That’s what Eclipse and or NetBeans do for us. <code class="highlighter-rouge">public</code> is just saying that other classes can access to that public field or method. Meaning class can manipulate the public method or field if it isn’t declared as final.  <code class="highlighter-rouge">static</code> means can call a method without an object, no need to complicate about it. As more we do java, the better understanding we will come to static and that kind of things. NOTE: <code class="highlighter-rouge">public class ...</code> has to match with java file’s name. For example, java file is saved as <code class="highlighter-rouge">week1_ex08_12</code>  then it has to be <code class="highlighter-rouge">public class week1_ex08_12</code>.</p>
+
+<p>All programming languages have <strong>variables</strong>, and it’s important to understand how to use it. Each programming languages have same and different types of variables. Java has four types of variables: <i>String, int, double,</i> and <i>booleans</i>.</p>
+
+<ul>
+  <li><strong>String</strong> uses only alphabetics, and numbers that act as description (not used for mathematical purpose).</li>
+  <li><strong>int</strong>, short for an integer, its value can be either a negative, or a positive number. Always is a whole number and is mostly used for mathematical purpose.</li>
+  <li><strong>double</strong> is a value that holds decimal number, and always used for mathematical purpose, very useful to any statistics.</li>
+  <li><strong>booleans</strong> hold a value of either <i>true</i>, or <i>false</i>.</li>
+</ul>
+
+<p>The first differences I noticed between Python, JavaScript and Java is on how to declare a variable. In <strong>Python</strong>, just type out a variable and it will be defined after an operator. In <strong>JavaScript</strong>, a variable is declared after <code class="highlighter-rouge">var</code>. A variable in <strong>Java</strong> is declared by starting with one of these four types: <code class="highlighter-rouge">String</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">double</code>, and or <code class="highlighter-rouge">boolean</code>. <code class="highlighter-rouge">String</code> is capitalized, because it is special… it is not just a <strong>primitive</strong> like other three types of variables, it is also a <strong>class</strong>. Anything that is capitalized is probably a class.</p>
+
+<p>Let’s take look at exercise 8 to 12 below. What’s new to me is <code class="highlighter-rouge">import java.util.Scanner;</code>. <strong>Scanner</strong> is used as a parser, for a computer to read the user’s input. It cannot read any variables automatically except for a string, it has to be told which kind of variable it is going to read.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">usingScanner</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">week1_ex08_12</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="nc">Scanner</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Type a number: "</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">reader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">());</span>
+
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Type another number: "</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">num2</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">reader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">());</span>
+
+		<span class="kt">int</span> <span class="n">addAns</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span><span class="o">;</span>
+
+		<span class="kt">double</span> <span class="n">divAns</span> <span class="o">=</span> <span class="o">(</span><span class="kt">double</span><span class="o">)</span> <span class="n">num1</span> <span class="o">/</span> <span class="n">num2</span><span class="o">;</span>   
+
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Sum of the numbers: "</span> <span class="o">+</span> <span class="n">addAns</span><span class="o">);</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Division: "</span> <span class="o">+</span> <span class="n">divAns</span> <span class="o">+</span> <span class="nc">System</span><span class="o">.</span><span class="na">lineSeparator</span><span class="o">());</span>
+
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Type the radius: "</span><span class="o">);</span>
+		<span class="kt">double</span> <span class="n">radius</span> <span class="o">=</span> <span class="nc">Double</span><span class="o">.</span><span class="na">parseDouble</span><span class="o">(</span><span class="n">reader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">());</span>
+
+		<span class="kt">double</span> <span class="n">circumference</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="nc">Math</span><span class="o">.</span><span class="na">PI</span> <span class="o">*</span> <span class="n">radius</span><span class="o">;</span>
+
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Circumference of the circle: "</span> <span class="o">+</span> <span class="n">circumference</span> <span class="o">+</span> <span class="nc">System</span><span class="o">.</span><span class="na">lineSeparator</span><span class="o">());</span>
+
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Type your name: "</span><span class="o">);</span>
+		<span class="nc">String</span> <span class="n">name1</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>            
+
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Type your age: "</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">age1</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">reader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">());</span>
+
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Type your name: "</span><span class="o">);</span>
+		<span class="nc">String</span> <span class="n">name2</span><span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
+
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Type your age: "</span><span class="o">);</span>
+		<span class="kt">int</span> <span class="n">age2</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">reader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">());</span>
+
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">lineSeparator</span><span class="o">()</span> <span class="o">+</span> <span class="n">name1</span> <span class="o">+</span> <span class="s">" and "</span> <span class="o">+</span> <span class="n">name2</span> <span class="o">+</span> <span class="s">" are "</span> <span class="o">+</span> <span class="o">(</span><span class="n">age1</span> <span class="o">+</span> <span class="n">age2</span><span class="o">)</span> <span class="o">+</span> <span class="s">" years old in total."</span><span class="o">);</span>
+
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>First giving Scanner a name <code class="highlighter-rouge">reader</code>, and declare it to be a Scanner in the system for conventional purpose. <code class="highlighter-rouge">reader.nextLine()</code> is Scanner waiting to read the user’s input right after a “question”, and automatically read a string by itself. <code class="highlighter-rouge">.nextLine()</code> is one of methods inside <code class="highlighter-rouge">Scanner</code> class. <code class="highlighter-rouge">public</code> is in a sense “global” methods. <code class="highlighter-rouge">private</code> is a method created inside a file, where it isn’t “global”. Back to public or “global” methods, <code class="highlighter-rouge">Integer.parseInt();</code> says input is going to be an <code class="highlighter-rouge">int</code>. <code class="highlighter-rouge">Double.parseDouble();</code> applies for <code class="highlighter-rouge">double</code>.</p>
+
+:ET

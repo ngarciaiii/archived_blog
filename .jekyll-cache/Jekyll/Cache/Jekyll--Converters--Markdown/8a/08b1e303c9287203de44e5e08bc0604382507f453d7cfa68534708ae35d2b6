@@ -1,0 +1,153 @@
+I"�a<p>The fun and challenging part of FCC continues, Basic Algorithm Part 2.</p>
+
+<h1 id="find-the-longest-word-in-a-string">Find the Longest Word in a String</h1>
+
+<ul>
+  <li>Return the length of the longest word in the provided sentence</li>
+  <li>Your response should be a number</li>
+  <li>Given hints: use <code class="highlighter-rouge">.split()</code> and <code class="highlighter-rouge">.length</code></li>
+</ul>
+
+<p><strong>Challenge</strong></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">findLongestWord</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">findLongestWord</span><span class="p">(</span><span class="dl">"</span><span class="s2">The quick brown fox jumped over the lazy dog</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>The problem with a string is that it is immutable. <code class="highlighter-rouge">.split(" ")</code> is going to turn a string <code class="highlighter-rouge">str</code> into an array <code class="highlighter-rouge">arr</code>. Adding space in between the quotes is important, because I would like for the string to be split into per a word, and not into per a character or into letters. Use <code class="highlighter-rouge">for</code> loop to go through each word, and to get number of characters in each word would need a <code class="highlighter-rouge">.length</code>.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">findLongestWord</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">);</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">findLongestWord</span><span class="p">(</span><span class="dl">"</span><span class="s2">The quick brown fox jumped over the lazy dog</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Now <code class="highlighter-rouge">i</code> short for my “index” will loop through each word in an array <code class="highlighter-rouge">arr</code>, and what I want to do is put down a code that will count the number of indexes in element. My goal is to keep the biggest word, while bypass smaller words. I am going to create a variabe <code class="highlighter-rouge">biggest</code> and set it to <code class="highlighter-rouge">0</code>. Whenever word’s bigger than the <code class="highlighter-rouge">biggest</code>, set that word to <code class="highlighter-rouge">biggest</code>.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">findLongestWord</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">biggest</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="nx">biggest</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">biggest</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">length</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">biggest</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">findLongestWord</span><span class="p">(</span><span class="dl">"</span><span class="s2">The quick brown fox jumped over the lazy dog</span><span class="dl">"</span><span class="p">);</span>
+<span class="c1">// 6</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h1 id="title-case-a-sentence">Title Case a Sentence</h1>
+
+<ul>
+  <li>Return the provided string with the first letter of each word capitalized. Make sure the rest of the word is in lower case</li>
+  <li>For the purpose of this exercise, you should also capitalize connecting words like “the” and “of”</li>
+  <li>Given hint: use <code class="highlighter-rouge">.split()</code></li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">titleCase</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">str</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">titleCase</span><span class="p">(</span><span class="dl">"</span><span class="s2">I'm a little tea pot</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+<p>I am supposed to aim for <code class="highlighter-rouge">// I'm A Little Tea Pot</code>. Programming, I would think, is like being a chef, gotta to do a food prep before I cook up ingredients altogether to make it taste great. I am going to <code class="highlighter-rouge">toLowerCase()</code> and <code class="highlighter-rouge">.split()</code> the string at the same time to lowercase everything and arraize it a new varaible <code class="highlighter-rouge">strLoAr</code>. A <code class="highlighter-rouge">for</code> loop to go through each word with an <code class="highlighter-rouge">i</code> is needed. One more <code class="highlighter-rouge">for</code> loop for a letter in word using <code class="highlighter-rouge">j</code>, an index within an index/element. Let’s set up a prep right now.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">titleCase</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">strLoAr</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">);</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">strLoAr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">strLoAr</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">str</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">titleCase</span><span class="p">(</span><span class="dl">"</span><span class="s2">I'm a little tea pot</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+<p>Okay, now let’s replace first letter of each word with a capitalized letter. In order to capture the first letter and manipulate it, is using a conditional statement <code class="highlighter-rouge">if (j === 0)</code> in second <code class="highlighter-rouge">for</code> loop. I am going to remove the first letter by using <code class="highlighter-rouge">.slice()</code> and rename the remaining <code class="highlighter-rouge">strLoAr</code> to a new variable <code class="highlighter-rouge">fixed</code>. Extract the first letter from each word in a former array <code class="highlighter-rouge">strLoAr</code>, and captialize it and then put into a new variable <code class="highlighter-rouge">capped</code>. I realized that I would need a new empty array, so I created and named it <code class="highlighter-rouge">titled</code> to apply <code class="highlighter-rouge">.push()</code>. I want to add <code class="highlighter-rouge">capped</code> to <code class="highlighter-rouge">fixed</code> in <code class="highlighter-rouge">titled</code>. Always check each new variable with a <code class="highlighter-rouge">console.log()</code> to ensure it comes as desired.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">titleCase</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">strLoAr</span><span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">capped</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">fixed</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">titled</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">strLoAr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">strLoAr</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">j</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">fixed</span> <span class="o">=</span> <span class="nx">strLoAr</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="nx">capped</span> <span class="o">=</span> <span class="nx">strLoAr</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">].</span><span class="nx">toUpperCase</span><span class="p">();</span>
+      <span class="p">}</span>
+    <span class="p">}</span> <span class="nx">titled</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">capped</span> <span class="o">+</span> <span class="nx">fixed</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">return</span> <span class="nx">titled</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">titleCase</span><span class="p">(</span><span class="dl">"</span><span class="s2">I'm a little tea pot</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="c1">// 'I\'m A Little Tea Pot'</span>
+</code></pre></div></div>
+
+<p>In some consoles like <a href="https://repl.it">repl.it</a>, it will show backslash in “I’\m” but it won’t render.
+<br /></p>
+
+<h1 id="return-largest-numbers-in-arrays">Return Largest Numbers in Arrays</h1>
+
+<ul>
+  <li>Return an array consisting of the largest number from each provided sub-array</li>
+  <li>For simplicity, the provided array will contain exactly 4 sub-arrays</li>
+  <li>Remember you can iterate through an array with a simple for loop, and access each member with array syntax <code class="highlighter-rouge">arr[i]</code></li>
+  <li>Should return an array</li>
+  <li>Given Hint: Comparison Operators</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">largestOfFour</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">arr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">largestOfFour</span><span class="p">([[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">13</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">26</span><span class="p">],</span> <span class="p">[</span><span class="mi">32</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">39</span><span class="p">],</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1001</span><span class="p">,</span> <span class="mi">857</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]);</span>
+</code></pre></div></div>
+
+<p>Outline below every challenge is usually directly copied and pasted from <a href="https://freecodecamp.com">freecodecamp</a>, and it suggested me to use <code class="highlighter-rouge">arr[i]</code>. Of course I am going to use a <code class="highlighter-rouge">for</code> loop to iterate through arrays. I came up with two different solutions. First one was easy and I felt like I cheated. If it works, then it isn’t a cheat, but would be better to learn how to do the long way. I am going to put down the first solution and explain quickly. I used <code class="highlighter-rouge">Math.max</code> to solve the problem.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">largestOfFour</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">tallest</span><span class="o">=</span> <span class="p">[];</span>
+  <span class="kd">var</span> <span class="nx">max</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">max</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+    <span class="nx">tallest</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">max</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">return</span> <span class="nx">tallest</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">largestOfFour</span><span class="p">([[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">13</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">26</span><span class="p">],</span> <span class="p">[</span><span class="mi">32</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">39</span><span class="p">],</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1001</span><span class="p">,</span> <span class="mi">857</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]);</span>
+<span class="c1">// [ 5, 27, 39, 1001 ]</span>
+</code></pre></div></div>
+<p>I set a new array named <code class="highlighter-rouge">tallest</code>. I processed to create a <code class="highlighter-rouge">for</code> loop. I looked through <a href="https://stackoverflow.com">stackoverflow</a> on how to use Math.max and it suggested me to use <code class="highlighter-rouge">.apply()</code>. I decided that I would use a new variable <code class="highlighter-rouge">max</code> to make it easier. So I set <code class="highlighter-rouge">max</code> to <code class="highlighter-rouge">Math.max.apply(null, arr[i])</code> inside <code class="highlighter-rouge">for</code> loop and then push it into array <code class="highlighter-rouge">tallest</code>. Return <code class="highlighter-rouge">tallest</code> outside of <code class="highlighter-rouge">for</code> loop to allow loop to complete. <code class="highlighter-rouge">null</code> is an intentional absence of any object value, allowing computer to ignore completely, or bypass. <code class="highlighter-rouge">.apply(thisArg, [argsArray])</code> is the default and I am using <code class="highlighter-rouge">Math.max</code> as a function so I used <code class="highlighter-rouge">null</code>. That was the quick way.</p>
+
+<p>Let’s do the long way. Setting a new empty array <code class="highlighter-rouge">tallest</code> since there are four different arrays and I want to pluck largest number out of each, and put them into one array. First <code class="highlighter-rouge">for</code> loop to iterate through an array with arrays inside. Recall the challenge on the top of this page, “Find the Longest Word”, it is almost the same idea. I created a new variable <code class="highlighter-rouge">max</code> to hold the biggest number in. I set <code class="highlighter-rouge">max</code> to <code class="highlighter-rouge">0</code>. Second <code class="highlighter-rouge">for</code> loop to iterate through indexes/[element]s in each array. if an element <code class="highlighter-rouge">arr[i][j]</code> is bigger than <code class="highlighter-rouge">max</code>, set it to <code class="highlighter-rouge">max</code>. Outside the second <code class="highlighter-rouge">for</code> loop, push it into <code class="highlighter-rouge">tallest</code> array. outside both loops, return <code class="highlighter-rouge">tallest</code>.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">largestOfFour</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">tallest</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">max</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">max</span><span class="p">){</span>
+      <span class="nx">max</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">];</span>
+    <span class="p">}</span>
+  <span class="p">}</span> <span class="nx">tallest</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">max</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">return</span> <span class="nx">tallest</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">largestOfFour</span><span class="p">([[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">13</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">26</span><span class="p">],</span> <span class="p">[</span><span class="mi">32</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">39</span><span class="p">],</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1001</span><span class="p">,</span> <span class="mi">857</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]);</span>
+<span class="c1">// [ 5, 27, 39, 1001 ]</span>
+</code></pre></div></div>
+
+:ET

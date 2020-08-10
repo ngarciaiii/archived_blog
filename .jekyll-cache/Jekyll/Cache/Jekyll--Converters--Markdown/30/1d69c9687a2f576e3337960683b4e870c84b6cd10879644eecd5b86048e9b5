@@ -1,0 +1,138 @@
+I"�J<p>I used <a href="http://www.eclipse.org/downloads/packages/">Eclipse</a> until I realized that I needed to use <a href="https://www.netbeans.org">NetBeans</a> to unlock <a href="https://www.mooc.fi/">MOOC.FI</a>’s upcoming week exercises. NetBeans has components and methods ready to use whereas I had to make my own methods in Eclipse.</p>
+
+<p>This is <strong>Week 2 Exercise #41</strong>. I did every exercises in Eclipse until end of Week 2 including this one. This exercise to me is mostly about creating methods and applying them. My Eclipse codes won’t pass in NetBeans, but I feel that my codes in Eclipse give a <strong>better idea of what methods are</strong>.</p>
+
+<p>Listing out all the bits of this exercise on what we are to do.</p>
+
+<ul>
+  <li>create <code class="highlighter-rouge">drawNumber</code> method that generates a random number between 0 and 100</li>
+  <li>have an user to guess a number</li>
+  <li>let user know that number is either lesser or greater and or user guessed right!</li>
+  <li>Let user repeat guesses while <code class="highlighter-rouge">drawNumber</code> stays the same</li>
+  <li>print the number of guesses attempted along with the answer</li>
+</ul>
+
+<p>I didn’t come up with this code on my own. I used <a href="https://www.stackoverflow.com">stackoverflow</a>. This is the way to generate a random number. Setting that <code class="highlighter-rouge">drawNumber()</code> method. The drawn number is set to varible <code class="highlighter-rouge">num</code>. Notice how I put down <code class="highlighter-rouge">int</code> after <code class="highlighter-rouge">public static</code> instead of <code class="highlighter-rouge">void</code>. Remember <code class="highlighter-rouge">void</code> means no returned value. In this method, we are returning a drawn number. so it’s an <code class="highlighter-rouge">int</code>.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Generates random number</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">drawNumber</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">num</span> <span class="o">=(</span><span class="kt">int</span><span class="o">)(</span><span class="nc">Math</span><span class="o">.</span><span class="na">random</span><span class="o">()</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
+    <span class="k">return</span> <span class="n">num</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>The next step is creating a method <code class="highlighter-rouge">guess()</code> that has reader reading user’s guess. Again, user is guessing a number and this will return an integer value. I am putting down <code class="highlighter-rouge">int</code> instead of <code class="highlighter-rouge">void</code>. The guess is returned as <code class="highlighter-rouge">guess</code>.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Read user's guess</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">guess</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">Scanner</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Guess a number: "</span><span class="o">);</span>
+    <span class="kt">int</span> <span class="n">guess</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">reader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">());</span>
+    <span class="k">return</span> <span class="n">guess</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>The third step is notifying user whether his/her guess is right. If not then let him/her know that the guessing number is either greater, or lesser. Isn’t that like a boolean? Let’s do this in boolean fashion. I am putting down <code class="highlighter-rouge">boolean</code> instead of <code class="highlighter-rouge">void</code>. Thanks to <a href="https://github.com/briennakh">briennakh</a>, that was her idea. I am going to name this method <code class="highlighter-rouge">checkGuess(int guess, int num)</code>. Using same varibles and values from two other methods above. It is important to repeat what type of values or varibles they are. Java is static.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Check guess against given number</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">checkGuess</span><span class="o">(</span><span class="kt">int</span> <span class="n">guess</span><span class="o">,</span> <span class="kt">int</span> <span class="n">num</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">guess</span> <span class="o">==</span> <span class="n">num</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"You have guessed it!"</span><span class="o">);</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">guess</span> <span class="o">&gt;</span> <span class="n">num</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"The guessing number is greater."</span><span class="o">);</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"The guessing number is lesser."</span><span class="o">);</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><strong>Time to make the main method!</strong> The first step inside the method is draw the number. That’s how Guess A Number game starts. Again, repeat the type of value or variable. <code class="highlighter-rouge">int num = drawNumber();</code> and the number is drawn. I added <code class="highlighter-rouge">System.out.println(num);</code> because I want to make sure <code class="highlighter-rouge">drawNumber()</code> works. Could do that inside <code class="highlighter-rouge">drawNumber()</code> method, but why not here too. Could remove them after knowing that they do work! I am going to lay them out now and add other perks.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Run program</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+    <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="n">drawNumber</span><span class="o">();</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+    <span class="kt">int</span> <span class="n">guesses</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+    <span class="k">while</span><span class="o">(</span><span class="n">guesses</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">guess</span> <span class="o">=</span> <span class="n">guess</span><span class="o">();</span>
+        <span class="kt">boolean</span> <span class="n">correct</span> <span class="o">=</span> <span class="n">checkGuess</span><span class="o">(</span><span class="n">guess</span><span class="o">,</span> <span class="n">num</span><span class="o">);</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">correct</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">break</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="n">guesses</span><span class="o">--;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"You have "</span> <span class="o">+</span> <span class="n">guesses</span> <span class="o">+</span> <span class="s">" guesses left"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Try again!"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>I want to limit the number of guesses to 5. Note <code class="highlighter-rouge">guess</code> and <code class="highlighter-rouge">guesses</code> are two different things. <code class="highlighter-rouge">guess</code> is the value of user’s guessing number. <code class="highlighter-rouge">guesses</code> is the number of how many guessing attempts user had made. <code class="highlighter-rouge">int guess</code> is the input given from <code class="highlighter-rouge">guess()</code> by a user. Notice how guess has an type defined by <code class="highlighter-rouge">int</code>. That’s Java. I am going to add <code class="highlighter-rouge">boolean</code> for <code class="highlighter-rouge">checkGuess(guess, num)</code>, giving its a varible <code class="highlighter-rouge">correct</code> to use in a conditional statment. The loop ends in two different ways. If guesses reach down to 0, then it has expired, or if user guessed right then <code class="highlighter-rouge">break;</code>.</p>
+
+<h2 id="lets-put-all-methods-together-and-get-an-overview">Let’s put all methods together and get an overview!</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">week2</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">week2_ex41</span><span class="o">{</span>
+
+    <span class="c1">// Generates random number</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">drawNumber</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">num</span> <span class="o">=(</span><span class="kt">int</span> <span class="o">)(</span><span class="nc">Math</span><span class="o">.</span><span class="na">random</span><span class="o">()</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">num</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">// Read user's guess</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">guess</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">Scanner</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Guess a number: "</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">guess</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">reader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">());</span>
+        <span class="k">return</span> <span class="n">guess</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">// Check guess against given number</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">checkGuess</span><span class="o">(</span><span class="kt">int</span> <span class="n">guess</span><span class="o">,</span> <span class="kt">int</span> <span class="n">num</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">guess</span> <span class="o">==</span> <span class="n">num</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"You have guessed it!"</span><span class="o">);</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">guess</span> <span class="o">&gt;</span> <span class="n">num</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"The guessing number is greater."</span><span class="o">);</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"The guessing number is lesser."</span><span class="o">);</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="c1">// Run program</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="n">drawNumber</span><span class="o">();</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+        <span class="kt">int</span> <span class="n">guesses</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+        <span class="k">while</span><span class="o">(</span><span class="n">guesses</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">guess</span> <span class="o">=</span> <span class="n">guess</span><span class="o">();</span>
+            <span class="kt">boolean</span> <span class="n">correct</span> <span class="o">=</span> <span class="n">checkGuess</span><span class="o">(</span><span class="n">guess</span><span class="o">,</span> <span class="n">num</span><span class="o">);</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">correct</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="o">}</span>
+
+            <span class="n">guesses</span><span class="o">--;</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"You have "</span> <span class="o">+</span> <span class="n">guesses</span> <span class="o">+</span> <span class="s">" guesses left"</span><span class="o">);</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Try again!"</span><span class="o">);</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="we-have-a-guess-a-number-game">We have a Guess A Number game!</h2>
+
+:ET

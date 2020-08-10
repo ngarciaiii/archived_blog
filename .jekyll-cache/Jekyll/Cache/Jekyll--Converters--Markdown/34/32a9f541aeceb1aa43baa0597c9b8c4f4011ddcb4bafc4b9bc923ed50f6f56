@@ -1,0 +1,73 @@
+I"Y<p>I am learning how to do Java via <a href="https://www.udemy.com">Udemy</a>, so let’s get started. BTW, I use Mac OSX.</p>
+
+<h1 id="set-up">SET UP</h1>
+
+<p>1) Download the Java SE JDK latest version at <a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle</a>.</p>
+
+<ul>
+  <li>Accept License Agreement</li>
+  <li>Double click to install</li>
+  <li>Open a terminal shell and type java -version to see if it’s in.</li>
+  <li>It should be in a path that looks like this /Library/Java/JavaVirtualMachines/</li>
+  <li>open .bash_profile in terminal shell by <code class="highlighter-rouge">open ~ .bash_profile</code></li>
+  <li>add <code class="highlighter-rouge">export JAVA_HOME='/usr/libexec/java_home'</code> to .bash_profile, so JAVA_HOME is always set.   (Note that <code class="highlighter-rouge">' ... '</code> between /usr/libexc… are actually back-ticks)</li>
+</ul>
+
+<p>2) Download the Eclipse IDE for Java Developers from <a href="http://www.eclipse.org/downloads/packages/">Eclipse</a>.</p>
+
+<ul>
+  <li>Click ‘Eclipse IDE for Java Developers’ to install</li>
+  <li>Open finder, and double click on Eclipse application to fully install.</li>
+  <li>Move it into Applications from Downloads.</li>
+</ul>
+
+<h1 id="all-set-and-now-the-first-exercise">All SET and now the first exercise!</h1>
+
+<p>Java is an object oriented language (OOP). <del>Objects in Java are called “classes”</del>. Objects are instances of Classes. Classes are in other word templates or files.</p>
+
+<p>The whole process looks like filename.java –&gt; javac (compiler) –&gt; .class file (byte codes) –&gt; Outputs (Java Virtual Machines i.e. Window, Mac, and Linux). I think by now, everybody knows the first exercise is always “Hello World!”, yep we are doing that.</p>
+
+<p>Create a file named <code class="highlighter-rouge">Hello.java</code> in a new folder <code class="highlighter-rouge">exercises</code>, and fill these codes inside then save it.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">package</span> <span class="n">exercises</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Hello</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Hello, "</span><span class="o">);</span>           
+    <span class="k">if</span> <span class="o">(</span><span class="n">args</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"World!"</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">+</span> <span class="s">"!"</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">package</code> is pinpointing to a folder that holds the file, declares path <br />
+<code class="highlighter-rouge">public</code> lets know that anyone can access it <br />
+<code class="highlighter-rouge">static</code> means <code class="highlighter-rouge">main</code> is not needed to run it <br />
+<code class="highlighter-rouge">void</code> declares that this method doesn’t return a value <br />
+<code class="highlighter-rouge">main</code> is just a name of the method <br />
+<code class="highlighter-rouge">System</code> is a pre-defined class that Java provides us, has useful methods and variables <br />
+<code class="highlighter-rouge">out</code> a static variable for “output” within System <br />
+<code class="highlighter-rouge">println</code> is a method short for “print a line” <br /></p>
+
+<p>No worries, I don’t understand most of these yet.</p>
+
+<p>The whole set of codes inside brackets after <code class="highlighter-rouge">main</code> is called a method. The parameter has two arguments <code class="highlighter-rouge">String[]</code> and <code class="highlighter-rouge">args</code>. I am not sure why there’re square brackets by <code class="highlighter-rouge">String</code>. It’s associated with array. Give me time, I am new to Java.</p>
+
+<p><code class="highlighter-rouge">System.out.println</code> obviously prints “Hello “ when it is being run, and there are conditional statements. <code class="highlighter-rouge">if</code> that says if args.length is 0 or in another word, empty, then it is “World!”, printing out “Hello World!” in complete. <code class="highlighter-rouge">else</code> operates if args isn’t empty, and that args is printed out instead of “World!” and then is added an exclamation to it.</p>
+
+<p>Open terminal shell and follow step by step below:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">cd</code> to the <code class="highlighter-rouge">exercises</code> directory</li>
+  <li><code class="highlighter-rouge">ls</code> to see what files are stored in the <code class="highlighter-rouge">exercises</code> directory, probably just a <code class="highlighter-rouge">Hello.java</code> file</li>
+  <li><code class="highlighter-rouge">javac Hello.java</code> compiling the file to .class file</li>
+  <li>Type <code class="highlighter-rouge">ls</code> again, and should see <code class="highlighter-rouge">Hello.class</code>, meaning it’s working</li>
+  <li><code class="highlighter-rouge">java Hello</code> and should see “Hello World!” printed out</li>
+  <li><code class="highlighter-rouge">java Hello Bob</code> and then should see “Hello Bob!” printed out</li>
+</ul>
+
+:ET

@@ -1,0 +1,239 @@
+I"^i<h3 id="note">NOTE:</h3>
+<p>I used <a href="http://www.eclipse.org/downloads/packages/">Eclipse</a> for week2, until realized had to use <a href="https://www.netbeans.org">Netbeans</a> to release third week exercises. I transferred codes from Eclipse to Netbeans. It’s recommended to use Netbeans for <a href="https://www.mooc.fi/">MOOC</a>.</p>
+
+<h1 id="the-2nd-part-of-the-week-2">The 2nd part of the Week 2!</h1>
+
+<p>The first part of the Week 2 is all about looping and using basic mathematics. Now this second part of the Week 2 is going to be about using looping and basic mathematics on strings. Plus we will get to learn how to do methods properly!</p>
+
+<h1 id="exercise-37--38">EXERCISE #37 &amp; #38</h1>
+
+<p>In this exercise, it enables us to <strong>understand how method works</strong>. We create a method then apply to the <strong>main</strong> method. <strong>Method is pretty much a function…</strong> well it can be used as a field attribute, but mostly used as a function. Take a look below!</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">week2</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">week2_ex37_38</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Scanner</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"How many? "</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">reader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">());</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
+
+        <span class="k">while</span><span class="o">(</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">num</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">printText</span><span class="o">();</span>
+            <span class="n">i</span><span class="o">++;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printText</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"In the beginning there were the swamp, the hoe, and Java"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>The assignment is to create a method <code class="highlighter-rouge">printText()</code> that only prints a string. A very simple and cute method. That is the exercise #37. It isn’t the end of that exercise, I am to include method <code class="highlighter-rouge">printText()</code> inside the <code class="highlighter-rouge">main(String[] args)</code> method. It shows me that the “inside” method pops out its function in the <code class="highlighter-rouge">main()</code> method. It only can be done that way. <strong>Class file must have a main method, because it is the entry point to execute functions out.</strong> If a package has mutilple class files, can use just one class file’s main method to execute (don’t worry about that now).</p>
+
+<p>In <strong>Exercise #38</strong>, it wants me to carry out <code class="highlighter-rouge">printText()</code> mutiple times at the number of user’s preference. <strong>Since <code class="highlighter-rouge">main()</code> method is the only executable method</strong>, add the <code class="highlighter-rouge">while()</code> loop inside <code class="highlighter-rouge">main()</code> method. We know how to do loop with an increment, no need to explain how, or go back to previous post. Insert <code class="highlighter-rouge">printText()</code> inside the loop in <code class="highlighter-rouge">main()</code>. Da-ta! The method is executed.</p>
+
+<h1 id="exercise-30--40">EXERCISE #30 &amp; #40</h1>
+
+<p>This exercise will teach more about methods involving with printing stars and them into shapes! Exciting, isn’t it?</p>
+
+<p>Let’s do a simple programming…</p>
+<ul>
+  <li>create a method that prints star and allow user to decide how many stars should be printed</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printStars</span><span class="o">(</span><span class="kt">int</span> <span class="n">amount</span><span class="o">){</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">amount</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">system</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"*"</span><span class="o">);</span>
+        <span class="n">i</span><span class="o">++;</span>
+    <span class="o">}</span> <span class="n">system</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">printStars</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+    <span class="n">printStars</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+    <span class="n">printStars</span><span class="o">(</span><span class="mi">9</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="c1">// Result:</span>
+<span class="c1">// *****</span>
+<span class="c1">// ***</span>
+<span class="c1">// *********</span>
+</code></pre></div></div>
+
+<p>A real simple programming, now let’s do all other bits of this <strong>Exercise #39</strong> altogether! I am going to be doing several methods. The list below are methods it wants me to create:</p>
+
+<ul>
+  <li>printing stars into a shape square aka method <code class="highlighter-rouge">printSquare(int sideSize)</code></li>
+  <li>printing stars into a rectangle aka method <code class="highlighter-rouge">printRectangle(int width, int height)</code></li>
+  <li>printing stars into a left-aligned triangle aka method <code class="highlighter-rouge">printTriangle(int size)</code></li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Printing</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printStars</span><span class="o">(</span><span class="kt">int</span> <span class="n">amount</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// 39.1</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">while</span><span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">amount</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"*"</span><span class="o">);</span>                          
+            <span class="n">i</span><span class="o">++;</span>
+        <span class="o">}</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printSquare</span><span class="o">(</span><span class="kt">int</span> <span class="n">sideSize</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// 39.2</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">sideSize</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">printStars</span><span class="o">(</span><span class="n">sideSize</span><span class="o">);</span>
+            <span class="n">i</span><span class="o">++;</span>
+        <span class="o">}</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printRectangle</span><span class="o">(</span><span class="kt">int</span> <span class="n">width</span><span class="o">,</span> <span class="kt">int</span> <span class="n">height</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// 39.3</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">height</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">printStars</span><span class="o">(</span><span class="n">width</span><span class="o">);</span>
+            <span class="n">i</span><span class="o">++;</span>
+        <span class="o">}</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printTriangle</span><span class="o">(</span><span class="kt">int</span> <span class="n">size</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="n">size</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">printStars</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+            <span class="n">i</span><span class="o">++;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">printStars</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\n---"</span><span class="o">);</span>
+        <span class="n">printSquare</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\n---"</span><span class="o">);</span>
+        <span class="n">printRectangle</span><span class="o">(</span><span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\n---"</span><span class="o">);</span>
+        <span class="n">printTriangle</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\n---"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Each method does a task, but is not executed until it’s in method <code class="highlighter-rouge">main()</code>. I think it’s better to split tasks into methods and then put altogether under one method. This is very basic. We will get a better understanding on “methods” in next post <strong>Guessing A Number</strong>. Let’s go over to <strong>Exercise #40</strong>, similar with <strong>Exercise #39</strong>. I might need to cover one method that is kind of troublesome.</p>
+
+<p>What <strong>Exercise #40</strong> asks for:</p>
+
+<ul>
+  <li>create a method <code class="highlighter-rouge">printWhitespaces(int size)</code>, giving amount of whitespaces</li>
+  <li>create a method <code class="highlighter-rouge">printTriangle(int size)</code>, this time right-aligned</li>
+  <li>create a christmas tree using all previous methods</li>
+</ul>
+
+<p>The top is easy to do, just use <code class="highlighter-rouge">printStars</code> method from <strong>Exercise #39</strong> and replace star with a whitespace “ “. Be sure to take <code class="highlighter-rouge">System.out.println();</code> off!</p>
+
+<p>Now this method <code class="highlighter-rouge">printTriangle()</code> right-aligned is where I got stuck for a bit. <i>Oui</i> rusty. Take a look:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printTriangle</span><span class="o">(</span><span class="kt">int</span> <span class="n">size</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+    <span class="k">while</span><span class="o">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="n">size</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">printWhitespaces</span><span class="o">(</span><span class="n">size</span> <span class="o">-</span> <span class="n">i</span><span class="o">);</span>
+        <span class="n">printStars</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+        <span class="n">i</span><span class="o">++;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="c1">//    *</span>
+<span class="c1">//   **</span>
+<span class="c1">//  ***</span>
+<span class="c1">// ****</span>
+
+</code></pre></div></div>
+
+<p>How do I make a right-aligned triangle? Earlier, this exercise asked me to create a <code class="highlighter-rouge">printWhitespaces()</code>, so that’s a hint. Adding <code class="highlighter-rouge">printWhitespaces()</code> method inside this method. Let’s say if <code class="highlighter-rouge">size</code> is given a <code class="highlighter-rouge">4</code> and it goes in both <code class="highlighter-rouge">printStars(size)</code> and to <code class="highlighter-rouge">printWhitespaces(size)</code>.  Basically, there’s <strong>4 characters</strong> made of <strong>either stars, or whitespaces</strong>. There will be 4 stars on the bottom for sure, and there won’t be any whitespace. Now about top, we want one star on top, and meaning need three whitespaces. We have no problem printing desired number of star/s, but how do we make whitespaces come first? Place <code class="highlighter-rouge">printWhitespaces()</code> first inside the loop. We want three whitespaces and <code class="highlighter-rouge">size</code> in this case means 4 characters. 4 characters - 1 star = 3 whitespaces. Ah-ha! <code class="highlighter-rouge">printWhitespaces(size-1);</code></p>
+
+<p>Loop rolls on, <code class="highlighter-rouge">size</code> reduce its number, but still subtracting <code class="highlighter-rouge">1</code> inside <code class="highlighter-rouge">printWhitespaces()</code>, giving the right amount of whitespaces needed. <code class="highlighter-rouge">printStars()</code> method on the next, creating right-aligned triangle.</p>
+
+<p><strong>xmasTree(int height) Method</strong></p>
+
+<p>The last part of this <strong>Exercise #40</strong> wants me to create a xmas tree using all previous methods, and maybe small tweaks. Don’t worry about xmas trunk or the bottom part. <strong>The challenge is making right-aligned triangle and left-aligned triangle go together…. or is it?</strong></p>
+
+<p>Using <code class="highlighter-rouge">printWhitespaces()</code> and <code class="highlighter-rouge">printStars()</code> again and this time <code class="highlighter-rouge">height</code> as an argument. <code class="highlighter-rouge">printWhitespaces()</code> placed first in the loop and subtracts by 1 same as with right-aligned triangle method. Now next step is the tricky part. It might look like left-aligned triangle and right-aligned triangle is thrown together to make a xmas tree. <strong>Actually it isn’t!</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">xmasTree</span><span class="o">(</span><span class="kt">int</span> <span class="n">height</span><span class="o">)</span> <span class="o">{</span>
+<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+    <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="n">height</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">printWhitespaces</span><span class="o">(</span><span class="n">height</span> <span class="o">-</span> <span class="n">i</span><span class="o">);</span>
+        <span class="n">printStars</span><span class="o">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+        <span class="n">i</span><span class="o">++;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Insert <code class="highlighter-rouge">printStars()</code> beneath <code class="highlighter-rouge">printWhitepsaces()</code>. If <code class="highlighter-rouge">height</code> is appointed to a number <code class="highlighter-rouge">4</code>, for xmas tree, we want one star on the top always. On the second row, we wouldn’t want two stars because top star wouldn’t be in the middle above two stars. We will need three stars on the second row.</p>
+
+<ul>
+  <li>each row should have odd numbers of stars</li>
+  <li>able to manipuate the number of stars in <code class="highlighter-rouge">printStars()</code> through each loop</li>
+  <li><code class="highlighter-rouge">printWhitespaces()</code>’s true function is to make a slope angle</li>
+  <li><code class="highlighter-rouge">printStars()</code>’s true function is to print a number of stars</li>
+</ul>
+
+<p><strong>The trick</strong></p>
+
+<p>we used modulo <code class="highlighter-rouge">% 2 = 0</code> to find even number. Well we could multiply by 2 to make <strong>any number</strong> an even number too. <strong>2 is a magical number!</strong> But if we substract the product by 1, it will always be an odd number. We will use <code class="highlighter-rouge">i</code> to manipulate <code class="highlighter-rouge">printStars()</code>.</p>
+
+<p>if height = 4</p>
+
+<p><code class="highlighter-rouge">printStars(2 * i - 1 );</code> = 2 * 1 - 1 = 1 star   <br />
+<code class="highlighter-rouge">printStars(2 * i - 1 );</code> = 2 * 2 - 1 = 3 stars   <br />
+<code class="highlighter-rouge">printStars(2 * i - 1 );</code> = 2 * 3 - 1 = 5 stars  <br />
+<code class="highlighter-rouge">printStars(2 * i - 1 );</code> = 2 * 4 - 1 = 7 stars</p>
+
+<p>See how that works?</p>
+
+<p>If printed, we get a triangle. Stumped, not a xmas tree. Time to make a stump!</p>
+
+<p>I at first thought stump was going to be easy to create, since it’s just a square or rectangle… oops! Forgot about whitespaces, how to keep stump in the middle. What if user decided to give xmasTree(height) a height of 10 or 20? Let’s try again.</p>
+
+<p>We want to manipualate <code class="highlighter-rouge">printWhitespaces()</code> based on <code class="highlighter-rouge">xmasTree()</code>. Stump only needed to be 2 stars tall. We could use <code class="highlighter-rouge">i</code> again, because the first <code class="highlighter-rouge">while()</code> loop is completed, and then second <code class="highlighter-rouge">while()</code> loop may continue. So set <code class="highlighter-rouge">i</code> to 2 and have it decrements down to 0. How do we manipulate <code class="highlighter-rouge">printWhitespaces()</code> according to <code class="highlighter-rouge">xmasTree()</code>’s <code class="highlighter-rouge">height</code>?</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>      
+<span class="k">while</span> <span class="o">(--</span><span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">printWhitespaces</span><span class="o">(</span><span class="n">height</span> <span class="o">-</span> <span class="mi">2</span><span class="o">);</span>
+    <span class="n">printStars</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Yep! Using <code class="highlighter-rouge">height</code> to correlate with <code class="highlighter-rouge">printWhitespaces()</code>. Stump will always be aligned in the middle based on it height. All small tasks are turned into methods, and thrown altogether into <code class="highlighter-rouge">main()</code> method to make it work. That’s fantastic!</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">xmasTree</span><span class="o">(</span><span class="kt">int</span> <span class="n">height</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+    <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="n">height</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">printWhitespaces</span><span class="o">(</span><span class="n">height</span> <span class="o">-</span> <span class="n">i</span><span class="o">);</span>
+        <span class="n">printStars</span><span class="o">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+        <span class="n">i</span><span class="o">++;</span>
+    <span class="o">}</span>
+
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>      
+    <span class="k">while</span> <span class="o">(--</span><span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">printWhitespaces</span><span class="o">(</span><span class="n">height</span> <span class="o">-</span> <span class="mi">2</span><span class="o">);</span>
+    <span class="n">printStars</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"---"</span><span class="o">);</span>
+    <span class="n">xmasTree</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"---"</span><span class="o">);</span>
+    <span class="n">xmasTree</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+:ET

@@ -1,0 +1,147 @@
+I"=A<p>This problem is really interesting and fun. I have worked on it for <strong>DAYS</strong>. On the first day, I thought I solved it and got few red circles with x in them. I should have saved those <strong>TRIED SOLUTIONS</strong>. I’ve tried so <strong>MANY DIFFERENT APPROACHES</strong> that I forgot what they were. A day passed by, and another day of trying came and went. Every time when I thought I got it and then I crtl-enter’d to run the test. <strong>REJECTED</strong> my solutions and left me <strong>DEJECTED.</strong> <br /></p>
+
+<p>Sometimes there would be few <strong>x’d red circles</strong>, and sometimes there would be one <strong>x’d red circle</strong> and hindered me from going forward to the next problem. <strong>I finally gave in. I decided to google the solution to this problem.</strong> To my amazement… there were many “solutions” online to this specific problem. <strong>More than five different solutions </strong> and they <strong>all promised</strong> to be working and will successfully progress into the next problem. <strong>Some of them even looked like mine</strong>, and I wondered where I might have gone wrong or is it some kind of a bug? So with <strong>no dignity</strong> I <strong>copied and pasted</strong> them into FCC. They got rejected! None of them worked when they promised to work. Well I found <strong>two solutions that worked out so far.</strong><br /></p>
+
+<p>I found the solution on FCC’s github. <strong>There wasn’t any another solution ONLINE.</strong> Another solution was my close friend from college which you can follow her on <a href="https://briennakh.github.io">briennakh.github.io</a>. She graduated from an university with Summa Cum Laude. She is a self taught programmer and a hardcore at it. Why did their solutions worked while most of other solutions promised to and failed? Apparently FCC had updated to prevent people from bypassing the problem without putting properties into an array.</p>
+
+<h1 id="the-problem-lies-below">The problem lies below:</h1>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">// Setup</span>
+<span class="kd">var</span> <span class="nx">collection</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">2548</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">album</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Slippery When Wet</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">artist</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Bon Jovi</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">tracks</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="dl">"</span><span class="s2">Let It Rock</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">You Give Love a Bad Name</span><span class="dl">"</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">2468</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">album</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1999</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">artist</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Prince</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">tracks</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="dl">"</span><span class="s2">1999</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">Little Red Corvette</span><span class="dl">"</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">1245</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">artist</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Robert Palmer</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">tracks</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span> <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">5439</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">album</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ABBA Gold</span><span class="dl">"</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+<span class="c1">// Keep a copy of the collection for tests</span>
+<span class="kd">var</span> <span class="nx">collectionCopy</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">collection</span><span class="p">));</span>
+
+<span class="c1">// Only change code below this line</span>
+<span class="kd">function</span> <span class="nx">updateRecords</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">prop</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+
+
+  <span class="k">return</span> <span class="nx">collection</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Alter values below to test your code</span>
+<span class="nx">updateRecords</span><span class="p">(</span><span class="mi">5439</span><span class="p">,</span> <span class="dl">"</span><span class="s2">artist</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">ABBA</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h1 id="and-the-challenge-is">and the challenge is:</h1>
+
+<ul>
+  <li>
+    <p>Write a function which takes an album’s id (like 2548), a property prop (like “artist” or “tracks”), and a value (like “Addicted to Love”) to modify the data in this collection.</p>
+  </li>
+  <li>
+    <p>If prop isn’t “tracks” and value isn’t empty (“”), update or set the value for that record album’s property.</p>
+  </li>
+  <li>
+    <p>Your function must always return the entire collection object.</p>
+  </li>
+</ul>
+
+<p><strong>- If prop is “tracks” but the album doesn’t have a “tracks” property, create an empty array before adding the new value to the album’s corresponding property.</strong></p>
+
+<p><strong>- If prop is “tracks” and value isn’t empty (“”), push the value onto the end of the album’s existing tracks array.</strong></p>
+
+<ul>
+  <li>If value is empty (“”), delete the given prop property from the album.</li>
+</ul>
+
+<h1 id="the-obstacle">The obstacle:</h1>
+
+<p>The two bold challenges above are what the most people including me failed to comply. Seems like we could success to perform either one, or another. Just not both at the same time, so if there are third or different solution that succeed <strong>please do share</strong>. Here are two different solutions below that I have found to this problem.</p>
+
+<h1 id="two-solutions-so-far">Two solutions so far:</h1>
+
+<p>FCC Solution which can be explained further on <a href="https://github.com/FreeCodeCamp/FreeCodeCamp/wiki/Challenge-Record-Collection">freecodecamp-github</a>:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">updateRecords</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">prop</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">prop</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">tracks</span><span class="dl">"</span> <span class="o">&amp;&amp;</span> <span class="nx">value</span> <span class="o">!==</span> <span class="dl">""</span><span class="p">)</span> <span class="p">{</span>
+   <span class="k">if</span><span class="p">(</span><span class="nx">collection</span><span class="p">[</span><span class="nx">id</span><span class="p">][</span><span class="nx">prop</span><span class="p">])</span> <span class="p">{</span>
+    <span class="nx">collection</span><span class="p">[</span><span class="nx">id</span><span class="p">][</span><span class="nx">prop</span><span class="p">].</span><span class="nx">push</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+   <span class="p">}</span>
+   <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">collection</span><span class="p">[</span><span class="nx">id</span><span class="p">][</span><span class="nx">prop</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="nx">value</span><span class="p">];</span>
+   <span class="p">}</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">value</span> <span class="o">!==</span> <span class="dl">""</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">collection</span><span class="p">[</span><span class="nx">id</span><span class="p">][</span><span class="nx">prop</span><span class="p">]</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">delete</span> <span class="nx">collection</span><span class="p">[</span><span class="nx">id</span><span class="p">][</span><span class="nx">prop</span><span class="p">];</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">collection</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<p>Another solution which could be found in <a href="https://briennakh.github.io">briennakh-github</a>:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">updateRecords</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">prop</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Add property if it doesn't exist</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">collection</span><span class="p">[</span><span class="nx">id</span><span class="p">][</span><span class="nx">prop</span><span class="p">])</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">prop</span> <span class="o">==</span> <span class="dl">"</span><span class="s2">tracks</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">collection</span><span class="p">[</span><span class="nx">id</span><span class="p">][</span><span class="nx">prop</span><span class="p">]</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">collection</span><span class="p">[</span><span class="nx">id</span><span class="p">][</span><span class="nx">prop</span><span class="p">]</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Add value to property</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">collection</span><span class="p">[</span><span class="nx">id</span><span class="p">][</span><span class="nx">prop</span><span class="p">].</span><span class="kd">constructor</span> <span class="o">==</span> <span class="nb">Array</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">collection</span><span class="p">[</span><span class="nx">id</span><span class="p">][</span><span class="nx">prop</span><span class="p">].</span><span class="nx">push</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">collection</span><span class="p">[</span><span class="nx">id</span><span class="p">][</span><span class="nx">prop</span><span class="p">]</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="c1">// Delete given prop if value is empty</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">delete</span> <span class="nx">collection</span><span class="p">[</span><span class="nx">id</span><span class="p">][</span><span class="nx">prop</span><span class="p">];</span>
+    <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">collection</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<p>[Update] A third solution found on <a href="https://github.com/revisualize/FreeCodeCamp_Lessons/blob/master/Record_Collection.js">revisualize-github</a>:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">updateRecords</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">prop</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">value</span> <span class="o">!==</span> <span class="dl">''</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">prop</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">tracks</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">collection</span><span class="p">[</span><span class="nx">id</span><span class="p">].</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="nx">prop</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nx">collection</span><span class="p">[</span><span class="nx">id</span><span class="p">][</span><span class="nx">prop</span><span class="p">]</span> <span class="o">=</span> <span class="p">[];</span>
+          <span class="p">}</span>
+          <span class="nx">collection</span><span class="p">[</span><span class="nx">id</span><span class="p">][</span><span class="nx">prop</span><span class="p">].</span><span class="nx">push</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+          <span class="nx">collection</span><span class="p">[</span><span class="nx">id</span><span class="p">][</span><span class="nx">prop</span><span class="p">]</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
+      <span class="p">}</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">delete</span> <span class="nx">collection</span><span class="p">[</span><span class="nx">id</span><span class="p">][</span><span class="nx">prop</span><span class="p">];</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">collection</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+:ET

@@ -1,0 +1,420 @@
+I"�^<h2 class="redfont" id="update-061917-please-review-using-derived-tables-and-nested-select-to-understand-more-about-world-x-and-world-y-in-alias-paragraph">UPDATE (06/19/17) Please review <a href="https://ngarciaiii.github.io/sql/2017/06/19/Using-Derived-Tables-and-Nested-SELECT/">Using Derived Tables and Nested SELECT</a> to understand more about <code class="highlighter-rouge">world x</code> and <code class="highlighter-rouge">world y</code> in “Alias” paragraph</h2>
+
+<h2 id="new-keywords-to-learn">New Keywords to learn:</h2>
+
+<p><strong>MAX</strong><br />
+Returns the largest value</p>
+
+<h1 id="world-x-and-world-y">world x and world y</h1>
+
+<p>Now this is the second half part where <strong>Exercise 4</strong> gets much more complex. Going to do some analysis! The problem states something like this:</p>
+
+<p>Find the largest country (by area) in each continent, show the continent, the name and the area:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">continent</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">area</span> <span class="k">FROM</span> <span class="n">world</span> <span class="n">x</span>
+<span class="k">WHERE</span> <span class="n">area</span> <span class="o">&gt;=</span> <span class="k">ALL</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">area</span> <span class="k">FROM</span> <span class="n">world</span> <span class="n">y</span> <span class="k">WHERE</span> <span class="n">y</span><span class="p">.</span><span class="n">continent</span><span class="o">=</span><span class="n">x</span><span class="p">.</span><span class="n">continent</span>
+  <span class="k">AND</span> <span class="n">area</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+</code></pre></div></div>
+
+<table>
+  <tbody>
+    <tr>
+      <td>continent</td>
+      <td>name</td>
+      <td>area</td>
+    </tr>
+    <tr>
+      <td>Africa</td>
+      <td>Algeria</td>
+      <td>2381741</td>
+    </tr>
+    <tr>
+      <td>Oceania</td>
+      <td>Australia</td>
+      <td>7692024</td>
+    </tr>
+    <tr>
+      <td>South America</td>
+      <td>Brazil</td>
+      <td>8515767</td>
+    </tr>
+    <tr>
+      <td>North America</td>
+      <td>Canada</td>
+      <td>9984670</td>
+    </tr>
+    <tr>
+      <td>Asia</td>
+      <td>China</td>
+      <td>9596961</td>
+    </tr>
+    <tr>
+      <td>Caribbean</td>
+      <td>Cuba</td>
+      <td>109884</td>
+    </tr>
+    <tr>
+      <td>Europe</td>
+      <td>Kazakhstan</td>
+      <td>2724900</td>
+    </tr>
+    <tr>
+      <td>Eurasia</td>
+      <td>Russia</td>
+      <td>17125242</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>I am wondering if this is considered as <del>multiple tables</del> or still one table, and didn’t know there were this many continents too. Two possibly different explanations for this <code class="highlighter-rouge">world x</code> and <code class="highlighter-rouge">world y</code>:</p>
+
+<ul>
+  <li><del><code class="highlighter-rouge">world x</code> to search through attributes, and <code class="highlighter-rouge">world y</code> to search through tuples?</del></li>
+  <li>table just duplicated using <code class="highlighter-rouge">x</code> and <code class="highlighter-rouge">y</code> to compare each other?</li>
+</ul>
+
+<p>Let’s focus on what I understand so far.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">ALL</code> means each or every</li>
+  <li><code class="highlighter-rouge">world x</code> filters for <code class="highlighter-rouge">area</code> larger than <code class="highlighter-rouge">ALL</code> area in <code class="highlighter-rouge">world y</code> continents</li>
+  <li><code class="highlighter-rouge">WHERE</code> in <code class="highlighter-rouge">world y</code> filters through and inside continents, and that <code class="highlighter-rouge">y.continent</code> and <code class="highlighter-rouge">x.continent</code> are “merged” attributes and tuples?</li>
+</ul>
+
+<p>I assume that other problems are going to be about <code class="highlighter-rouge">world x</code> and <code class="highlighter-rouge">world y</code>.</p>
+
+<h2 id="exploring-more-of-world-x-and-world-y-problems">Exploring more of world x and world y problems!</h2>
+
+<p>The next problem states: List each continent and the name of the country that comes first alphabetically.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">continent</span><span class="p">,</span> <span class="n">name</span> <span class="k">FROM</span> <span class="n">world</span> <span class="n">x</span>
+<span class="k">WHERE</span> <span class="n">name</span> <span class="o">&lt;=</span> <span class="k">ALL</span><span class="p">(</span><span class="k">SELECT</span> <span class="n">name</span> <span class="k">FROM</span> <span class="n">world</span> <span class="n">y</span> <span class="k">WHERE</span> <span class="n">y</span><span class="p">.</span><span class="n">continent</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">continent</span><span class="p">)</span>
+</code></pre></div></div>
+
+<table>
+  <tbody>
+    <tr>
+      <td>continent</td>
+      <td>name</td>
+    </tr>
+    <tr>
+      <td>Africa</td>
+      <td>Algeria</td>
+    </tr>
+    <tr>
+      <td>Asia</td>
+      <td>Afghanistan</td>
+    </tr>
+    <tr>
+      <td>Caribbean</td>
+      <td>Antigua and Barbuda</td>
+    </tr>
+    <tr>
+      <td>Eurasia</td>
+      <td>Armenia</td>
+    </tr>
+    <tr>
+      <td>Europe</td>
+      <td>Albania</td>
+    </tr>
+    <tr>
+      <td>North America</td>
+      <td>Belize</td>
+    </tr>
+    <tr>
+      <td>Oceania</td>
+      <td>Australia</td>
+    </tr>
+    <tr>
+      <td>South America</td>
+      <td>Argentina</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>It appears as if operators <code class="highlighter-rouge">&gt;=</code> and or <code class="highlighter-rouge">&lt;=</code> can set attribute in either ascending or descending order. I am not sure if that is the case. This part will <strong>need an UPDATE</strong> later on! I will return to either correct, or confirm it.</p>
+
+<h2 class="redfont" id="need-a-update-later-on-how-does-operator--or--cause-name-to-sort-in-order">NEED A UPDATE LATER ON! How does Operator <code class="highlighter-rouge">&gt;=</code> or <code class="highlighter-rouge">&lt;=</code> cause <code class="highlighter-rouge">name</code> to sort in order?</h2>
+
+<p><br />
+Okay! Moving on to the next problem!</p>
+
+<p>The <strong>problem #9</strong> asks for:</p>
+
+<ul>
+  <li>Find the continents where all countries have a population &lt;= 25000000</li>
+  <li>Find the names of the countries associated with these continents</li>
+  <li>Show name, continent and population</li>
+</ul>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">continent</span><span class="p">,</span> <span class="n">population</span> <span class="k">FROM</span> <span class="n">world</span> <span class="n">x</span>
+<span class="k">WHERE</span> <span class="mi">25000000</span> <span class="o">&gt;</span> <span class="k">ALL</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">population</span> <span class="k">FROM</span> <span class="n">world</span> <span class="n">y</span> <span class="k">WHERE</span> <span class="n">x</span><span class="p">.</span><span class="n">continent</span> <span class="o">=</span> <span class="n">y</span><span class="p">.</span><span class="n">continent</span> <span class="k">AND</span> <span class="n">y</span><span class="p">.</span><span class="n">population</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+</code></pre></div></div>
+
+<table>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>continent</td>
+      <td>population</td>
+    </tr>
+    <tr>
+      <td>Antigua and Barbuda</td>
+      <td>Caribbean</td>
+      <td>86295</td>
+    </tr>
+    <tr>
+      <td>Australia</td>
+      <td>Oceania</td>
+      <td>23545500</td>
+    </tr>
+    <tr>
+      <td>Bahamas</td>
+      <td>Caribbean</td>
+      <td>351461</td>
+    </tr>
+    <tr>
+      <td>Barbados</td>
+      <td>Caribbean</td>
+      <td>285000</td>
+    </tr>
+    <tr>
+      <td>Cuba</td>
+      <td>Caribbean</td>
+      <td>11167325</td>
+    </tr>
+    <tr>
+      <td>Dominica</td>
+      <td>Caribbean</td>
+      <td>71293</td>
+    </tr>
+    <tr>
+      <td>Dominican Republic</td>
+      <td>Caribbean</td>
+      <td>9445281</td>
+    </tr>
+    <tr>
+      <td>…</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Whew! This problem is easier to solve. Draw data on <code class="highlighter-rouge">name</code>, <code class="highlighter-rouge">continent</code>, <code class="highlighter-rouge">population</code> using <code class="highlighter-rouge">world x</code> table, easy! Filtering for populations with the size of 25000000 or less from every continents. It will return only continents that have <code class="highlighter-rouge">ALL</code> countries with population less than 25,000,000. I am still having hard time to understand this x table and y table concept. I decide to learn more about database so I can return to explain this better.</p>
+
+<p>Ugh, another tough problem encountered. The <strong>problem #10</strong> asks for:</p>
+
+<ul>
+  <li>Some countries have populations more than three times that of any of their neighbors (in the same continent)</li>
+  <li>Give the countries and continents</li>
+</ul>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">continent</span> <span class="k">FROM</span> <span class="n">world</span> <span class="n">x</span>
+<span class="k">WHERE</span>
+</code></pre></div></div>
+
+<p>The first step <code class="highlighter-rouge">SELECT</code> is always easy!</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">continent</span> <span class="k">FROM</span> <span class="n">world</span> <span class="n">x</span>
+<span class="k">WHERE</span>  <span class="n">population</span> <span class="o">&gt;</span> <span class="k">ALL</span><span class="p">(</span><span class="k">SELECT</span> <span class="n">population</span> <span class="k">FROM</span> <span class="n">world</span> <span class="n">y</span> <span class="k">WHERE</span> <span class="n">x</span><span class="p">.</span><span class="n">continent</span> <span class="o">=</span> <span class="n">y</span><span class="p">.</span><span class="n">continent</span> <span class="k">AND</span> <span class="n">population</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Didn’t work! I tried to figure out why and I found the answer online. <del>This isn’t taught in <a href="http://sqlzoo.net/">SQLZOO</a>, it can be unfair sometime.</del> More on this was hidden in a hyperlink inside “SELECT within SELECT” on <a href="http://sqlzoo.net/">SQLZOO</a>. More information can be found in <a href="https://ngarciaiii.github.io/sql/2017/06/19/Using-Derived-Tables-and-Nested-SELECT/">Using Derived Tables and Nested SELECT</a>. It is called <strong>aliasing</strong></p>
+
+<p>The answer looks like this:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">continent</span> <span class="k">FROM</span> <span class="n">world</span> <span class="n">x</span>
+<span class="k">WHERE</span> <span class="n">population</span> <span class="o">&gt;</span> <span class="k">ALL</span><span class="p">(</span><span class="k">SELECT</span> <span class="n">population</span><span class="o">*</span><span class="mi">3</span> <span class="k">FROM</span> <span class="n">world</span> <span class="n">y</span> <span class="k">WHERE</span> <span class="n">x</span><span class="p">.</span><span class="n">continent</span> <span class="o">=</span> <span class="n">y</span><span class="p">.</span><span class="n">continent</span> <span class="k">AND</span> <span class="n">population</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">AND</span> <span class="n">y</span><span class="p">.</span><span class="n">name</span> <span class="o">!=</span> <span class="n">x</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
+</code></pre></div></div>
+
+<table>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>continent</td>
+    </tr>
+    <tr>
+      <td>Australia</td>
+      <td>Oceania</td>
+    </tr>
+    <tr>
+      <td>Brazil</td>
+      <td>South America</td>
+    </tr>
+    <tr>
+      <td>Russia</td>
+      <td>Eurasia</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>I would have figured the <code class="highlighter-rouge">population*3</code> part, just not <code class="highlighter-rouge">y.name != x.name</code>. Makes sense, operator <code class="highlighter-rouge">&gt;</code> or <code class="highlighter-rouge">&lt;</code> wouldn’t be able to compare if there are two exact same data from “two” tables.</p>
+
+<h1 id="select-quiz-part">SELECT QUIZ PART!</h1>
+
+<h2 id="hope-i-will-understand-world-x-and-world-y-better-through-this-quiz-multiple-choices"><del>Hope I will understand <code class="highlighter-rouge">world x</code> and <code class="highlighter-rouge">world y</code> better through this quiz multiple choices!</del></h2>
+
+<p>I would like to note that this Quiz covers a slightly different table. The table is called “bbc”, and it uses ‘region’ instead of ‘continent’.  The table looks likes this below:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>region</td>
+      <td>area</td>
+      <td>population</td>
+      <td>gdp</td>
+    </tr>
+    <tr>
+      <td>Afghanistan</td>
+      <td>South Asia</td>
+      <td>652225</td>
+      <td>26000000</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Albania</td>
+      <td>Europe</td>
+      <td>28728</td>
+      <td>3200000</td>
+      <td>6656000000</td>
+    </tr>
+    <tr>
+      <td>Algeria</td>
+      <td>Middle East</td>
+      <td>2400000</td>
+      <td>32900000</td>
+      <td>75012000000</td>
+    </tr>
+    <tr>
+      <td>Andorra</td>
+      <td>Europe</td>
+      <td>468</td>
+      <td>64000</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Bangladesh</td>
+      <td>South Asia</td>
+      <td>143998</td>
+      <td>152600000</td>
+      <td>67144000000</td>
+    </tr>
+    <tr>
+      <td>United Kingdom</td>
+      <td>Europe</td>
+      <td>242514</td>
+      <td>59600000</td>
+      <td>2022824000000</td>
+    </tr>
+    <tr>
+      <td>…</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>1)</strong> Select the code that shows the name, region and population of the smallest country in each region</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">region</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">population</span> <span class="k">FROM</span> <span class="n">bbc</span> <span class="n">x</span> <span class="k">WHERE</span> <span class="n">population</span> <span class="o">&lt;=</span> <span class="k">ALL</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">population</span> <span class="k">FROM</span> <span class="n">bbc</span> <span class="n">y</span> <span class="k">WHERE</span> <span class="n">y</span><span class="p">.</span><span class="n">region</span><span class="o">=</span><span class="n">x</span><span class="p">.</span><span class="n">region</span> <span class="k">AND</span> <span class="n">population</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Process goes like this:</p>
+
+<ul>
+  <li><strong>outer query</strong> gathers regions, populations, and countries that are <strong>less or equals</strong> than ALL of <strong>inner query</strong> results</li>
+  <li><strong>inner query</strong> gathers all populations on every regions</li>
+  <li>smallest population is gathered from each region</li>
+</ul>
+
+<p><strong>2)</strong> Select the code that shows the countries belonging to regions with all populations over 50000</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span><span class="n">region</span><span class="p">,</span><span class="n">population</span> <span class="k">FROM</span> <span class="n">bbc</span> <span class="n">x</span> <span class="k">WHERE</span> <span class="mi">50000</span> <span class="o">&lt;</span> <span class="k">ALL</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">population</span> <span class="k">FROM</span> <span class="n">bbc</span> <span class="n">y</span> <span class="k">WHERE</span> <span class="n">x</span><span class="p">.</span><span class="n">region</span><span class="o">=</span><span class="n">y</span><span class="p">.</span><span class="n">region</span> <span class="k">AND</span> <span class="n">y</span><span class="p">.</span><span class="n">population</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br />
+<strong>3)</strong> Select the code that shows the countries with a less than a third of the population of the countries around it</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">region</span> <span class="k">FROM</span> <span class="n">bbc</span> <span class="n">x</span>
+<span class="k">WHERE</span> <span class="n">population</span> <span class="o">&lt;</span> <span class="k">ALL</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">population</span><span class="o">/</span><span class="mi">3</span> <span class="k">FROM</span> <span class="n">bbc</span> <span class="n">y</span> <span class="k">WHERE</span> <span class="n">y</span><span class="p">.</span><span class="n">region</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">region</span>
+  <span class="k">AND</span> <span class="n">y</span><span class="p">.</span><span class="n">name</span> <span class="o">!=</span> <span class="n">x</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>outer query</strong> gather countries, regions from <strong>correlation name</strong> <code class="highlighter-rouge">bbc x</code> where population is <strong>less</strong> than ALL <strong>inner query</strong> results</li>
+  <li><strong>inner query</strong> gather population that are reduced to a third from every region and as long as country from bbc x and country from bbc y doesn’t compare with each other i.e. (<code class="highlighter-rouge">y.name != x.name</code>)</li>
+  <li>note that it ISN’T <strong>less or equals</strong></li>
+</ul>
+
+<p><br />
+<strong>4)</strong>  Select the result that would be obtained from the following code:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span> <span class="k">FROM</span> <span class="n">bbc</span>
+<span class="k">WHERE</span> <span class="n">population</span> <span class="o">&gt;</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">population</span> <span class="k">FROM</span> <span class="n">bbc</span> <span class="k">WHERE</span> <span class="n">name</span><span class="o">=</span><span class="s1">'United Kingdom'</span><span class="p">)</span>
+   <span class="k">AND</span> <span class="n">region</span> <span class="k">IN</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">region</span> <span class="k">FROM</span> <span class="n">bbc</span> <span class="k">WHERE</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">'United Kingdom'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<table>
+  <tbody>
+    <tr>
+      <td>France</td>
+    </tr>
+    <tr>
+      <td>Germany</td>
+    </tr>
+    <tr>
+      <td>Russia</td>
+    </tr>
+    <tr>
+      <td>Turkey</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br />
+<strong>5)</strong>  Select the code that would show the countries with a greater GDP than any country in Africa (some countries may have NULL gdp values)</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">gdp</span> <span class="k">FROM</span> <span class="n">bbc</span> <span class="n">x</span>
+<span class="k">WHERE</span> <span class="n">gdp</span> <span class="o">&gt;</span> <span class="p">(</span><span class="k">SELECT</span> <span class="k">MAX</span><span class="p">(</span><span class="n">gdp</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">bbc</span> <span class="n">y</span> <span class="k">WHERE</span> <span class="n">region</span> <span class="o">=</span> <span class="s1">'Africa'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>outer query</strong> gather name and gdp in world that are greater than..</li>
+  <li><strong>inner query</strong> gather the largest gdp from Africa</li>
+</ul>
+
+<p><br />
+<strong>6)</strong> Select the code that shows the countries with population smaller than Russia but bigger than Denmark</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span> <span class="k">FROM</span> <span class="n">bbc</span>
+<span class="k">WHERE</span> <span class="n">population</span> <span class="o">&lt;</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">population</span> <span class="k">FROM</span> <span class="n">bbc</span> <span class="k">WHERE</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Russia'</span><span class="p">)</span>
+   <span class="k">AND</span> <span class="n">population</span> <span class="o">&gt;</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">population</span> <span class="k">FROM</span> <span class="n">bbc</span> <span class="k">WHERE</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Denmark'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br />
+<strong>7)</strong> Select the result that would be obtained from the following code:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span> <span class="k">FROM</span> <span class="n">bbc</span>
+<span class="k">WHERE</span> <span class="n">population</span> <span class="o">&gt;</span> <span class="k">ALL</span> <span class="p">(</span><span class="k">SELECT</span> <span class="k">MAX</span><span class="p">(</span><span class="n">population</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">bbc</span> <span class="k">WHERE</span> <span class="n">region</span> <span class="o">=</span> <span class="s1">'Europe'</span><span class="p">)</span>
+   <span class="k">AND</span> <span class="n">region</span> <span class="o">=</span> <span class="s1">'South Asia'</span>
+</code></pre></div></div>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Bangladesh</td>
+    </tr>
+    <tr>
+      <td>India</td>
+    </tr>
+    <tr>
+      <td>Pakistan</td>
+    </tr>
+  </tbody>
+</table>
+
+:ET
