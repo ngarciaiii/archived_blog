@@ -7,11 +7,7 @@ url: http://ngarciaiii.github.io
 logo: '/public/logo.png'
 
 # Site configurations
-<<<<<<< HEAD
-gems: [jekyll-paginate]
-=======
 plugins: [jekyll-paginate]
->>>>>>> parent of 97131b7... added nightmode
 markdown: kramdown
 kramdown:
   input: GFM
