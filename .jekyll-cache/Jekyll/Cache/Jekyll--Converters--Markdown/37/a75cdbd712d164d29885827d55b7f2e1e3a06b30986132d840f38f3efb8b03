@@ -1,0 +1,181 @@
+I"zJ<p>I was going to continue on <a href="http://www.eclipse.org/downloads/packages/">Eclipse</a> with this <strong>last exercise of the Week 2</strong>, but realize it has many components and methods of its own. I decided to use <a href="https://www.netbeans.org">NetBeans</a>, because I want to start Week 3 already. I want to be at Week 11 by now.</p>
+
+<p>In NetBeans, this <strong>Exercise #42</strong> has methods ready:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">hangman.gameOn()</code>
+    <ul>
+      <li>shows if game is on</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">hangman.printStatus()</code>
+    <ul>
+      <li>prints the game status</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">hangman.printWord()</code>
+    <ul>
+      <li>prints the word user tries to guess</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">hangman.printMan()</code>
+    <ul>
+      <li>prints the hangman</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">hangman.guess(String Letter)</code>
+    <ul>
+      <li>guesses the letter</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">printMenu()</code>
+    <ul>
+      <li>menu set up already</li>
+    </ul>
+  </li>
+</ul>
+
+<p>What is already there:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Scanner</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+    <span class="nc">Hangman</span> <span class="n">hangman</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Hangman</span><span class="o">();</span>
+
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"***********"</span><span class="o">);</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"* HANGMAN  *"</span><span class="o">);</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"***********"</span><span class="o">);</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+    <span class="n">printMenu</span><span class="o">();</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+
+    <span class="c1">// PROGRAM YOUR SOLUTION HERE</span>
+
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Thank you for playing!"</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printMenu</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">" * menu *"</span><span class="o">);</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"quit   - quits the game"</span><span class="o">);</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"status  - prints the game status"</span><span class="o">);</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"a single letter uses the letter as a guess"</span><span class="o">);</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"an empty line prints this menu"</span><span class="o">);</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<h2 id="our-tasks">Our tasks…</h2>
+
+<ul>
+  <li>create a loop, if a command = ‘quit’, then break the loop</li>
+  <li>if command = “status”, trigger method <code class="highlighter-rouge">hangman.printStatus()</code></li>
+  <li>if command is a single letter, set it to <code class="highlighter-rouge">hangman.guess(String Letter)</code></li>
+  <li>if command is empty, set it to <code class="highlighter-rouge">printMenu()</code></li>
+  <li>if command is not ‘quit’, set it to <code class="highlighter-rouge">hangman.printMan()</code> and <code class="highlighter-rouge">hangman.printWord()</code></li>
+</ul>
+
+<p>The first step is making a loop, my first thought is “while (hangman.gameOn()”. Let’s make this game. Maybe should throw in string <code class="highlighter-rouge">status</code> too.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">while</span> <span class="o">(</span><span class="n">hangman</span><span class="o">.</span><span class="na">gameOn</span><span class="o">())</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Type a command: "</span><span class="o">);</span>
+    <span class="nc">String</span> <span class="n">quit</span> <span class="o">=</span> <span class="s">"quit"</span><span class="o">;</span>
+
+    <span class="nc">String</span> <span class="n">command</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">command</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">quit</span><span class="o">))</span> <span class="o">{</span>
+        <span class="k">break</span><span class="o">;</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">command</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">status</span><span class="o">))</span> <span class="o">{</span>
+        <span class="n">hangman</span><span class="o">.</span><span class="na">printStatus</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>The loop is created, and it ends if ‘quit’ is entered, and also prints status if ‘status’ is entered.</p>
+
+<ul>
+  <li><del>create a loop, if a command = ‘quit’, then break the loop</del></li>
+  <li><del>if command = “status”, trigger method <code class="highlighter-rouge">hangman.printStatus()</code></del></li>
+  <li>if command is a single letter, set it to <code class="highlighter-rouge">hangman.guess(String Letter)</code></li>
+  <li>if command is empty, set it to <code class="highlighter-rouge">printMenu()</code></li>
+  <li>if command is not ‘quit’, set it to <code class="highlighter-rouge">hangman.printMan()</code> and <code class="highlighter-rouge">hangman.printWord()</code></li>
+</ul>
+
+<p>Okay… in the NetBeans on <strong>Exercise #42</strong> has a hint saying <code class="highlighter-rouge">if (command.length()== 1)</code>, I am going to borrow that and insert it in. I think could fit the <code class="highlighter-rouge">printMenu()</code> in conditional statment. What else could we do better than that?</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="n">command</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">command</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">quit</span><span class="o">))</span> <span class="o">{</span>
+        <span class="k">break</span><span class="o">;</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">command</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">status</span><span class="o">))</span> <span class="o">{</span>
+        <span class="n">hangman</span><span class="o">.</span><span class="na">printStatus</span><span class="o">();</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">command</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">hangman</span><span class="o">.</span><span class="na">guess</span><span class="o">(</span><span class="n">command</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">command</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+        <span class="n">printMenu</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li><del>create a loop, if a command = ‘quit’, then break the loop</del></li>
+  <li><del>if command = “status”, trigger method <code class="highlighter-rouge">hangman.printStatus()</code></del></li>
+  <li><del>if command is a single letter, set it to <code class="highlighter-rouge">hangman.guess(String Letter)</code></del></li>
+  <li><del>if command is empty, set it to <code class="highlighter-rouge">printMenu()</code></del></li>
+  <li>if command is not ‘quit’, set it to <code class="highlighter-rouge">hangman.printMan()</code> and <code class="highlighter-rouge">hangman.printWord()</code></li>
+</ul>
+
+<p>Down to the last task… I don’t think I need to explain what to do on this part.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">hangman.Hangman</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HangmanUserInteface</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Scanner</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+        <span class="nc">Hangman</span> <span class="n">hangman</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Hangman</span><span class="o">();</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"***********"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"* HANGMAN  *"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"***********"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+        <span class="n">printMenu</span><span class="o">();</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+
+        <span class="c1">// PROGRAM YOUR SOLUTION HERE</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">hangman</span><span class="o">.</span><span class="na">gameOn</span><span class="o">())</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Type a command: "</span><span class="o">);</span>
+        <span class="nc">String</span> <span class="n">quit</span> <span class="o">=</span> <span class="s">"quit"</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">status</span> <span class="o">=</span> <span class="s">"status"</span><span class="o">;</span>
+
+        <span class="nc">String</span> <span class="n">command</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">command</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">quit</span><span class="o">))</span> <span class="o">{</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">command</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">status</span><span class="o">))</span> <span class="o">{</span>
+                <span class="n">hangman</span><span class="o">.</span><span class="na">printStatus</span><span class="o">();</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">command</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">hangman</span><span class="o">.</span><span class="na">guess</span><span class="o">(</span><span class="n">command</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">command</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+                <span class="n">printMenu</span><span class="o">();</span>
+            <span class="o">}</span>
+            <span class="n">hangman</span><span class="o">.</span><span class="na">printMan</span><span class="o">();</span>
+            <span class="n">hangman</span><span class="o">.</span><span class="na">printWord</span><span class="o">();</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Thank you for playing!"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printMenu</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">" * menu *"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"quit   - quits the game"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"status  - prints the game status"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"a single letter uses the letter as a guess"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"an empty line prints this menu"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<h2 id="move-on-to-week-3">Move on to Week 3!</h2>
+
+:ET

@@ -1,0 +1,259 @@
+I"�)<p>Continuing with tutorial under <a href="http://sqlzoo.net/">SQLZOO</a>. The <strong>second exercise</strong> is titled “SELECT from WORLD”. Using same <strong>world</strong> database from previous exercise.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>continent</th>
+      <th>area</th>
+      <th>population</th>
+      <th>gdp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Afghanistan</td>
+      <td>Asia</td>
+      <td>652230</td>
+      <td>25500100</td>
+      <td>20343000000</td>
+    </tr>
+    <tr>
+      <td>Albania</td>
+      <td>Europe</td>
+      <td>28748</td>
+      <td>2831741</td>
+      <td>12960000000</td>
+    </tr>
+    <tr>
+      <td>Algeria</td>
+      <td>Africa</td>
+      <td>2381741</td>
+      <td>37100000</td>
+      <td>188681000000</td>
+    </tr>
+    <tr>
+      <td>Andorra</td>
+      <td>Europe</td>
+      <td>468</td>
+      <td>78115</td>
+      <td>3712000000</td>
+    </tr>
+    <tr>
+      <td>Angola</td>
+      <td>Africa</td>
+      <td>1246700</td>
+      <td>20609294</td>
+      <td>100990000000</td>
+    </tr>
+    <tr>
+      <td>…</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="new-keywords-to-learn">New keywords to learn</h2>
+
+<p><strong>XOR</strong><br />
+Exclusive OR, it will show data and exclude another data</p>
+
+<p><strong>ROUND</strong><br />
+It rounds the number up. It can round up by tenth, hundredth, and even thousandth. Take a look at an example below.</p>
+
+<p>ROUND(7253.86, 0)    -&gt;  7254 <br />
+ROUND(7253.86, 1)    -&gt;  7253.9 <br />
+ROUND(7253.86,-3)    -&gt;  7000 <br />
+<br /></p>
+
+<h1 id="exercise-2-begins">EXERCISE 2 BEGINS!</h1>
+
+<h2 id="one-or-the-other-but-not-both">One or the other (but not both)</h2>
+<p>I learned a new trick, using <strong>XOR</strong>. It is short for Exclusive OR, which accepts only one of either if two desires are given. Take a look at an example below:</p>
+
+<ul>
+  <li>Australia has a big area but a small population, it should be <strong>included</strong>.</li>
+  <li>Indonesia has a big population but a small area, it should be <strong>included</strong>.</li>
+  <li>China has a big population and big area, it should be <strong>excluded</strong>.</li>
+  <li>United Kingdom has a small population and a small area, it should be <strong>excluded</strong>.</li>
+</ul>
+
+<p>Their definition of big <code class="highlighter-rouge">population</code> is <code class="highlighter-rouge">&gt;250000000</code> and big <code class="highlighter-rouge">area</code> as <code class="highlighter-rouge">&gt;3000000</code>.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* one or the other */</span>
+<span class="c1">-- just not two BIGS together</span>
+
+<span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">population</span><span class="p">,</span> <span class="k">and</span> <span class="n">area</span>
+<span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">population</span> <span class="o">&gt;</span> <span class="mi">250000000</span> <span class="n">XOR</span> <span class="n">area</span> <span class="o">&gt;</span><span class="mi">3000000</span>
+</code></pre></div></div>
+
+<p>RESULT:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>population</th>
+      <th>area</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Australia</td>
+      <td>23545500</td>
+      <td>7692024</td>
+    </tr>
+    <tr>
+      <td>Brazil</td>
+      <td>202794000</td>
+      <td>8515767</td>
+    </tr>
+    <tr>
+      <td>Canada</td>
+      <td>35427524</td>
+      <td>9984670</td>
+    </tr>
+    <tr>
+      <td>Indonesia</td>
+      <td>252164800</td>
+      <td>1904569</td>
+    </tr>
+    <tr>
+      <td>Russia</td>
+      <td>146000000</td>
+      <td>17125242</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>What’s happening here is that <code class="highlighter-rouge">XOR</code> select only one that has either big population, OR big area. BIG population AND BIG area data are excluded.</p>
+
+<h2 id="rounding">Rounding</h2>
+
+<p>This problem wants me to:</p>
+<ul>
+  <li>show the <code class="highlighter-rouge">name</code>, <code class="highlighter-rouge">population</code> in millions, and <code class="highlighter-rouge">gdp</code> in billions</li>
+  <li>in <code class="highlighter-rouge">continent</code> ‘South America’</li>
+  <li>use <code class="highlighter-rouge">ROUND</code> to show values in two demical places</li>
+</ul>
+
+<p>So here goes!</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span>
+   <span class="n">ROUND</span><span class="p">(</span><span class="n">population</span><span class="o">/</span><span class="mi">1000000</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+   <span class="n">ROUND</span><span class="p">(</span><span class="n">gdp</span><span class="o">/</span><span class="mi">1000000000</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">continent</span> <span class="o">=</span> <span class="s1">'South America'</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>ROUND(populat..</th>
+      <th>ROUND(gdp/100..</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Argentina</td>
+      <td>42.67</td>
+      <td>477.03</td>
+    </tr>
+    <tr>
+      <td>Bolivia</td>
+      <td>10.03</td>
+      <td>27.04</td>
+    </tr>
+    <tr>
+      <td>Brazil</td>
+      <td>202.79</td>
+      <td>2254.11</td>
+    </tr>
+    <tr>
+      <td>Chile</td>
+      <td>17.77</td>
+      <td>268.31</td>
+    </tr>
+    <tr>
+      <td>Colombia</td>
+      <td>47.66</td>
+      <td>369.81</td>
+    </tr>
+    <tr>
+      <td>Ecuador</td>
+      <td>15.77</td>
+      <td>87.50</td>
+    </tr>
+    <tr>
+      <td>Guyana</td>
+      <td>0.78</td>
+      <td>2.85</td>
+    </tr>
+    <tr>
+      <td>Paraguay</td>
+      <td>6.78</td>
+      <td>25.94</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Isn’t that cool?</p>
+
+<h2 id="name-and-capital-have-the-same-length">Name and capital have the same length</h2>
+
+<p>There is another way to use <code class="highlighter-rouge">LENGTH</code>, which is different from other programming languages.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">capital</span>
+<span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="k">LENGTH</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">=</span> <span class="k">LENGTH</span><span class="p">(</span><span class="n">capital</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>What it does is searching for data of countries that has the same number of letters as their own capital.</p>
+
+<h2 id="matching-name-and-capital">Matching name and capital</h2>
+
+<ul>
+  <li>First letter of name and capital has to match</li>
+  <li>name and capital cannot be the same word</li>
+</ul>
+
+<p>In this problem, I learned the function of <code class="highlighter-rouge">LEFT</code>. It means left side and it can be used to isolate the first letter. I also learned the NOT EQUAL operator <code class="highlighter-rouge">&lt;&gt;</code>.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">capital</span>
+<span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="k">LEFT</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="k">LEFT</span><span class="p">(</span><span class="n">capital</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">AND</span> <span class="n">name</span> <span class="o">&lt;&gt;</span> <span class="n">capital</span>
+</code></pre></div></div>
+
+<p>The result will list all countries and capitals that share the same first alphabetic letter and exclude these that have fully the exact same spellings.</p>
+
+<h2 id="all-the-vowels">All the vowels</h2>
+
+<ul>
+  <li>if name has more than one word, or a space in the between, reject or ignore.</li>
+  <li>find the country that has all the vowels and no space in its name</li>
+</ul>
+
+<p>This is the hardest problem so far. I wasn’t sure how to do it right. Now I understand how to do it properly. I thought could use commas. Nope, just has to do it in long way.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">name</span>
+    <span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="s1">'%a%'</span>
+    <span class="k">AND</span> <span class="n">name</span> <span class="k">LIKE</span>  <span class="s1">'%e%'</span>
+    <span class="k">AND</span> <span class="n">name</span> <span class="k">LIKE</span>  <span class="s1">'%i%'</span>
+    <span class="k">AND</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="s1">'%o%'</span>
+    <span class="k">AND</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="s1">'%u%'</span>
+    <span class="k">AND</span> <span class="n">name</span> <span class="k">NOT</span> <span class="k">LIKE</span> <span class="s1">'% %'</span>
+</code></pre></div></div>
+
+<p>Notice <code class="highlighter-rouge">%..%</code>, it means placeholder is anywhere. So I searched for vowels anywhere in the word. Also could use <code class="highlighter-rouge">NOT LIKE</code> to exclude the character. Only one country that has all the vowels in it is Mozambique.</p>
+
+<h2 id="ending-this-exercise">Ending this exercise</h2>
+
+<p>Quiz should be easy! I am not going to cover them. I decided to try this <a href="http://sqlzoo.net/brain/bt.htm#">Find the duplicate</a> game. It begs the question, why and what it has to do with the SQL? I am guessing, to improve our eagle eyes against overwhelming data. It’s fun and challenging! My first score was 11, but didn’t realize that not all has to match, just <strong>keys</strong>. My second attempt, its 15! On my third try, finished the game.</p>
+
+:ET

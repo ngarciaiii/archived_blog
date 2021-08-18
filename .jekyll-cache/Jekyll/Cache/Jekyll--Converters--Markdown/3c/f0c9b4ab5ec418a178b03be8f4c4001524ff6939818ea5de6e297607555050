@@ -1,0 +1,350 @@
+I"�v<p>Starting the <strong>week 4</strong> of <a href="https://www.mooc.fi/">MOOC.fi</a> OOP and it will cover mainly the <strong>basics of objects</strong>. Consists of <strong>Exercise #70 to Exercise #83</strong>. I had had a hard time to grasp the concept of Java’s <strong>Object-oriented programming</strong>. I struggled mostly because of rigorous TMC wanting me to program in their ways. The summary of this <strong>week 4</strong> is:</p>
+
+<h1 class="h1" align="center" id="oh-man-week-4-is-tough">“Oh man, week 4 is tough.”</h1>
+
+<p><br />
+I realized that I need to improve my programming readability. My goal is to understand the programming concept fully and I am going to add comments to every code I write down. I will attempt to understand the concept and understand what computer is thinking when it parses my code.</p>
+
+<h1 id="basics-of-objects">Basics of objects</h1>
+
+<h2 id="methods-and-copying-parameters">Methods and Copying parameters</h2>
+
+<p>In <strong>Exercises #70 and #71</strong>, we learn why <strong>parameter</strong> is needed. Method’s variable isn’t visible to other methods unless through parameter. By “visible”, I mean giving variable’s information.</p>
+
+<ul>
+  <li>method variable is not visible to other methods</li>
+  <li>can pass method variable’s information to other methods through parameter</li>
+  <li>when passing method variable’s data to another method, it’s actually copying</li>
+  <li>copied to “new variable”</li>
+  <li>original method variable remains unchanged</li>
+  <li>Only values of primitives data types (int, double, char, boolean, …) can be passed as parameters</li>
+</ul>
+
+<p><strong>Exercise #72</strong> wants us to combine two different lists together while having number to be listed only once. Same number cannot be listed twice. I am still new with java, so I am not sure if the order of methods matters. Let’s take a look at main method first so we can figure out what to make in <code class="highlighter-rouge">smartCombine</code> method.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SmartCombining</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">list1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;();</span>
+        <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">list2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;();</span>
+
+        <span class="nc">Collections</span><span class="o">.</span><span class="na">addAll</span><span class="o">(</span><span class="n">list1</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">3</span><span class="o">);</span>
+
+        <span class="nc">Collections</span><span class="o">.</span><span class="na">addAll</span><span class="o">(</span><span class="n">list2</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">7</span><span class="o">);</span>
+
+        <span class="c1">// remove comment when method ready</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list1</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list2</span><span class="o">);</span>
+        <span class="n">smartCombine</span><span class="o">(</span><span class="n">list1</span><span class="o">,</span> <span class="n">list2</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>We see in <code class="highlighter-rouge">main</code> method, it has two different ArrayLists: <code class="highlighter-rouge">list1</code>, and <code class="highlighter-rouge">list2</code>. Uses <code class="highlighter-rouge">Collections.addAll</code> to insert numbers into a list. Finally… we can see method <code class="highlighter-rouge">smartCombine</code> with two lists in a parameter being called. Time to make <code class="highlighter-rouge">smartCombine</code> method!</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">smartCombine</span><span class="o">(</span><span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">first</span><span class="o">,</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">second</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">second</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(!</span><span class="n">first</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">num</span><span class="o">))</span> <span class="o">{</span>
+            <span class="n">first</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">first</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>We know to add two arguments to the parameter. It is important to define argument so it can be passed as that type of data. Defined both arguments as <code class="highlighter-rouge">ArrayList&lt;Integer&gt;</code>. Used <code class="highlighter-rouge">for</code> loop to go through every number in <code class="highlighter-rouge">second</code> list. <code class="highlighter-rouge">first.add(num)</code> add numbers from <code class="highlighter-rouge">second</code> list to <code class="highlighter-rouge">first</code> list. <code class="highlighter-rouge">(!first.contains(num))</code> allows any number in <code class="highlighter-rouge">second</code> list that <code class="highlighter-rouge">first</code> list lacks, to be added into. That is the very basic concept of usage in parameter.</p>
+
+<h1 id="guideline-to-being-a-good-programmer">Guideline to being a good programmer</h1>
+
+<ul>
+  <li>Well indented and airy codes
+    <ul>
+      <li>not crammed in which made reading more difficult</li>
+      <li>give room to comments</li>
+    </ul>
+  </li>
+  <li>Avoid <strong>copy and paste</strong></li>
+  <li>Separate tasks with methods
+    <ul>
+      <li>use descriptive names for each method</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="things-to-know-about-object">Things to know about Object</h1>
+
+<p>We have used ready-made <strong>objects</strong> before. We would assign a name to ArrayList<Integer> like `list` or we would assign a name to String like `text`. `list` or `text` are objects. `ArrayList` and `String` <strong>aren't objects, they are classes</strong>. It can be confusing to know the differences between <strong>objects</strong>, <strong>classes</strong> and <strong>methods</strong> at first. Classes are easy to identify because they are usually capitalized. Classes are files, or templates. <strong>Objects</strong> are what define the templates.  Objects are what makes classes alive. Objects are the instances of classes. <strong>Methods</strong> are functions belonging to objects.</Integer></p>
+
+<p><strong>Classes:</strong> <code class="highlighter-rouge">ArrayList</code>, <code class="highlighter-rouge">String</code>, <code class="highlighter-rouge">Filename</code>, <code class="highlighter-rouge">Scanner</code> … <br />
+<strong>Objects:</strong> instances of classes like <code class="highlighter-rouge">list1</code>, <code class="highlighter-rouge">list2</code>, <code class="highlighter-rouge">text</code>, <code class="highlighter-rouge">reader</code>, … <br />
+<strong>Methods:</strong> <code class="highlighter-rouge">.add()</code>, <code class="highlighter-rouge">.contains()</code>, <code class="highlighter-rouge">.remove()</code>, <code class="highlighter-rouge">.substring()</code>, <code class="highlighter-rouge">.charAt()</code> …</p>
+
+<p>Now putting these in cascading order:</p>
+
+<ul>
+  <li>Classes
+    <ul>
+      <li>Objects
+        <ul>
+          <li>Methods</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>Examples and in same order as above:</p>
+
+<p><img src="/public/img/java/outline.png" alt="class, object, method outline" /></p>
+
+<p>Objects have their own methods, and information contained inside object is called <strong> state of the object</strong>. State of the object holds <strong>attributes</strong></p>
+
+<p>I am going to borrow this paragraph from <a href="https://www.mooc.fi/">MOOC.fi</a>:</p>
+
+<p>“Each separate object has its own individual responsibility; an object contains a related group of information and functionality. Object-oriented programs consist of multiple objects which together define how the program works.””</p>
+
+<h1 id="back-to-week-4-ready-to-learn-how-to-use-objects">Back to Week 4! Ready to learn how to use objects!</h1>
+
+<p>From <strong>Exercise #72</strong> to <strong> Exercise #77</strong> teach us how to work with two different class files. On the left is “Main” Class. It doesn’t have to be called “Main”. It is called that, because it is the file that <strong>executes</strong>. The Class on the right would be often called any name as long as it’s according to its function. I am going to call this “non-main” Class for the sake of distinct between Main and non-main classes. Look at two different classes from <strong>Exercise 78</strong> below:</p>
+
+<div style="-webkit-column-count: 2; -moz-column-count: 2; column-count: 2; width: 750px; margin: auto">
+  <div style="float: left; width: 372px; height: 570px">
+      <h2>Main Class</h2>
+      <pre style="width: 370px; height: 450px; font-size: 50%">
+        <code class="language-java">
+import java.util.Scanner;
+
+public class Main {
+
+  public static void main(String[] args) throws Exception {
+      BoundedCounter seconds = new BoundedCounter(59);
+      BoundedCounter minutes = new BoundedCounter(59);
+      BoundedCounter hours = new BoundedCounter(23);
+
+      seconds.setValue(50);
+      minutes.setValue(59);
+      hours.setValue(23);
+
+      while ( true ) {
+          System.out.println( hours + ":" + minutes + ":" + seconds );
+          Thread.sleep(1000);
+          // put here the logic to advance your clock by one second
+          if (seconds.getValue() == 59) {
+              minutes.next();
+          }
+
+          if (seconds.getValue() == 59 &amp;&amp; minutes.getValue() == 0) {
+              hours.next();
+          }
+
+
+          seconds.next();
+      }
+  }
+}
+        </code>
+      </pre>
+  </div>
+  <div style="float: right; width: 372px; height: 570px; margin-top: .5px">
+      <h2>BoundCounter Class</h2>
+      <pre style="width: 370px; height: 450px; font-size: 50%">
+        <code class="language-java">
+public class BoundedCounter {
+    private int value;
+    private int upperLimit;
+
+    public BoundedCounter(int upperLimit){
+        this.value = 0;
+        this.upperLimit = upperLimit;
+    }
+
+    public void next(){
+        if (this.value &lt; upperLimit) {
+            this.value++;
+        } else {
+            this.value = 0;
+        }
+    }
+
+    public String toString(){
+        if (this.value &lt; 10) {
+            return "0"+ value;
+        }
+        return "" + value;
+    }
+
+    public int getValue() {
+        return this.value;
+    }
+
+    public void setValue(int time) {
+        if (time &gt;= 0 &amp;&amp; time &lt;= upperLimit) {
+            this.value = time;
+        }
+    }
+}
+        </code>
+      </pre>
+  </div>
+</div>
+
+<h2 id="main-class-is-the-one-that-executes-what-it-usually-possess">Main Class is the one that executes, what it usually possess:</h2>
+
+<ul>
+  <li><code class="highlighter-rouge">public static void main(String[] args)</code> method</li>
+  <li>newly assigns objects by using “non-main”, or in this case <code class="highlighter-rouge">BoundedCounter()</code> constructor</li>
+  <li>uses methods that are created in “non-main” Class file</li>
+</ul>
+
+<h2 id="non-main-class-like-boundedcounter-class-possess">non-main Class like “BoundedCounter” Class possess:</h2>
+
+<ul>
+  <li><strong>constructor</strong>: formatting the state
+    <ul>
+      <li>always same name as the Class</li>
+      <li>used to initialize <code class="highlighter-rouge">private variables</code></li>
+    </ul>
+  </li>
+  <li><strong>encapsulation</strong>, or hidden attributes using <code class="highlighter-rouge">private</code></li>
+  <li>defined variables: object variables, object fields, or object attributes (all are the same things)</li>
+</ul>
+
+<h2 id="exercise-78">Exercise 78</h2>
+
+<p>We are going to review this exercise step by step. <strong><i>Hold Main Class file for later</i></strong> and starting with “non-main” class or rather already named <strong>BoundedCounter</strong> class.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">BoundedCounter</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">value</span><span class="o">;</span>                  <span class="c1">//encapsulation</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">upperLimit</span><span class="o">;</span>             <span class="c1">//encapsulation</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="what-is-encapsulation-and-why">What is encapsulation and why?</h2>
+
+<p><strong>Encapsulation</strong> makes the fields in a class private and providing access to the fields via public methods. <code class="highlighter-rouge">private</code> can be described as a protective barrier that prevents the code and data being randomly accessed by other code defined outside the class. The main benefit is the ability to modify our implemented code without breaking the code of others who use our code. With this feature <strong>Encapsulation gives maintainability, flexibility and extensibility</strong> to our code.</p>
+
+<p><strong>Encapsulation</strong> is usually on the top when one knows what variables or values are to be named or to be used.</p>
+
+<h2 id="constructor">Constructor</h2>
+
+<p>Every “non-main” class file has <strong>constructor</strong> method like shown below in the code block. It looks like a method, but it is not. Notably differences between constructor and method:</p>
+
+<ul>
+  <li>constructor has to be named the same as its Class filename</li>
+  <li>constructor doesn’t have a return type</li>
+  <li>constructor is not considered a member of the class</li>
+  <li>constructor is called automatically when a new instance of an object is created</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">BoundedCounter</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">value</span><span class="o">;</span>                  <span class="c1">//encapsulation</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">upperLimit</span><span class="o">;</span>             <span class="c1">//encapsulation</span>
+
+    <span class="kd">public</span> <span class="nf">BoundedCounter</span><span class="o">(</span><span class="kt">int</span> <span class="n">upperLimit</span><span class="o">){</span>       <span class="c1">//constructor</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">upperLimit</span> <span class="o">=</span> <span class="n">upperLimit</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>After the routinely encapsulation and constructor at the top of “non-main” class, what comes after are methods, <strong>getters</strong>, and <strong>setters</strong>. What <strong>Exercise 78</strong> wants next:</p>
+
+<ul>
+  <li><del>a counter has an object variable that remembers the value of the counter</del></li>
+  <li><del>a value that is within the range 0 to upperLimit</del></li>
+  <li><del>in the beginning the value is 0</del></li>
+  <li><del>the upper bound of the value is defined by the constructor parameter</del></li>
+  <li>the method next increments the value of the counter</li>
+  <li>if the value would be more that the upper limit, it wraps around and becomes zero</li>
+  <li>the method toString returns a string representation of the counter value</li>
+</ul>
+
+<p>Strikethroughs are done, or completed. Let’s do a <code class="highlighter-rouge">.next()</code> method.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">next</span><span class="o">(){</span>
+    <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">&lt;</span> <span class="n">upperLimit</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">value</span><span class="o">++;</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>A simple algorithm, having value to increase if it is under <code class="highlighter-rouge">upperLimit</code>. If value is no longer under <code class="highlighter-rouge">upperLimit</code>, it becomes a zero. It doesn’t increase on its own. It has to increase by Main class. Now for the next step, <a href="https://www.mooc.fi/">MOOC.fi</a> just introduced this method <code class="highlighter-rouge">.toString()</code> and explained that it had been teaching us to create a method to print an object using like <code class="highlighter-rouge">printPerson</code>, and this is not the recommended way. It was a stepping stone to help us to understand the programming. The recommended way is to use <code class="highlighter-rouge">.toString()</code> to print an object.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">(){</span>
+        <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="s">"0"</span><span class="o">+</span> <span class="n">value</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="s">""</span> <span class="o">+</span> <span class="n">value</span><span class="o">;</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="accessors-getters-and-setters">Accessors: getters and setters</h2>
+
+<p><strong>Accessors</strong> are used to make API more stable, not exposing fields of a class. Let’s compare with and without accessors. <strong>Without Accessors:</strong>A field public in a class is accessed by other classes, BUT later on extra logic and changes are being added. Meaning more works and more changes to each class that refers it. <strong>With Accessors:</strong> Can easily add some logic like cache some data, lazily initialize it later.</p>
+
+<p><strong>Getters:</strong>
+Considered the ‘correct’ way to name an object-variable-returning method in this manner; as <code class="highlighter-rouge">getVariableName</code>. Getters can get access to private variables.</p>
+
+<p><strong>Setters:</strong>
+Setters call a method that just sets a new value to a variable <code class="highlighter-rouge">setVariableName</code>. Setters can modify private fields.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getValue</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">value</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setValue</span><span class="o">(</span><span class="kt">int</span> <span class="n">time</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">time</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">time</span> <span class="o">&lt;=</span> <span class="n">upperLimit</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">time</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">getValue()</code> just access to the <code class="highlighter-rouge">this.value</code> in an encapsulation. <code class="highlighter-rouge">setValue()</code> modifies the <code class="highlighter-rouge">this.value</code> by using a parameter <code class="highlighter-rouge">(int time)</code>. It might be little confusing because all of these methods in the “non-main” class are pretty much just defining, and not executing.</p>
+
+<h2 id="main-class-executes">Main Class executes</h2>
+
+<p>I am going to sail through <strong>Main Class</strong>, by pointing out what it executes.
+“non-main” Class is being called and creates new objects as seen below in code block. Remember <code class="highlighter-rouge">BoundedCounter(int upperLimit)</code> from “non-main” Class.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">BoundedCounter</span> <span class="n">seconds</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BoundedCounter</span><span class="o">(</span><span class="mi">59</span><span class="o">);</span>
+<span class="nc">BoundedCounter</span> <span class="n">minutes</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BoundedCounter</span><span class="o">(</span><span class="mi">59</span><span class="o">);</span>
+<span class="nc">BoundedCounter</span> <span class="n">hours</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BoundedCounter</span><span class="o">(</span><span class="mi">23</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>In Main Class, we have <code class="highlighter-rouge">Scanner reader = ...</code>. We use <code class="highlighter-rouge">.setValue(time)</code> to modify the value. Telling where objects’ time starts at.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">s</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">reader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">());</span> <span class="c1">// read the initial value of seconds from the user</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"minutes: "</span><span class="o">);</span>
+<span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">reader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">());</span><span class="c1">// read the initial value of minutes from the user</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"hours: "</span><span class="o">);</span>
+<span class="kt">int</span> <span class="n">h</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">reader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">());</span> <span class="c1">// read the initial value of hours from the user</span>
+<span class="n">seconds</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+<span class="n">minutes</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="n">m</span><span class="o">);</span>
+<span class="n">hours</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="n">h</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>Bit of algorithm, using <code class="highlighter-rouge">while</code> loop, <code class="highlighter-rouge">.toString()</code>, <code class="highlighter-rouge">.getValue()</code>, and <code class="highlighter-rouge">.next()</code>. <code class="highlighter-rouge">.toString()</code> isn’t visible in Main Class, but we know that it is operating from “non-main” Class. Objects <code class="highlighter-rouge">hours</code>, <code class="highlighter-rouge">minutes</code>, and <code class="highlighter-rouge">seconds</code> have <code class="highlighter-rouge">.toString()</code>. Conditional statement in “non-main” Class for <code class="highlighter-rouge">.next()</code> can be confusing, like if the value isn’t under <code class="highlighter-rouge">upperLimit</code> and then it shouldn’t be doing anything. <code class="highlighter-rouge">.next()</code> just keeping “increase” regardless, by an increment or start at <code class="highlighter-rouge">0</code> again.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="k">while</span> <span class="o">(</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">121</span> <span class="o">)</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">hours</span> <span class="o">+</span> <span class="s">":"</span> <span class="o">+</span> <span class="n">minutes</span> <span class="o">+</span> <span class="s">":"</span> <span class="o">+</span> <span class="n">seconds</span><span class="o">);</span>
+
+    <span class="k">if</span> <span class="o">(</span><span class="n">seconds</span><span class="o">.</span><span class="na">getValue</span><span class="o">()</span> <span class="o">==</span> <span class="mi">59</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">minutes</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="k">if</span> <span class="o">(</span><span class="n">seconds</span><span class="o">.</span><span class="na">getValue</span><span class="o">()</span> <span class="o">==</span> <span class="mi">59</span> <span class="o">&amp;&amp;</span> <span class="n">minutes</span><span class="o">.</span><span class="na">getValue</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">hours</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="n">seconds</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+    <span class="n">i</span><span class="o">++;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h1 id="thats-all-for-this-post-we-will-finish-week-4-in-the-next-post">That’s all for this post! We will finish Week 4 in the next post.</h1>
+
+:ET

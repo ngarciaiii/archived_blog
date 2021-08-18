@@ -1,0 +1,214 @@
+I"Ul<h1 id="oop-java-part-1-week-2">OOP Java Part 1 Week 2</h1>
+
+<p>The Week 2 covers loops and basics of methods. Earlier in my other previous posts, I mentioned that we could use either <a href="https://www.netbeans.org">Netbeans</a>, or <a href="http://www.eclipse.org/downloads/packages/">Eclipse</a>. I realized that in <a href="https://www.mooc.fi/">MOOC</a>, it’s <strong>required</strong> to use <strong>NetBeans</strong> in order to <strong>unlock new exercises</strong> such as week 2 and other weeks exercises.</p>
+
+<p>I copied and pasted all exercises from Eclipse to NetBeans. Some of my codes are not accepted, most of them are rejected because of simple <code class="highlighter-rouge">String</code>, and or <code class="highlighter-rouge">whitespaces</code> differences. I have to follow specifics, like typing the exact same <code class="highlighter-rouge">String</code> as they want me to, for example: same number of whitespaces in the <code class="highlighter-rouge">String</code>. I do enjoy using Eclipse, because sometime I have to do more programming where components of methods aren’t included and I make them myself. Netbeans have components and methods for us to use quickly . That kind of takes the fun away. Just because Netbeans have components ready, doesn’t mean it’s easier. <strong>It is a lot harder</strong>, because it wants us to program in a certain way. <strong>So have a ton of patience!</strong></p>
+
+<h1 id="week-2-begins">Week 2 begins!</h1>
+
+<p>This week covers basic mathematic programming. I am going to summarize and cover highlights where I wouldn’t have to repeat similar exercises. Some exercises will be similar and yet different.</p>
+
+<h2 id="exercise-33">EXERCISE #33</h2>
+
+<p>This exercise teaches how to do sum of all numbers between two inputted numbers. It is a simple programming.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TheSumBetweenTwoNumbers</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Scanner</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"First: "</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">reader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">());</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Last: "</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">num2</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">reader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">());</span>
+
+        <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+        <span class="k">while</span> <span class="o">(</span><span class="n">num1</span> <span class="o">&lt;=</span> <span class="n">num2</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">sum</span> <span class="o">+=</span> <span class="n">num1</span><span class="o">;</span>
+            <span class="n">num1</span><span class="o">++;</span>
+
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num1</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"The sum is "</span> <span class="o">+</span> <span class="o">(</span><span class="n">sum</span><span class="o">));</span>  
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">Scanner</code> does what it does… parsing input. <code class="highlighter-rouge">Integer.parseInt()</code> parses integer. First input is given a number <code class="highlighter-rouge">num1</code>, and then second input a second number <code class="highlighter-rouge">num2</code>. I want to add up all the numbers between <code class="highlighter-rouge">num1</code> and <code class="highlighter-rouge">num2</code>, so I create a variable <code class="highlighter-rouge">sum</code> and set it to equal to <code class="highlighter-rouge">0</code>.</p>
+
+<p>The next step is setting up a <code class="highlighter-rouge">while()</code> loop. Its <strong>condition is true</strong> as long <code class="highlighter-rouge">num1</code> is less or equals to <code class="highlighter-rouge">num2</code>.  Starting with <code class="highlighter-rouge">sum</code> and add up to the <code class="highlighter-rouge">num1</code>. <strong>Notice how <code class="highlighter-rouge">sum</code> completely ignores <code class="highlighter-rouge">num2</code>.</strong> Next step is <code class="highlighter-rouge">num1</code> increments by one every time a loop rolled. Finally, incremented <code class="highlighter-rouge">num1</code> is printed.</p>
+
+<p>The loop rolls on… until <code class="highlighter-rouge">num1</code> equals to <code class="highlighter-rouge">num2</code>. <code class="highlighter-rouge">num1</code> <strong>isn’t the sum of anything another than an increment by 1.</strong> However <code class="highlighter-rouge">sum</code> is adding up in every loop. Once the loop ended, <code class="highlighter-rouge">sum</code> is printed and is the desired result.</p>
+
+<h2 id="exercise-34">EXERCISE #34</h2>
+
+<p><strong>Exercise #34</strong> is the same idea as <strong>Exercise #33</strong>. It wants the result of factorial on a number. Factorial number symbol looks like this <strong>n!</strong>, and we cannot use do <code class="highlighter-rouge">n!</code>. The <code class="highlighter-rouge">!</code> is somewhat an operator and cannot be used as in variable unless it is a string. I always could use <code class="highlighter-rouge">n</code> as a short for <code class="highlighter-rouge">number</code>. Take a look at this code below:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Factorial</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Scanner</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Type a number: "</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">reader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">());</span>
+
+        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">product</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+
+        <span class="k">while</span> <span class="o">(</span><span class="n">count</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">product</span> <span class="o">*=</span> <span class="n">count</span><span class="o">;</span>
+                <span class="n">count</span><span class="o">++;</span>
+        <span class="o">}</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Factorial is "</span> <span class="o">+</span> <span class="n">product</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>I am going to use <code class="highlighter-rouge">product</code> instead of <code class="highlighter-rouge">sum</code>. Isn’t that what <strong>product</strong> means after of all? Using <code class="highlighter-rouge">while()</code> again, with a <strong>condition being true</strong> as long <code class="highlighter-rouge">count</code> is less or equals to <code class="highlighter-rouge">n</code>. Setting <code class="highlighter-rouge">count</code> and <code class="highlighter-rouge">product</code> as 1. It’s what makes this little different from add and subtract. If I multiply any number to <code class="highlighter-rouge">0</code>, it will always remains <code class="highlighter-rouge">0</code>. I don’t want that. <code class="highlighter-rouge">product</code> ignores <code class="highlighter-rouge">n</code>, and multiplies <code class="highlighter-rouge">count</code> while becoming the new <code class="highlighter-rouge">product</code>. Same process as in <strong>Exercise #33</strong>, <code class="highlighter-rouge">count</code> increments by 1 until it equals to the given number <code class="highlighter-rouge">n</code>.  Finally when the loop ends, <code class="highlighter-rouge">product</code> is printed as a result outside the loop.</p>
+
+<h2 id="exercise-35">EXERCISE #35</h2>
+
+<p>Almost same formula as two other exercises above. Just more tasks and more results expected. The tasks listed:</p>
+
+<ul>
+  <li>program the power of n</li>
+  <li>find the result</li>
+  <li>sum up each results</li>
+</ul>
+
+<p>I got to use this method <code class="highlighter-rouge">Math.pow(number, power)</code> and it returns <code class="highlighter-rouge">double</code> type where will have a decimal result. One thing great about <a href="https://www.mooc.fi/">MOOC</a>, is that it taught me this new trick. Showing it to you below!</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Type a number: "</span><span class="o">);</span>
+    <span class="kt">int</span> <span class="n">power</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">reader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">());</span>
+    <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="k">while</span><span class="o">(</span><span class="n">power</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span><span class="nc">Math</span><span class="o">.</span><span class="na">pow</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">power</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
+        <span class="n">sum</span> <span class="o">+=</span> <span class="n">result</span><span class="o">;</span>
+        <span class="n">power</span><span class="o">--;</span>
+    <span class="o">}</span>
+
+
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"The result is "</span> <span class="o">+</span> <span class="n">sum</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Using <code class="highlighter-rouge">(int)Math.pow(number, power)</code> will automatically convert the <code class="highlighter-rouge">double</code> result into an <code class="highlighter-rouge">int</code>. What’s happening here is I created two variables <code class="highlighter-rouge">power</code> and <code class="highlighter-rouge">sum</code>. <code class="highlighter-rouge">power</code> will receive an input from a user. <code class="highlighter-rouge">sum</code> is set as <code class="highlighter-rouge">0</code>. Using same <code class="highlighter-rouge">while()</code> loop as previous two exercises. The <strong>condition</strong> is slightly different, it’s the opposite. It’s <strong>true</strong> as long the <code class="highlighter-rouge">power</code> is greater than <code class="highlighter-rouge">0</code>. While it’s true, the first step inside the loop is producing a <code class="highlighter-rouge">result</code> and then have it printed to get a better idea of what’s going on during the loops. <code class="highlighter-rouge">sum</code> adds up <code class="highlighter-rouge">result</code>. The <code class="highlighter-rouge">power</code> is <strong>decremented</strong> by 1 until the loop ends. <code class="highlighter-rouge">sum</code> is then printed as a final.</p>
+
+<h2 id="exercise-36">EXERCISE #36</h2>
+
+<p>I am going to close this post with <strong>Exercise #36</strong>. Will continue with week 2 on the next post. This <strong>Exercise #36</strong> is fun and expects much more results. What this exercise wants…</p>
+
+<ul>
+  <li>to be able to put in many inputs as user want</li>
+  <li>end the <code class="highlighter-rouge">while()</code> loop with a trigger using <code class="highlighter-rouge">-1</code> or any negative number</li>
+  <li>send out a farewell string</li>
+  <li>print the sum of all inputs except for a negative number</li>
+  <li>count how many times the inputs were entered</li>
+  <li>find the average out of all inputs</li>
+  <li>find how many odd numbers were entered</li>
+  <li>find how many even numbers were entered</li>
+</ul>
+
+<p>Woo! I held my breath as long as I could, to list all these! Let’s do the first half then second half afterward. For a user to enter inputs <strong>as many as</strong> he/she wants, we will need to use a <code class="highlighter-rouge">while()</code> loop. It wants us to <strong>end the loop</strong> by entering a <strong>negative number</strong>. Easily done with <code class="highlighter-rouge">break;</code>! Send out a <code class="highlighter-rouge">String</code>? Not a problem! <code class="highlighter-rouge">sum</code>… hmm we have done all that in the previous exercises in this post.</p>
+
+<p><strong>First half: </strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+
+    <span class="nc">Scanner</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Type numbers: "</span><span class="o">);</span>
+    <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">num</span><span class="o">;</span>
+
+    <span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">reader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">());</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">num</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Thank you and see you later!"</span><span class="o">);</span>
+            <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+            <span class="k">break</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="n">sum</span> <span class="o">+=</span> <span class="n">num</span><span class="o">;</span>
+        <span class="o">}</span>
+     <span class="o">}</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"The sum is "</span> <span class="o">+</span> <span class="n">sum</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>This is the first half, and let’s concise on what’s happening in that code.</p>
+
+<ul>
+  <li>Two variables are entered
+    <ul>
+      <li><code class="highlighter-rouge">sum</code> equals to <code class="highlighter-rouge">0</code>, “intialized” to add up all inputs</li>
+      <li><code class="highlighter-rouge">num</code> is the input that user enters</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">while()</code> loop with a condition saying <strong>always true</strong>
+    <ul>
+      <li><code class="highlighter-rouge">num</code> inputs parser is put in there so user can put as many as inputs he/she want</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">if</code> conditional statment when <code class="highlighter-rouge">num</code> is less than <code class="highlighter-rouge">0</code>
+    <ul>
+      <li><code class="highlighter-rouge">String</code> printed</li>
+      <li>negative number <code class="highlighter-rouge">num</code> is set to <code class="highlighter-rouge">0</code> so it wouldn’t affect the sum</li>
+      <li><code class="highlighter-rouge">break;</code> is triggered, ending the always true</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">else</code> conditional statment when when inputs are not and have not been negative
+    <ul>
+      <li>inputs are being added up to <code class="highlighter-rouge">sum</code></li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">sum</code> is printed when the loop ended</li>
+</ul>
+
+<p>I hope that’s clear, and now <strong>second half</strong> coming up!</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+   <span class="nc">Scanner</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Type numbers: "</span><span class="o">);</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">num</span><span class="o">;</span>
+    <span class="kt">double</span> <span class="n">average</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">oddNum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">evenNum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+    <span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">reader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">());</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">num</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Thank you and see you later!"</span><span class="o">);</span>
+            <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+            <span class="k">break</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="n">i</span><span class="o">++;</span>
+            <span class="n">sum</span> <span class="o">+=</span> <span class="n">num</span><span class="o">;</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">oddNum</span><span class="o">++;</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                    <span class="n">evenNum</span><span class="o">++;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+     <span class="o">}</span>
+
+    <span class="n">average</span> <span class="o">=</span> <span class="o">((</span><span class="mf">1.0</span><span class="o">*</span><span class="n">sum</span><span class="o">)/</span><span class="n">i</span><span class="o">);</span>
+
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"The sum is "</span> <span class="o">+</span> <span class="n">sum</span><span class="o">);</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"How many numbers entered: "</span> <span class="o">+</span> <span class="n">i</span><span class="o">);</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Average: "</span> <span class="o">+</span> <span class="n">sum</span> <span class="o">+</span> <span class="s">" / "</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="s">" = "</span> <span class="o">+</span> <span class="n">average</span><span class="o">);</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Odd numbers: "</span> <span class="o">+</span> <span class="n">oddNum</span><span class="o">);</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Even numbers: "</span> <span class="o">+</span> <span class="n">evenNum</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>Few variables are added. <code class="highlighter-rouge">i</code> to count how many times inputs are entered. Variable <code class="highlighter-rouge">double average</code> is added to calculate the average, using <code class="highlighter-rouge">double</code> to get the result in decimal. Two other variables count inputs that are either even numbers or odd numbers. All are “initialized” by setting to <code class="highlighter-rouge">0</code></p>
+
+<p>Add the process inside <code class="highlighter-rouge">else</code> conditional statment, because it’s where loop continues rolling. <code class="highlighter-rouge">i++</code> to increment by 1 to count the inputs. Add another branches of conditional statments inside the <code class="highlighter-rouge">else</code>, saying <code class="highlighter-rouge">if</code> input is not a even number, <code class="highlighter-rouge">oddNum++</code> increments. Else <code class="highlighter-rouge">evenNum++</code> increments.</p>
+
+<p>Outside the loop when it’s done <code class="highlighter-rouge">break;</code>, <code class="highlighter-rouge">average</code> set to a mathematic equation saying <code class="highlighter-rouge">((1.0 * sum) / i)</code>. Now I think this is <strong>important</strong> to point out, just because <strong><code class="highlighter-rouge">average</code> is assigned to a <code class="highlighter-rouge">double</code> type doesn’t mean it will give a correct answer.</strong> It will just result with a decimal. So I added <code class="highlighter-rouge">1.0</code>, and then <code class="highlighter-rouge">average</code> will have the exact quotient.</p>
+
+<p>Concluding… print all the results!</p>
+
+:ET

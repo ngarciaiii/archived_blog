@@ -1,0 +1,181 @@
+I"mF<h1 id="moocfi-week-4-continues">MOOC.fi Week 4 continues!</h1>
+
+<h2 id="exercise-79-numberstatistics">Exercise 79 NumberStatistics</h2>
+
+<p>This exercise teaches that we could call methods within an object. Objects can call their own methods. In this exercise, we will have two objects <code class="highlighter-rouge">amountOfNumbers</code> and <code class="highlighter-rouge">sum</code>. We get to see <code class="highlighter-rouge">sum()</code> being called from the <code class="highlighter-rouge">average</code> method.  This exercise wants:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">addNumber</code> adds a new number to the statistics</li>
+  <li><code class="highlighter-rouge">amountOfNumbers</code> tells us how many numbers have been added to the statistics</li>
+  <li><code class="highlighter-rouge">sum</code> returns the sum of the added numbers (if no numbers added, the sum is 0)</li>
+  <li><code class="highlighter-rouge">average</code> returns the average of the added numbers (if no numbers added, the average is 0)</li>
+  <li>create a program that asks the user to input numbers of type integer</li>
+  <li>when gives -1, the program stops and prints the sum of the given numbers (excluding the -1)</li>
+  <li>Change it to also calculates the sum of even and odd numbers in the user input (again -1 excluded)</li>
+</ul>
+
+<p>Okay, we will start with non-main class, or <strong>NumberStatistics</strong> class. I will comment everything in the code block.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">NumberStatistics</span> <span class="o">{</span>                           
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">amountOfNumber</span><span class="o">;</span>                     <span class="c1">//create object  </span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">sum</span><span class="o">;</span>                                <span class="c1">//create object</span>
+
+    <span class="kd">public</span> <span class="nf">NumberStatistics</span><span class="o">()</span> <span class="o">{</span>                 <span class="c1">//constructor</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">amountOfNumber</span> <span class="o">=</span> <span class="n">amountOfNumber</span><span class="o">;</span>   <span class="c1">//initialize object</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">sum</span> <span class="o">=</span> <span class="n">sum</span><span class="o">;</span>                         <span class="c1">//initialize object</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addNumber</span><span class="o">(</span><span class="kt">int</span> <span class="n">number</span><span class="o">){</span>          <span class="c1">//parameters number given by user</span>
+        <span class="n">amountOfNumber</span><span class="o">++;</span>                       <span class="c1">//counts the numbers given by user</span>
+        <span class="n">sum</span> <span class="o">+=</span> <span class="n">number</span><span class="o">;</span>                          <span class="c1">//sum adds all numbers given by user</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">amountOfNumbers</span><span class="o">(){</span>               <span class="c1">//returns result of amountOfNumbers++</span>
+        <span class="k">return</span> <span class="n">amountOfNumber</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">sum</span><span class="o">(){</span>                           <span class="c1">//returns result of sum +=number                 </span>
+        <span class="k">return</span> <span class="n">sum</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">average</span><span class="o">(){</span>                    <span class="c1">//calculates average</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">amountOfNumber</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>              <span class="c1">//if amountOfNumber is not 0</span>
+            <span class="kt">double</span> <span class="n">average</span> <span class="o">=</span> <span class="o">(</span><span class="mf">1.0</span> <span class="o">*</span> <span class="n">sum</span><span class="o">())/</span><span class="n">amountOfNumber</span><span class="o">;</span>
+            <span class="k">return</span> <span class="n">average</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>What we have done so far:</p>
+
+<ul>
+  <li><del><code class="highlighter-rouge">addNumber</code> adds a new number to the statistics</del></li>
+  <li><del><code class="highlighter-rouge">amountOfNumbers</code> tells us how many numbers have been added to the statistics</del></li>
+  <li><del><code class="highlighter-rouge">sum</code> returns the sum of the added numbers (if no numbers added, the sum is 0)</del></li>
+  <li><del><code class="highlighter-rouge">average</code> returns the average of the added numbers (if no numbers added, the average is 0)</del></li>
+</ul>
+
+<p>Three remaining tasks require executing, so better to do that in main class.</p>
+
+<ul>
+  <li>create a program that asks the user to input numbers of type integer</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Scanner</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+
+        <span class="nc">NumberStatistics</span> <span class="n">stats</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">NumberStatistics</span><span class="o">();</span>
+        <span class="nc">NumberStatistics</span> <span class="n">even</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">NumberStatistics</span><span class="o">();</span>
+        <span class="nc">NumberStatistics</span> <span class="n">odd</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">NumberStatistics</span><span class="o">();</span>
+
+        <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Type numbers: "</span><span class="o">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li>when gives -1, the program stops and prints the sum of the given numbers (excluding the -1)</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+        <span class="k">while</span> <span class="o">(</span><span class="n">num</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">){</span>
+            <span class="n">num</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">reader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">());</span>
+        <span class="o">}</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"sum: "</span> <span class="o">+</span> <span class="n">stats</span><span class="o">.</span><span class="na">sum</span><span class="o">());</span>
+</code></pre></div></div>
+
+<ul>
+  <li>change it to also calculates the sum of even and odd numbers in the user input (again -1 excluded)</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="k">while</span> <span class="o">(</span><span class="n">num</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">){</span>
+            <span class="n">num</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">reader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">());</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">num</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">stats</span><span class="o">.</span><span class="na">addNumber</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
+                <span class="n">even</span><span class="o">.</span><span class="na">addNumber</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">num</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">){</span>
+                <span class="n">stats</span><span class="o">.</span><span class="na">addNumber</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
+                <span class="n">odd</span><span class="o">.</span><span class="na">addNumber</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"sum: "</span> <span class="o">+</span> <span class="n">stats</span><span class="o">.</span><span class="na">sum</span><span class="o">());</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"sum of even: "</span> <span class="o">+</span> <span class="n">even</span><span class="o">.</span><span class="na">sum</span><span class="o">());</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"sum of odd: "</span> <span class="o">+</span> <span class="n">odd</span><span class="o">.</span><span class="na">sum</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>This exercise is good practice with having two different class files. Main or executing class file, and non-main class creating objects and methods. I think I am getting there!</p>
+
+<h1 id="randomness-using-random">Randomness using Random()</h1>
+
+<p><strong>Exercise 80</strong> to <strong>Exercise 82</strong> teaches on how to use a method <code class="highlighter-rouge">Random()</code>. It can be little hard to grasp at first. I get confused sometime in the few next exercises.</p>
+
+<h2 id="dice">Dice</h2>
+
+<p>We will start with <strong>Exercise 80</strong>. It is the easiest for us beginners to understand how it works. There are main and non-main classes below. They have skeletons given, and non-main class is incomplete. Only one more line of coding in non-main class needed to complete it:</p>
+
+<div style="-webkit-column-count: 2; -moz-column-count: 2; column-count: 2; width: 750px; height: 400; margin: auto">
+  <div style="float: left; width: 372px; height: auto">
+      <h2>Main Class</h2>
+      <pre style="width: 370px; height: 270px; font-size: 50%">
+        <code class="language-java">
+public class Main {
+    public static void main(String[] args) {
+        Dice dice = new Dice(6);
+
+        int i = 0;
+        while ( i &lt; 10 ) {
+            System.out.println( dice.roll() );
+            i++;
+        }
+    }
+}
+        </code>
+      </pre>
+  </div>
+  <div style="float: right; width: 372px; height: auto; margin-top: .5px">
+      <h2>Dice Class</h2>
+      <pre style="width: 370px; height: 270px; font-size: 50%">
+        <code class="language-java">
+import java.util.Random;
+
+public class Dice {
+    private Random random;
+    private int numberOfSides;
+
+    public Dice(int numberOfSides){
+        this.numberOfSides = numberofSides;
+        random = new Random();
+
+    }
+
+    public int roll() {
+          // we'll get a random number in the range 1-numberOfSides&lt;
+    }
+}
+        </code>
+      </pre>
+  </div>
+</div>
+
+<p><strong>Main Class</strong> is the executing class, and what’s going on in there is a constructor <code class="highlighter-rouge">Dice</code> creates a object named <code class="highlighter-rouge">dice</code>. Its parameter is <code class="highlighter-rouge">6</code> or <code class="highlighter-rouge">Dice(6)</code>.  <code class="highlighter-rouge">i</code> is a counter variable and initialized with a <code class="highlighter-rouge">0</code>. It increments up to 9, or actually 10 times since it starts with 0. Prints what <code class="highlighter-rouge">dice.roll()</code> produced until <code class="highlighter-rouge">i</code> reaches to 10 times. Nothing is needed to be added in this Main class.</p>
+
+<p>One line of coding is needed to add to this <strong>Dice Class</strong>. We have an encapsulation of two different private variables <code class="highlighter-rouge">random</code> and <code class="highlighter-rouge">numberOfSides</code>. The type of <code class="highlighter-rouge">random</code> is <code class="highlighter-rouge">Random</code> which is new to me. The constructor <code class="highlighter-rouge">Dice()</code>, with <code class="highlighter-rouge">int numberOfSides</code> as its parameter, initialized both private variables. <code class="highlighter-rouge">random</code> is assigned as a <code class="highlighter-rouge">Random()</code>, but what happens is that constructor or object to be made, <code class="highlighter-rouge">Dice()</code> is now acting as a <code class="highlighter-rouge">Random()</code>. I assume <code class="highlighter-rouge">numberOfSides</code> as a parameter is to be the maximum or the highest number possible to be randomized.</p>
+
+<p><code class="highlighter-rouge">public int roll()</code> is a method created to randomize a number when being executed. Now this I have a hard time with. Truthfully, I would have never solved it had I not googled up for a solution. There is a new method in Scanner that I have yet to learn and it is <code class="highlighter-rouge">.nextInt()</code>. I have always been using <code class="highlighter-rouge">.nextLine()</code> or <code class="highlighter-rouge">Integer.parseInt(reader.nextLine)</code>. So this <code class="highlighter-rouge">.nextInt()</code> is new to me. Let’s see the solution.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kt">int</span> <span class="nf">roll</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// create here a random number belongig to range 1-numberOfSided</span>
+    <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="n">numberOfSides</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>So the method <code class="highlighter-rouge">.roll()</code> is created, and its function is to <code class="highlighter-rouge">return</code> the number that <code class="highlighter-rouge">random.nextInt(numberOfSides) + 1;</code> has randomized. Notice how there is a <code class="highlighter-rouge">+ 1</code>, if I did not include that, then <code class="highlighter-rouge">0</code> will occur. I don’t want a <code class="highlighter-rouge">0</code>. I try to understand more about <code class="highlighter-rouge">Random()</code> and <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Random.html">Oracle</a> website will give a documentation to just about every method out there for Java, but it doesn’t a great job explaining in laymen term. I think <a href="https://stackoverflow.com/questions/20389890/generating-a-random-number-between-1-and-10-java">stackoverflow</a> is better and easier to understand. I added <code class="highlighter-rouge">+ 1</code> as a minimum number.</p>
+
+:ET

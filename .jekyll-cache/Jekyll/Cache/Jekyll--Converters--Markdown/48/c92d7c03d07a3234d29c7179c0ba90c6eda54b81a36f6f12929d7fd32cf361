@@ -1,0 +1,178 @@
+I"=\<h1 id="the-arraylist-data-structure">The ArrayList Data Structure</h1>
+
+<p>From <strong>Exercise #61</strong> to <strong>Exercise #69</strong> focus on <code class="highlighter-rouge">ArrayList&lt;Integer&gt;()</code>. I am going to start with <strong>Exercise #64</strong> which covers on how to use <code class="highlighter-rouge">(ArrayList&lt;Integer&gt; list)</code>. Recall the <strong>Exercise #46 Average of Given Numbers</strong> which covers on parameter <code class="highlighter-rouge">(in num1, int num2, int num3, ...)</code>, almost the same idea, but using array <code class="highlighter-rouge">list</code> instead.</p>
+
+<h1 id="average-of-numbers">Average Of Numbers</h1>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">AverageOfNumbers</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">sum</span><span class="o">(</span><span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">){</span>
+        <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span><span class="n">list</span><span class="o">){</span>
+                <span class="n">sum</span> <span class="o">+=</span> <span class="n">num</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">return</span> <span class="n">sum</span><span class="o">;</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<p>Creating a method <code class="highlighter-rouge">sum</code>, and using <code class="highlighter-rouge">for (int num : list)</code> to go through with each element in the array. In pervious exercises, we use <code class="highlighter-rouge">for(type element : array)</code> frequently. It is very useful. In this method, it returns the value of <code class="highlighter-rouge">sum</code>. This is a method that doesn’t hold a value right now, but it does return a value when applied.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">average</span><span class="o">(</span><span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">){</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">list</span><span class="o">){</span>
+                <span class="n">i</span><span class="o">++;</span>
+        <span class="o">}</span>
+        <span class="kt">double</span> <span class="n">average</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">sum</span><span class="o">(</span><span class="n">list</span><span class="o">)</span> <span class="o">/</span> <span class="n">i</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">average</span><span class="o">;</span>
+    <span class="o">}</span>    
+</code></pre></div></div>
+
+<p>Another method called <code class="highlighter-rouge">average</code> is used to calculate an average on the array, using also a value from method <code class="highlighter-rouge">sum</code>.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;();</span>
+        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">7</span><span class="o">);</span>
+        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"The average is: "</span> <span class="o">+</span> <span class="n">average</span><span class="o">(</span><span class="n">list</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Two methods <code class="highlighter-rouge">sum</code> and <code class="highlighter-rouge">average</code> are called in the <code class="highlighter-rouge">main</code> method to execute. Numbers are added to the array <code class="highlighter-rouge">list</code>. Now <code class="highlighter-rouge">sum</code> has a value, and so do the <code class="highlighter-rouge">average</code>.</p>
+
+<h1 id="the-variance">The Variance</h1>
+
+<p>Skipping <strong>Exercise #65 and #66</strong> because both are same as above, teaching us how to use <code class="highlighter-rouge">for (type element : array)</code> and using basic algorithms again. This <strong>Exercise #67</strong> might be worth to note, I faced a problem with <a href="https://www.netbeans.org">NetBeans</a>, although I got the right result. It was meticulous and I realized what I did wrong.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Variance</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">sum</span><span class="o">(</span><span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">){</span>
+        <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">list</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">sum</span> <span class="o">+=</span> <span class="n">num</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">return</span> <span class="n">sum</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">average</span><span class="o">(</span><span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">){</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">list</span><span class="o">){</span>
+                <span class="n">i</span><span class="o">++;</span>
+        <span class="o">}</span>
+        <span class="kt">double</span> <span class="n">average</span> <span class="o">=</span> <span class="o">(</span><span class="mf">1.0</span> <span class="o">*</span> <span class="n">sum</span><span class="o">(</span><span class="n">list</span><span class="o">))</span> <span class="o">/</span> <span class="n">i</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">average</span><span class="o">;</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<p>Same methods borrowed from <strong>Exercise #64</strong> above. Don’t worry about these… other than that they hold the values of <code class="highlighter-rouge">sum</code> and <code class="highlighter-rouge">average</code>. Let’s see if you could spot a mistake in this coding below:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">variance</span><span class="o">(</span><span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">){</span>
+  <span class="kt">double</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+  <span class="kt">double</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">list</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">pow</span><span class="o">((</span><span class="n">num</span> <span class="o">-</span> <span class="n">average</span><span class="o">(</span><span class="n">list</span><span class="o">)),</span> <span class="mi">2</span><span class="o">);</span>
+    <span class="n">sum</span> <span class="o">+=</span> <span class="n">result</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kt">double</span> <span class="n">variance</span> <span class="o">=</span> <span class="o">(</span><span class="n">sum</span> <span class="o">/</span> <span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">()-</span><span class="mi">1</span><span class="o">));</span>
+  <span class="k">return</span> <span class="n">variance</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Could you find it? Let’s take a look at the coding below that is correct and compare to identify what went wrong with the coding above.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">variance</span><span class="o">(</span><span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">){</span>
+        <span class="kt">double</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">double</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">double</span> <span class="n">average</span> <span class="o">=</span> <span class="n">average</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">list</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">pow</span><span class="o">((</span><span class="n">num</span> <span class="o">-</span> <span class="n">average</span><span class="o">),</span> <span class="mi">2</span><span class="o">);</span>
+                <span class="n">sum</span> <span class="o">+=</span> <span class="n">result</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kt">double</span> <span class="n">variance</span> <span class="o">=</span> <span class="o">(</span><span class="n">sum</span> <span class="o">/</span> <span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">()-</span><span class="mi">1</span><span class="o">));</span>
+        <span class="k">return</span> <span class="n">variance</span><span class="o">;</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<p>Yep! What happened was in the wrong coding, the <code class="highlighter-rouge">average</code> method is being called repeatedly for each element in the array. It reaches same result, same correct answer but cost the computer more energy and memory even.</p>
+
+<p>In the right coding, <code class="highlighter-rouge">average</code> method value is assigned to <code class="highlighter-rouge">average</code>, so that way <code class="highlighter-rouge">average</code> method wouldn’t have to calculate repeatedly.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Wrong coding</span>
+<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">list</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">result</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">pow</span><span class="o">((</span><span class="n">num</span> <span class="o">-</span> <span class="n">average</span><span class="o">(</span><span class="n">list</span><span class="o">)),</span> <span class="mi">2</span><span class="o">);</span>
+  <span class="n">sum</span> <span class="o">+=</span> <span class="n">result</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="c1">// Correct coding</span>
+<span class="kt">double</span> <span class="n">average</span> <span class="o">=</span> <span class="n">average</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>
+
+<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">list</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">pow</span><span class="o">((</span><span class="n">num</span> <span class="o">-</span> <span class="n">average</span><span class="o">),</span> <span class="mi">2</span><span class="o">);</span>
+        <span class="n">sum</span> <span class="o">+=</span> <span class="n">result</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h1 id="more-than-once">More Than Once</h1>
+
+<p>This exercise teaches how to use <code class="highlighter-rouge">boolean</code> method. What’s mandate in <code class="highlighter-rouge">boolean</code> method is to return a value of either <code class="highlighter-rouge">true</code>, or <code class="highlighter-rouge">false</code>.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">moreThanOnce</span><span class="o">(</span><span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">,</span> <span class="kt">int</span> <span class="n">searched</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">number</span> <span class="o">:</span> <span class="n">list</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">number</span> <span class="o">==</span> <span class="n">searched</span><span class="o">){</span>
+            <span class="n">total</span><span class="o">++;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="k">if</span> <span class="o">(</span><span class="n">total</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+   <span class="nc">Scanner</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+   <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;();</span>
+   <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+   <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+   <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">7</span><span class="o">);</span>
+   <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+
+   <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Type a number: "</span><span class="o">);</span>
+   <span class="kt">int</span> <span class="n">number</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">reader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">());</span>
+   <span class="k">if</span> <span class="o">(</span><span class="n">moreThanOnce</span><span class="o">(</span><span class="n">list</span><span class="o">,</span> <span class="n">number</span><span class="o">))</span> <span class="o">{</span>
+       <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">number</span> <span class="o">+</span> <span class="s">" appears more than once."</span><span class="o">);</span>
+   <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+       <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">number</span> <span class="o">+</span> <span class="s">" does not appear more than once. "</span><span class="o">);</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">moreThanOnce</code> method will automatically tell <code class="highlighter-rouge">main</code> method what’s <code class="highlighter-rouge">true</code> or <code class="highlighter-rouge">false</code> when it is being called.</p>
+
+<h1 id="palindromi">Palindromi</h1>
+
+<p>I believe it is spelled Palindrome, but Palindromi is in Finnish’s language. This is the last exercise of week 3. I think this is easy, thanks to earlier basic algorithm <strong>Exercise #56</strong> on <strong>ReversingText</strong>. This <strong>Exercise #69</strong> asks for either <code class="highlighter-rouge">true</code> or <code class="highlighter-rouge">false</code>. Let’s do a <code class="highlighter-rouge">boolean</code> method.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">palindrome</span><span class="o">(</span><span class="nc">String</span> <span class="n">text</span><span class="o">)</span> <span class="o">{</span>
+
+   <span class="nc">String</span> <span class="n">reversed</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+   <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">--)</span> <span class="o">{</span>
+       <span class="kt">char</span> <span class="n">letter</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+       <span class="n">reversed</span> <span class="o">=</span> <span class="n">reversed</span> <span class="o">+</span> <span class="n">letter</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="k">if</span> <span class="o">(</span><span class="n">text</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">reversed</span><span class="o">))</span> <span class="o">{</span>
+       <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+   <span class="o">}</span> <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="wrapping-up-week-3-posts-on-sql-and-java-week-4-coming-up">Wrapping up Week 3. Posts on SQL and Java Week 4 coming up!</h2>
+
+:ET
