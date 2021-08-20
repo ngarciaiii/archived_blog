@@ -2,8 +2,8 @@
 layout: post
 title:  "Basic JavaScript: Nesting For Loops"
 date:   2016-08-21 17:23:30 -0400
-categories: FreeCodeCamp
-tags: [javascript]
+categories: javascript
+tags: [FreeCodeCamp]
 comments: true
 ---
 

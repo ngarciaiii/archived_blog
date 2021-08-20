@@ -2,8 +2,8 @@
 layout: post
 title:  "Intro to Java"
 date:   2017-04-19 3:02:30 -0400
-categories: Udemy
-tags: [java]
+categories: java
+tags: [Udemy]
 commets: true
 ---
 

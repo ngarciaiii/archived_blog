@@ -3,7 +3,7 @@ layout: post
 title:  "SELECT Quiz"
 date:   2017-06-13 11:48:30
 categories: SQL
-tags: [SQL]
+tags: [SQLzoo]
 comments: true
 ---
 

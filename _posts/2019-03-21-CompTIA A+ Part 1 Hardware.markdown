@@ -2,8 +2,8 @@
 layout: post
 title: "CompTIA A+ Hardware Part 1"
 date: 2019-03-19 09:08:30 -0400
-categories: CompTIA
-tags: [A+]
+categories: A+
+tags: [CompTIA]
 comments: true
 ---
 

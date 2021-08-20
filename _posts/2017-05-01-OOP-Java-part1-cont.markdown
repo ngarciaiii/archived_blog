@@ -2,8 +2,8 @@
 layout: post
 title:  "OOP Java Part 1 cont."
 date:   2017-05-01 4:06:30
-categories: MOOC
-tags: [java]
+categories: java
+tags: [MOOC]
 comments: true
 ---
 

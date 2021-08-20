@@ -2,8 +2,8 @@
 layout: post
 title:  "Hangman"
 date:   2017-05-26 11:37:30
-categories: MOOC
-tags: [java]
+categories: java
+tags: [MOOC]
 comments: true
 ---
 

@@ -2,8 +2,8 @@
 layout: post
 title:  "Guessing A Number"
 date:   2017-05-25 05:56:30
-categories: MOOC
-tags: [java]
+categories: java
+tags: [MOOC]
 comments: true
 ---
 

@@ -2,8 +2,8 @@
 layout: post
 title:  "Introduction and Relational Databases"
 date:   2017-06-15 08:09:30
-categories: Stanford
-tags: [Databases]
+categories: databases
+tags: [Stanford]
 comments: true
 ---
 

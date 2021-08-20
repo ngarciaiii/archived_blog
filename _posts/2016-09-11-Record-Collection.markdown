@@ -2,8 +2,8 @@
 layout: post
 title:  "Record Collection"
 date:   2016-09-11 18:07:30 -0400
-categories: FreeCodeCamp
-tags: [javascript]
+categories: javascript
+tags: [FreeCodeCamp]
 comments: true
 ---
 

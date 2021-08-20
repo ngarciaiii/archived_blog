@@ -3,7 +3,7 @@ layout: post
 title:  "SELECT from WORLD"
 date:   2017-05-25 00:00:30
 categories: SQL
-tags: [SQL]
+tags: [SQLzoo]
 comments: true
 ---
 

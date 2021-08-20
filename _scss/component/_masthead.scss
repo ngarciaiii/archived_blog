@@ -17,12 +17,15 @@
   .masthead-title {
     margin-top: 0;
     margin-bottom: 0;
+    margin-left: -13rem;
+    width: 100%;
     color: $theme-color;
     a {
       color: $theme-color;
       text-decoration: none;
     }
     small {
+      width: 100%;
       font-size: 75%;
       font-weight: 400;
       color: $masthead-title-small-color;
