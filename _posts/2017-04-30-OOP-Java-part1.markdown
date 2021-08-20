@@ -3,7 +3,7 @@ layout: post
 title:  "OOP Java Part 1"
 date:   2017-04-30 4:23:30
 categories: java
-tags: [MOOC]
+# tags: [MOOC]
 comments: true
 ---
 

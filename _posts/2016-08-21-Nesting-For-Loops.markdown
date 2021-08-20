@@ -3,7 +3,7 @@ layout: post
 title:  "Basic JavaScript: Nesting For Loops"
 date:   2016-08-21 17:23:30 -0400
 categories: javascript
-tags: [FreeCodeCamp]
+# tags: [FreeCodeCamp]
 comments: true
 ---
 

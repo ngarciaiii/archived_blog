@@ -3,7 +3,7 @@ layout: post
 title:  "Learning SQL"
 date:   2017-05-24 12:30:30
 categories: SQL
-tags: [SQLzoo]
+# tags: [SQLzoo]
 comments: true
 ---
 
