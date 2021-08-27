@@ -1,7 +1,7 @@
 # Site Info
 title: ngarciaiii
-tagline: 'Blog on learning programming languages'
-description: blog on learning programming languages
+tagline: 'Blog on learning'
+description: blog on learning
 baseurl: ""
 url: http://ngarciaiii.github.io
 logo: '/public/logo.png'
@@ -23,10 +23,10 @@ version: 1.0.0
 
 # About/contact
 author:
-  name: ngarciaiii
-  description: A <strong>deaf researcher</strong> learning to be a <strong>programmer and developer</strong>
-  gravatar: 947a7657a5f0f9ae51b585eb98787696 # md5 hash of your email address
-  contact:
+  # name: ngarciaiii
+  # description: A <strong>deaf researcher</strong> learning</strong>
+  # # gravatar: 947a7657a5f0f9ae51b585eb98787696 # md5 hash of your email address
+  # contact:
     linkedin:  https://www.linkedin.com/in/nicolas-garcia-iii
     github:    https://github.com/ngarciaiii
     # facebook:  <hide>
@@ -34,24 +34,19 @@ author:
 
 # Navigation (2nd level links supported)
 nav:
-  Home:
-    - '/'
-  Blog:
-    - '/blog/'
-    - { Categories: '/blog/categories/' }
-    - { Tags: '/blog/tags/' }
-  About:
-    - '/about/'
-  Github Project:
-    - 'https://ngarciaiii.github.io/'
+  Home: '/'
+  Categories: '/blog/categories/'
+  Tags: '/blog/tags/'
+  # About:
+  #   - '/about/'
 
 # Where are tags and categories displayed
 tag_page: '/blog/tags/'
 category_page: '/blog/categories/'
 
-hero:
-  image: /public/img/homepage.png
-  caption:
+# hero:
+#   image: /public/img/homepage.png
+#   caption:
 
 # Puglins
 mathjax: true # whether support mathjax

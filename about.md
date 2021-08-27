@@ -3,7 +3,7 @@ layout: page
 title: About
 ---
 
-<p class="message">
+<!-- <p class="message">
   Hi! I am Nicolas Garcia, a Washington D.C. based web developer and programmer. Junior level at this moment, hey I am still young!
 </p>
 
@@ -40,4 +40,4 @@ Some fun facts about me:
 * I am 12th generation Texan with ancestors going back during Texas was under New Spain!
 
 
-Thanks for reading!
+Thanks for reading! -->

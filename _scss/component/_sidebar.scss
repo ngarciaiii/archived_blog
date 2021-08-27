@@ -201,6 +201,8 @@ a.sidebar-nav-item:focus {
 
 .sidebar-personal-info {
   .sidebar-personal-info-section {
+    font-size: 2rem;
+    text-align: center;
     &:not(:first-of-type) {
       margin-top: .75rem;
     }
