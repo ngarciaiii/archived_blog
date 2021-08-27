@@ -32,7 +32,16 @@
 }
 
 .intro{
+  padding-top: 3.7rem;
   font-size: 1.3rem;
   color: $post-date-color;
-  padding-bottom:none;
+}
+
+.stored{
+  font-size: .731rem;
+  color: $white;
+}
+
+.nopadding {
+  padding: none;
 }
