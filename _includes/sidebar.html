@@ -11,12 +11,9 @@
           <img src="http://www.gravatar.com/avatar/{{ site.author.gravatar }}?s=350" title="View on Gravatar" alt="View on Gravatar" />
         </a>
       </div> -->
-      <!-- <div class="sidebar-personal-info-section">
-        <p>{{ site.author.description }}</p>
-      </div> -->
-      <!-- {% if site.author.contact %}
+      {% if site.author.contact %}
       {% assign len = site.author.contact | size %}
-      {% assign current_index = 0 %} -->
+      {% assign current_index = 0 %}
       <div class="sidebar-personal-info-section">
         {% for contact in site.author.contact %}
         {% assign iconname = contact[0] %}
@@ -56,7 +53,7 @@
             {% if sub_is_relative == '/' %}
               {% assign sub_url = sub_nav[1] | prepend: site.baseurl %}
             {% endif %}
-              <a class="sidebar-nav-item {% if page.url == sub_nav[1] %}active{% endif %}" href="{{ sub_url }}"> <!--sidebar-nav-item-sub -->
+              <a class="sidebar-nav-item sidebar-nav-item-sub {% if page.url == sub_nav[1] %}active{% endif %}" href="{{ sub_url }}">
                 {{ sub_nav[0] }}
               </a>
           {% endfor %}
@@ -64,19 +61,13 @@
       </span>
 
     {% endfor %}
-<!-- 
-    <span class="sidebar-nav-item">Currently v{{ site.version }}</span> -->
+
+  
   </nav>
 
-  <!-- <div class="sidebar-item">
+  <div class="sidebar-item">
     <p>
-    &copy; {{ site.time | date: '%Y' }} {{ site.author.name }}. This work is liscensed under <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>.
+    &copy; {{ site.time | date: '%Y' }} {{ site.author.name }}
     </p>
-  </div> -->
-
-  <!-- <div class="sidebar-item">
-    <p>
-    Powered by <a href="http://jekyllrb.com">jekyll</a> and <a href="http://codinfox.github.io">codinfox-lanyon</a>
-    </p>
-  </div> -->
+  </div>
 </div>

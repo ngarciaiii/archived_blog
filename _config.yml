@@ -23,10 +23,10 @@ version: 1.0.0
 
 # About/contact
 author:
-  # name: ngarciaiii
-  # description: A <strong>deaf researcher</strong> learning</strong>
-  # # gravatar: 947a7657a5f0f9ae51b585eb98787696 # md5 hash of your email address
-  # contact:
+  name: ngarciaiii
+  description:
+  gravatar: # 947a7657a5f0f9ae51b585eb98787696 # md5 hash of your email address
+  contact:
     linkedin:  https://www.linkedin.com/in/nicolas-garcia-iii
     github:    https://github.com/ngarciaiii
     # facebook:  <hide>
@@ -37,8 +37,9 @@ nav:
   Home: '/'
   Categories: '/blog/categories/'
   Tags: '/blog/tags/'
-  # About:
-  #   - '/about/'
+  # About: '/about/'
+  # Github Project: 'https://ngarciaiii.github.io/'
+  
 
 # Where are tags and categories displayed
 tag_page: '/blog/tags/'
