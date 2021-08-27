@@ -109,6 +109,7 @@ h4, h5, h6 {
 
 /* Body text */
 p {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-top: 0;
   margin-bottom: 1rem;
 }
@@ -449,8 +450,13 @@ a.pagination-item:hover {
   color: red;
 }
 
-.set_right {
+.set-right {
   float: right;
+  padding: 0rem;
+  // margin-top: 0rem;
+  // margin-right: 0rem;
+  // margin-bottom: 1rem;
+  // margin-left: 25rem;
 }
 
 section {
@@ -481,7 +487,6 @@ section {
   }
 }
 
-
 .colright {
   float: right;
   width: 35%;
@@ -491,3 +496,4 @@ section {
   float: left;
   width: 35%;
 }
+

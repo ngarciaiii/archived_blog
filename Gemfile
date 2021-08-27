@@ -11,7 +11,7 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 # gem "rails"
 
 gem 'jekyll-paginate'
-gem 'github-pages', versions['github-pages']
+gem 'github-pages', versions['']
 gem 'kramdown', versions['kramdown']
 gem 'rake'
 gem 'jekyll-assets', group: :jekyll_plugins

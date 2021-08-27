@@ -242,7 +242,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  github-pages (= 217)
+  github-pages
   jekyll-assets
   jekyll-paginate
   kramdown (= 2.3.1)

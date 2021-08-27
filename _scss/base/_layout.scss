@@ -28,6 +28,7 @@
   .container {
     max-width: 32rem;
     &.content {
+      overflow: auto;
       padding-top: 6.5rem;
     }
   }
