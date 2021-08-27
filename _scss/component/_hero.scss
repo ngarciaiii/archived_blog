@@ -1,10 +1,38 @@
-.hero {
-  text-align: center;
-  font-size: 0.75rem;
-  img {
-    height: 28rem;
-    width: auto;
-    display: inline;
-    margin-top: -1rem;
-  }
+// body {
+// background-color: $theme-color-dark;
+// }
+
+.name {
+  font-family: $font-sans;
+  // font-size: 2.3rem;
+  font-weight: 430;
+  font-size: 3rem;
+  text-transform: uppercase;
+  color: $theme-color;
+  letter-spacing: -.025rem;
+  float: right;
+  // margin-bottom: 1rem;
+  // margin-left: 14.3rem;
+}
+
+.summary{
+  font-family: $font-sans;
+  // font-size: 2.3rem;
+  font-weight: 430;
+  
+  text-transform: uppercase;
+  color: $post-date-color;
+  letter-spacing: -.025rem;
+}
+
+.float-right {
+  display: block;
+  float:right;
+  text-align: right;
+}
+
+.intro{
+  font-size: 1.3rem;
+  color: $post-date-color;
+  padding-bottom:none;
 }
