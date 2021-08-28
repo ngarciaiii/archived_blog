@@ -25,7 +25,7 @@ version: 1.0.0
 author:
   name: ngarciaiii
   description:
-  gravatar: # 947a7657a5f0f9ae51b585eb98787696 # md5 hash of your email address
+  # gravatar: 947a7657a5f0f9ae51b585eb98787696 # md5 hash of your email address
   contact:
     linkedin:  https://www.linkedin.com/in/nicolas-garcia-iii
     github:    https://github.com/ngarciaiii
@@ -37,7 +37,8 @@ nav:
   Home: '/'
   Categories: '/blog/categories/'
   Tags: '/blog/tags/'
-  # About: '/about/'
+  About:
+     - '/about/'
   # Github Project: 'https://ngarciaiii.github.io/'
   
 

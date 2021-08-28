@@ -497,3 +497,31 @@ section {
   width: 35%;
 }
 
+.prof_pic {
+  margin-top: -3.4rem;
+  width: 13.4rem;
+  height: auto;
+  // margin: 0 auto;
+  float: right;
+}
+
+.about-personal-info {
+
+  h1 {
+    margin-top: 0rem;
+  }
+
+  .about-personal-info-section {
+    font-size: 7rem;
+    text-align: left;
+    padding-top: -1rem;
+    &:not(:first-of-type) {
+      margin-top: 1rem;
+    }
+    line-height: 1rem;
+    a, strong {
+      color: $darkgreen;
+      text-decoration: none;
+    }
+  }
+}

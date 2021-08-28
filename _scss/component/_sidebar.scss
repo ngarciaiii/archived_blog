@@ -35,9 +35,9 @@
   }
 
   @if $green!= $default {
-    background-color: $green;
+    background-color: $darkgreen;
   } @else {
-    background-color: darken($green, 10%);
+    background-color: darken($darkgreen, 10%);
   }
 }
 @media (min-width: 30em) {
@@ -63,8 +63,12 @@
   border-bottom: 1px solid rgba(255,255,255,.1);
 }
 .sidebar-nav-item {
+  color:$darkgreen;
+  font-size: 1rem;
+  font-weight: 430;
+  text-transform: uppercase;
   display: block;
-  padding: .5rem 1rem;
+  padding: 1.37rem 1rem;
   border-top: 1px solid rgba(255,255,255,.1);
 }
 .sidebar-nav-item-sub {
@@ -79,7 +83,8 @@
 a.sidebar-nav-item:hover,
 a.sidebar-nav-item:focus {
   text-decoration: none;
-  background-color: rgba(255,255,255,.1);
+  // background-color: rgba(255,255,255,.1);
+  background-color: $green;
   border-color: transparent;
 }
 
@@ -114,17 +119,18 @@ a.sidebar-nav-item:focus {
   display: block;
   padding: .25rem .75rem;
   color: $green;
-  background-color: $white;
+  background-color: $green;
   border-radius: .25rem;
   cursor: pointer;
 }
 
 .sidebar-toggle:before {
+
   display: inline-block;
   width: 1rem;
   height: .75rem;
   content: "";
-  @include background-image(linear-gradient(to bottom, $green, $green 20%, $white 20%, $white 40%, $green 40%, $green 60%, $white 60%, $white 80%, $green 80%, $green 100%));
+  @include background-image(linear-gradient(to bottom, $white, $white 20%, $green 20%, $green 40%, $white 40%, $white 60%, $green 60%, $green 80%, $white 80%, $white 100%));
 }
 
 .sidebar-toggle:active,
@@ -137,6 +143,7 @@ a.sidebar-nav-item:focus {
 .sidebar-toggle:active:before,
 #sidebar-checkbox:focus ~ .sidebar-toggle:before,
 #sidebar-checkbox:checked ~ .sidebar-toggle:before {
+  color: $green;
   @include background-image(linear-gradient(to bottom, $white, $white 20%, $green 20%, $green 40%, $white 40%, $white 60%, $green 60%, $green 80%, $white 80%, $white 100%));
 }
 
@@ -204,7 +211,7 @@ a.sidebar-nav-item:focus {
     font-size: 2rem;
     text-align: center;
     &:not(:first-of-type) {
-      margin-top: .75rem;
+      margin-top: 3rem;
     }
     line-height: 1rem;
     a, strong {

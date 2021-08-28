@@ -2,42 +2,37 @@
 layout: page
 title: About
 ---
+<h1>Nicolas Garcia III<br><br/></h1>
 
-<!-- <p class="message">
-  Hi! I am Nicolas Garcia, a Washington D.C. based web developer and programmer. Junior level at this moment, hey I am still young!
-</p>
+![profpic](/public/img/profpic.jpeg){: .colright, .prof_pic }
 
-In this blog, I will be putting down everything that I learned relating to programming and web development. All things I encounter.
+<line-height-reduce>RESEARCHING, <br><br/> PROGRAMMING, <br><br/> BLOGGING, </line-height-reduce>  
 
- * Tricks
- * Shortcuts
- * Problems/Obstacles
- * Solutions
+<h1><a href="https://ngarciaiii.github.io/blog#">I post what I learn.</a></h1>
 
- And even those that I stumbled into that got me stumped. Oh I hope to find some unsolved issues, and then I can run over to [stackoverflow](https://www.stackoverflow.com)!
+<div class="about-personal-info">
+  <h1>
+      <a href="{{ contact[linkedin] }}">
+        <i class="fa fa-linkedin" aria-hidden="true"></i>
+      </a>  
+      <a href="{{ contact[github] }}">
+        <i class="fa fa-github" aria-hidden="true"></i>
+      </a>  
+      <a href="{{ contact[twitter] }}">
+        <i class="fa fa-twitter" aria-hidden="true"></i>
+      </a>
+  </h1>
+</div>
 
-There are currently three languages I am focusing on:
+<style >
+  
+  line-height-reduce {
+    line-height: 3%;
+    font-size: 2rem;
+  }
 
-* [Python](https://www.python.org)
-* [JavaScript](https://www.javascript.com)
-* [Java](https://go.java)
+  h1 a:hover {
+      text-decoration: none;
+      font-size: 2.37rem;
 
-Follow me on this blog or on my github and see what I learned! I will be using Freecodecamp and few other online courses!  [GitHub](https://github.com/ngarciaiii).
-
-## FUN FACTS
-
-Some fun facts about this blog:
-
-* Used [Jekyll](https://jekyllrb.com) to build this blog!
-* Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
-* Coded with [Atom](https://atom.io), an amazing code editor
-* Designed and developed while at [Ebenezer's](http://ebenezerscoffeehouse.com/)
-
-Some fun facts about me:
-
-* Graduated at [Gallaudet University](https://www.gallaudet.edu/) with  BS in Biology
-* I am deaf!
-* I am 12th generation Texan with ancestors going back during Texas was under New Spain!
-
-
-Thanks for reading! -->
+</style>
