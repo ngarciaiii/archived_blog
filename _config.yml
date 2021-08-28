@@ -37,8 +37,7 @@ nav:
   Home: '/'
   Categories: '/blog/categories/'
   Tags: '/blog/tags/'
-  About:
-     - '/about/'
+  About: '/about/'
   # Github Project: 'https://ngarciaiii.github.io/'
   
 

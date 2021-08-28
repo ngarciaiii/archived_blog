@@ -10,20 +10,6 @@ title: About
 
 <h1><a href="https://ngarciaiii.github.io/blog#">I post what I learn.</a></h1>
 
-<div class="about-personal-info">
-  <h1>
-      <a href="{{ contact[linkedin] }}">
-        <i class="fa fa-linkedin" aria-hidden="true"></i>
-      </a>  
-      <a href="{{ contact[github] }}">
-        <i class="fa fa-github" aria-hidden="true"></i>
-      </a>  
-      <a href="{{ contact[twitter] }}">
-        <i class="fa fa-twitter" aria-hidden="true"></i>
-      </a>
-  </h1>
-</div>
-
 <style >
   
   line-height-reduce {
