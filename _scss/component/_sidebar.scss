@@ -205,11 +205,12 @@ a.sidebar-nav-item:focus {
   }
 }
 
-// .sidebar-favicon {
-//   font-size: 13rem;
-//   margin: auto;
-//   width: 50%;
-// }
+.sidebar-favicon {
+  font-size: 13rem;
+  margin: auto;
+  width: 50%;
+  z-index: 2;
+}
 
 .sidebar-personal-info {
   .sidebar-personal-info-section {
