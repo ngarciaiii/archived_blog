@@ -52,7 +52,7 @@
   color: $white;
 }
 .sidebar-item {
-  padding: 1rem;
+  margin-top: 2.7rem;
 }
 .sidebar-item p:last-child {
   margin-bottom: 0;
@@ -206,11 +206,14 @@ a.sidebar-nav-item:focus {
 }
 
 .sidebar-favicon {
-  position: absolute;
-  margin-top: -6rem;
-  margin-left: 3.2rem;
-  z-index: 2;
+  img {
+    position: absolute;
+    margin-top: -6rem;
+    margin-right: -7 rem;
+    height: 3.7rem;
+  }
 }
+
 
 .sidebar-personal-info {
   .sidebar-personal-info-section {
