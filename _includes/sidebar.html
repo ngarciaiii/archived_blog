@@ -8,8 +8,10 @@
          <div class="sidebar-personal-info">
            <div class="sidebar-personal-info-section">
              <p>{{ site.author.description }}</p>
-             <img class="sidebar-favicon" src="/public/favicon.png"/>
            </div>
+           <div class="sidebar-favicon">
+             <img src="/public/favicon.png"/>
+          </div>
            {% if site.author.contact %}
            {% assign len = site.author.contact | size %}
            {% assign current_index = 0 %}

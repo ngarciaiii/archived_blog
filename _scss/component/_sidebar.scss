@@ -206,10 +206,13 @@ a.sidebar-nav-item:focus {
 }
 
 .sidebar-favicon {
-  font-size: 13rem;
-  margin: auto;
-  width: 50%;
-  z-index: 2;
+  // border-width: .1rem;
+  // border-style: solid;
+  // border-color: $white;
+  position: absolute;
+  margin-top: -6rem;
+  margin-left: 3.1rem;
+  z-index: 1;
 }
 
 .sidebar-personal-info {

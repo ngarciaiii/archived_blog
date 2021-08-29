@@ -34,14 +34,17 @@ author:
 nav:
   Home:
     - '/'
-  Blog:
-    - '/blog/'
-    - { Categories: '/blog/categories/' }
-    - { Tags: '/blog/tags/' }
   About:
     - '/about/'
-  Github Project:
-    - 'https://ngarciaiii.github.io/'
+  Blog:
+    - '/blog/'
+    # - { Categories: '/blog/categories/' }
+    # - { Tags: '/blog/tags/' }
+  Categories: 
+    - '/blog/categories/'
+  TAGS:
+    - '/blog/categories/tag/'
+
 
 # Where are tags and categories displayed
 tag_page: '/blog/tags/'
