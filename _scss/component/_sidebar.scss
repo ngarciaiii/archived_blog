@@ -63,13 +63,13 @@
   border-bottom: 1px solid rgba(255,255,255,.1);
 }
 .sidebar-nav-item {
+  display: block;
+  padding: 1.37rem 1rem;
+  border-top: 1px solid rgba(255,255,255,.1);
   color:$darkgreen;
   font-size: 1rem;
   font-weight: 430;
   text-transform: uppercase;
-  display: block;
-  padding: 1.37rem 1rem;
-  border-top: 1px solid rgba(255,255,255,.1);
 }
 .sidebar-nav-item-sub {
   &:before {
@@ -143,7 +143,6 @@ a.sidebar-nav-item:focus {
 .sidebar-toggle:active:before,
 #sidebar-checkbox:focus ~ .sidebar-toggle:before,
 #sidebar-checkbox:checked ~ .sidebar-toggle:before {
-  color: $green;
   @include background-image(linear-gradient(to bottom, $white, $white 20%, $green 20%, $green 40%, $white 40%, $white 60%, $green 60%, $green 80%, $white 80%, $white 100%));
 }
 
@@ -206,12 +205,18 @@ a.sidebar-nav-item:focus {
   }
 }
 
+// .sidebar-favicon {
+//   font-size: 13rem;
+//   margin: auto;
+//   width: 50%;
+// }
+
 .sidebar-personal-info {
   .sidebar-personal-info-section {
     font-size: 2rem;
     text-align: center;
     &:not(:first-of-type) {
-      margin-top: 3rem;
+      margin-top: 2rem;
     }
     line-height: 1rem;
     a, strong {

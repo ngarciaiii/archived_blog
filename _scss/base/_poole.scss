@@ -453,10 +453,6 @@ a.pagination-item:hover {
 .set-right {
   float: right;
   padding: 0rem;
-  // margin-top: 0rem;
-  // margin-right: 0rem;
-  // margin-bottom: 1rem;
-  // margin-left: 25rem;
 }
 
 section {
@@ -479,7 +475,6 @@ section {
   span {
     text-transform: uppercase;
     color:$green;
-    // margin: none;
   }
 
   .center {
@@ -498,11 +493,11 @@ section {
 }
 
 .prof_pic {
-  margin-top: -3.4rem;
-  width: 13.4rem;
+  margin-top: 0rem;
+  width: 14.3rem;
   height: auto;
   // margin: 0 auto;
-  float: right;
+  float: left;
 }
 
 .about-personal-info {
@@ -511,17 +506,17 @@ section {
     margin-top: 0rem;
   }
 
-  .about-personal-info-section {
-    font-size: 7rem;
-    text-align: left;
-    padding-top: -1rem;
-    &:not(:first-of-type) {
-      margin-top: 1rem;
-    }
-    line-height: 1rem;
-    a, strong {
-      color: $darkgreen;
-      text-decoration: none;
-    }
-  }
+  // .about-personal-info-section {
+  //   font-size: 7rem;
+  //   text-align: left;
+  //   padding-top: -1rem;
+  //   &:not(:first-of-type) {
+  //     margin-top: 1rem;
+  //   }
+    // line-height: 1rem;
+    // a, strong {
+    //   color: $darkgreen;
+    //   text-decoration: none;
+    // }
+  // }
 }
