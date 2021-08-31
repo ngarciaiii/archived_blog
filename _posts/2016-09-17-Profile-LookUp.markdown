@@ -4,6 +4,7 @@ title:  "Profile LookUp"
 date:   2016-09-17 14:23:30 -0400
 categories: javascript
 tags: [FreeCodeCamp]
+years: ['2016']
 comments: true
 ---
 I took a look into this new challenge, and thought it was going to be easy. After few tries, I failed to realize that computer parses, and not necessarily read the same way as I do. I wasn't accessing right. I miscommunicated with the computer.

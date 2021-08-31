@@ -5,6 +5,7 @@ date:   2017-04-19 3:02:30 -0400
 categories: java
 tags: [Udemy]
 commets: true
+years: ['2017']
 ---
 
 I am learning how to do Java via [Udemy][Udemy], so let's get started. BTW, I use Mac OSX.

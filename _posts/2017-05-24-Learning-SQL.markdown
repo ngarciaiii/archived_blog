@@ -4,6 +4,7 @@ title:  "Learning SQL"
 date:   2017-05-24 12:30:30
 categories: SQL
 tags: [SQLzoo]
+years: ['2017']
 comments: true
 ---
 

@@ -2,17 +2,68 @@
 layout: default
 title: Home
 ---
+<html>
+  <div>
+  <!-- <a href="https://ngarciaiii.github.io/blog/categories/"></a> -->
+      <div class="namehover float-right nopadding">
+        <p class="intro">A personal blog on learning</p>
+        <!-- <p class="stored">
+        Therefore [a]comfort each other and [b]edify one another, just as you also are doing.
+        <br>1 Thessalonians 5:11 NKJV</br>
+        </p> -->
 
-<!-- <a href="https://ngarciaiii.github.io/blog/categories/"></a> -->
-<div class="float-right nopadding">
-  <p class="intro">A personal blog on learning</p>
-  <!-- <p class="stored">
-   Therefore [a]comfort each other and [b]edify one another, just as you also are doing.
-   <br>1 Thessalonians 5:11 NKJV</br>
-  </p> -->
+        <a href="https://ngarciaiii.github.io/blog/">
+          <h1 class="name">Nicolas Garcia III</h1> 
+        </a>
+        <h1 class="summary">programmer & developer</h1>
+        <br><br/>
+      </div>
+      <div class="parallax">
+      <div style="height:1300px; font-size:36px;"> 
+        <div class="page fyp">
+          <!-- <a href="https://ngarciaiii.github.io/about/"><h1 class="page-title">About</h1></a>-->
+          <h1></h1>
+          <a href="https://ngarciaiii.github.io/about/"><h1 class="page-title">About</h1></a>
+          <h1></h1>
+          <!-- <br><br/> -->
+          <a href="https://ngarciaiii.github.io/blog/categories/"><h1 class="page-title">Categories</h1></a>
+          <div class="tags-expo-list">
+            {% for tag in site.categories %}
+            <a href="#{{ tag[0] | slugify }}" class="post-tag">{{ tag[0] }}</a>
+            {% endfor %}
+          </div>
+          <h1></h1>
+          <!-- <br><br/> -->
+          <a href="https://ngarciaiii.github.io/blog/tags/"><h1 class="page-title">Tags</h1></a>
+          <div class="tags-expo-list">
+            {% for tag in site.tags %}
+            <a href="#{{ tag[0] | slugify }}" class="post-tag">{{ tag[0] }}</a>
+            {% endfor %}
+          </div>
 
-<h1 class="name">Nicolas Garcia III</h1>
-<h1 class="summary">programmer & developer</h1>
-
-</div>
+          <div class="fyp-personal-info">
+            {% if site.author.contact %}
+            {% assign len = site.author.contact | size %}
+            {% assign current_index = 0 %}
+            <div class="fyp-personal-info-section">
+              {% for contact in site.author.contact %}
+              {% assign iconname = contact[0] %}
+              {% if contact[0] == 'email' %}
+              {% assign iconname = 'envelope' %}
+              {% endif %}
+              <a href="{{ contact[1] }}">
+                <i class="fa fa-{{ iconname }}" aria-hidden="true"></i>
+              </a>
+              {% assign current_index = current_index | plus: 1 %}
+              {% if current_index != len %}|{% endif %}
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>    
+  </div>
+</html>
 <!-- </a> -->

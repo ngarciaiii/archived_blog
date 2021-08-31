@@ -6,18 +6,31 @@
   font-family: $font-sans;
   // font-size: 2.3rem;
   font-weight: 430;
-  font-size: 2.3rem;
+  font-size: 2.7rem;
   text-transform: uppercase;
   color: $theme-color;
   letter-spacing: -.025rem;
   float: right;
+  margin-top: 3rem;
   // margin-bottom: 1rem;
   // margin-left: 14.3rem;
 }
 
+.namehover {
+  a:hover {
+    text-decoration: none;
+    font-size: .97rem;
+
+    h1 {
+      font-size: 2.79rem;
+    }
+  }
+
+}
+
 .summary{
   font-family: $font-sans;
-  font-size: 1.73rem;
+  // font-size: 2.3rem;
   font-weight: 430;
   
   text-transform: uppercase;
@@ -29,12 +42,17 @@
   display: block;
   float:right;
   text-align: right;
+  a:hover {
+    font-size: 3rem;
+  }
 }
 
 .intro{
-  padding-top: 3.7rem;
-  font-size: 1.3rem;
+  margin-top: 3rem;
+  padding-top: 0rem;
+  font-size: 1.27rem;
   color: $post-date-color;
+  margin-top: 7rem;
 }
 
 // .stored{
@@ -44,4 +62,48 @@
 
 .nopadding {
   padding: none;
+  a {
+    text-decoration: none;
+    font-size: 1.3rem;
+  }
+}
+
+.fyp {
+  h1 {
+    font-size: 2rem;
+    font-weight: 430;
+  }
+
+  a:hover {
+    text-decoration: none;
+    font-size: .97rem;
+
+    h1 {
+      font-size: 1.87rem;
+    }
+  }
+
+  float: left;
+  font-size: .87rem;
+  margin-top: 13rem;
+  text-align: left;
+  width: 100%
+}
+
+.fyp-personal-info {
+  .fyp-personal-info-section {
+    font-size: 2.7rem;
+    text-align: center;
+    line-height: 1rem;
+    a, strong {
+      color: $theme-color;;
+      text-decoration: none;
+      }
+    }
+
+    a:hover {
+      font-size: 3rem;
+    }
+
+  margin-top: 13rem;
 }

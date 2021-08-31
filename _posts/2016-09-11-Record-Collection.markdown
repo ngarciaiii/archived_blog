@@ -4,6 +4,7 @@ title:  "Record Collection"
 date:   2016-09-11 18:07:30 -0400
 categories: javascript
 tags: [FreeCodeCamp]
+years: ['2016']
 comments: true
 ---
 

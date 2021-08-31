@@ -438,6 +438,22 @@ a.pagination-item:hover {
 }
 
 /* ADDED BY ME NICK G */
+
+.parallax {
+  // /* The image used */
+  // background-image: url('homepage.png');
+
+  /* Set a specific height */
+  min-height: 340px; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
 .mbtablestyle {
         border-collapse: collapse;
 

@@ -4,6 +4,7 @@ title: "CompTIA A+ Hardware Part 1"
 date: 2019-03-19 09:08:30 -0400
 categories: A+
 tags: [CompTIA]
+years: ['2019']
 comments: true
 ---
 

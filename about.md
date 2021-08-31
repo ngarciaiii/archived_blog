@@ -8,8 +8,8 @@ title: About
 
 <about-short> 
 <h1>Nicolas Garcia III</h1>
-<h1><a href="https://ngarciaiii.github.io/blog#">I post what I learn.</a></h1><h3></h3>
-<line-height-reduce>Researching, <br><br/> Programming, <br><br/> Blogging, </line-height-reduce>  
+<h1><a href="https://ngarciaiii.github.io/blog#">I post what I learn</a></h1><h3></h3>
+<line-height-reduce>Researching<br><br/> Programming<br><br/> Blogging</line-height-reduce>  
 </about-short>
 
 <style >

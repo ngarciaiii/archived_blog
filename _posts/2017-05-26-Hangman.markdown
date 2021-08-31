@@ -4,6 +4,7 @@ title:  "Hangman"
 date:   2017-05-26 11:37:30
 categories: java
 tags: [MOOC]
+years: ['2017']
 comments: true
 ---
 

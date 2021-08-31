@@ -4,6 +4,7 @@ title:  "Using Derived Tables and Nested SELECT"
 date:   2017-06-19 11:48:30
 categories: SQL
 tags: [SQLzoo]
+years: ['2017']
 comments: true
 ---
 

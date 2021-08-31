@@ -4,6 +4,7 @@ title:  "Introduction and Relational Databases"
 date:   2017-06-15 08:09:30
 categories: databases
 tags: [Stanford]
+years: ['2017']
 comments: true
 ---
 
