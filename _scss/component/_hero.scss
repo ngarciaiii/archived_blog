@@ -70,21 +70,22 @@
 
 .fyp {
   h1 {
-    font-size: 2rem;
+    font-size: 1.73rem;
     font-weight: 430;
+    margin-top: 1.37rem;
   }
 
   a:hover {
     text-decoration: none;
-    font-size: .97rem;
+    // font-size: 2.97rem;
 
     h1 {
-      font-size: 2.3rem;
+      font-size: 2rem;
     }
   }
 
   float: left;
-  font-size: .87rem;
+  font-size: .67rem;
   margin-top: 13rem;
   text-align: left;
   width: 100%
@@ -92,9 +93,10 @@
 
 .fyp-personal-info {
   .fyp-personal-info-section {
-    font-size: 2.7rem;
+    font-size: 2.3rem;
     text-align: center;
     line-height: 1rem;
+    margin-top: 7rem;
     a, strong {
       color: $theme-color;;
       text-decoration: none;
