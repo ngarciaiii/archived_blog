@@ -79,7 +79,7 @@
     font-size: .97rem;
 
     h1 {
-      font-size: 1.87rem;
+      font-size: 2.3rem;
     }
   }
 
@@ -100,10 +100,19 @@
       text-decoration: none;
       }
     }
-
     a:hover {
       font-size: 3rem;
     }
 
   margin-top: 13rem;
+
+  .fyp-background {
+    // background: rgba($green, 0.15);
+    display: inline-block;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    i {
+      padding: .34rem;
+    }
+  }
 }
