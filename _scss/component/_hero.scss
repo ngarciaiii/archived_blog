@@ -14,18 +14,15 @@
   margin-top: 3rem;
   // margin-bottom: 1rem;
   // margin-left: 14.3rem;
-}
-
-.namehover {
-  a:hover {
+  &:hover {
     text-decoration: none;
-    font-size: .97rem;
-
-    h1 {
-      font-size: 2.79rem;
-    }
+    font-size: 2.73rem;
+    // margin-bottom: .37rem;
+    padding: .13rem;
+    color: $blue;
+    background-color: rgba($green, 0.15);
+    cursor: pointer;
   }
-
 }
 
 .summary{
@@ -44,6 +41,7 @@
   text-align: right;
   a:hover {
     font-size: 3rem;
+    text-decoration: none;
   }
 }
 
@@ -65,30 +63,30 @@
   a {
     text-decoration: none;
     font-size: 1.3rem;
+    text-decoration: none;
   }
 }
 
 .fyp {
-  h1 {
-    font-size: 1.73rem;
-    font-weight: 430;
-    margin-top: 1.37rem;
-  }
-
-  a:hover {
-    text-decoration: none;
-    // font-size: 2.97rem;
-
-    h1 {
-      font-size: 2rem;
-    }
-  }
 
   float: left;
-  font-size: .67rem;
+  font-size: .87rem;
   margin-top: 13rem;
   text-align: left;
-  width: 100%
+  width: 100%;
+
+  h1 {
+    
+    &:hover {
+      text-decoration: none;
+      font-size: 2.1rem;
+      // margin-bottom: .37rem;
+      padding: .13rem;
+      color: $blue;
+      background-color: rgba($green, 0.15);
+      width: 34%;
+    }
+  }
 }
 
 .fyp-personal-info {

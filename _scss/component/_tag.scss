@@ -1,19 +1,19 @@
 .post-tag {
   display: inline-block;
   background: rgba($green, 0.15);
-  padding: 0 .5rem;
+  padding: .5rem;
   margin-right: .5rem;
   border-radius: 4px;
   color: $green;
   font-family: $font-sans;
-  font-size: .73rem;
+  font-size: .7rem;
   &:before {
     content: "\f02b";
     font-family: $font-font-awesome;
     padding-right: .5em;
   }
   &:hover {
-    font-size: 1rem;
+    font-size: .97rem;
     text-decoration: none;
     background: $green;
     color: $white;
@@ -31,7 +31,7 @@
   }
   .tags-expo-list {
     @media (min-width: 38em) {
-      font-size: 0.9rem;
+      font-size: 0.1rem;
       .post-tag {
         margin: .2em .3em;
       }
