@@ -44,6 +44,9 @@ nav:
     - '/blog/categories/'
   TAGS:
     - '/blog/tags/'
+  RESUME:
+    - 'public/img/NG_Resume.pdf'
+
 
 
 # Where are tags and categories displayed

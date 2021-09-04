@@ -13,7 +13,6 @@ title: About
 </about-short>
 
 
-
 <div class="abt-personal-info">
   {% if site.author.contact %}
   {% assign len = site.author.contact | size %}
@@ -35,16 +34,19 @@ title: About
   </div>
 </div>
 {% endif %}
+
 <style >
   
   line-height-reduce {
-    line-height: %;
+    line-height: .1rem;
     font-size: 1.73rem;
   }
 
   h1 a:hover {
       text-decoration: none;
-      font-size: 2.3rem;
+      font-size: 1.97rem;
+      font-weight: 510;
+      color: #67b233;
   }
 
   about-short {

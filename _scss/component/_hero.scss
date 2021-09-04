@@ -19,8 +19,8 @@
     font-size: 2.73rem;
     // margin-bottom: .37rem;
     padding: .13rem;
-    color: $blue;
-    background-color: rgba($green, 0.15);
+    color: $darkgreen;
+    // background-color: rgba($green, 0.15);
     cursor: pointer;
   }
 }
@@ -71,7 +71,7 @@
 
   float: left;
   font-size: .87rem;
-  margin-top: 13rem;
+  margin-top: 21rem;
   text-align: left;
   width: 100%;
 
@@ -79,11 +79,12 @@
     
     &:hover {
       text-decoration: none;
-      font-size: 2.1rem;
+      font-size: 2rem;
+      font-weight: 500;
       // margin-bottom: .37rem;
       padding: .13rem;
-      color: $blue;
-      background-color: rgba($green, 0.15);
+      color: $darkgreen;
+      // background-color: rgba($green, 0.15);
       width: 34%;
     }
   }
@@ -91,28 +92,30 @@
 
 .fyp-personal-info {
   .fyp-personal-info-section {
-    font-size: 2.3rem;
+    font-size: 2.7rem;
     text-align: center;
     line-height: 1rem;
     margin-top: 7rem;
     a, strong {
-      color: $theme-color;;
+      color: $theme-color;
       text-decoration: none;
       }
     }
     a:hover {
-      font-size: 3rem;
+      font-size: 3.4rem;
+      // font-weight: 730;
+      // background: rgba($green, 0.15);
+      color: $darkgreen;
     }
 
   margin-top: 12rem;
 
   .fyp-background {
-    // background: rgba($green, 0.15);
     display: inline-block;
-    padding-right: 1rem;
-    padding-left: 1rem;
     i {
-      padding: .34rem;
+      // padding: .34rem;
+      padding-right: 1rem;
+      padding-left: 1rem;
     }
   }
 }

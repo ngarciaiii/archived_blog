@@ -82,6 +82,7 @@
 .sidebar-nav-item.active,
 a.sidebar-nav-item:hover,
 a.sidebar-nav-item:focus {
+  font-size: 1.3rem;
   text-decoration: none;
   // background-color: rgba(255,255,255,.1);
   background-color: $green;
@@ -137,13 +138,13 @@ a.sidebar-nav-item:focus {
 #sidebar-checkbox:focus ~ .sidebar-toggle,
 #sidebar-checkbox:checked ~ .sidebar-toggle {
   color: $white;
-  background-color: $green;
+  background-color: $darkgreen;
 }
 
 .sidebar-toggle:active:before,
 #sidebar-checkbox:focus ~ .sidebar-toggle:before,
 #sidebar-checkbox:checked ~ .sidebar-toggle:before {
-  @include background-image(linear-gradient(to bottom, $white, $white 20%, $green 20%, $green 40%, $white 40%, $white 60%, $green 60%, $green 80%, $white 80%, $white 100%));
+  @include background-image(linear-gradient(to bottom, $white, $white 20%, $darkgreen 20%, $darkgreen 40%, $white 40%, $white 60%, $darkgreen 60%, $darkgreen 80%, $white 80%, $white 100%));
 }
 
 @media (min-width: 30.1em) {
@@ -226,6 +227,10 @@ a.sidebar-nav-item:focus {
     a, strong {
       color: $white;
       text-decoration: none;
+    }
+
+    a:hover {
+      font-size: 2.34rem;
     }
   }
 }

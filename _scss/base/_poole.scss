@@ -294,7 +294,7 @@ tbody tr:nth-child(odd) th {
  */
 
 .container {
-  max-width: 38rem;
+  max-width: 100%;
   padding-left:  1rem;
   padding-right: 1rem;
   margin-left:  auto;
@@ -314,9 +314,10 @@ tbody tr:nth-child(odd) th {
   margin-bottom: 3rem;
 }
 .masthead-title {
-  margin-top: 0;
-  margin-bottom: 0;
+  // margin-top: 0;
+  // margin-bottom: 0;
   color: #505050;
+  margin: none;
 }
 .masthead-title a {
   color: #505050;
@@ -515,6 +516,7 @@ section {
   height: auto;
   // margin: 0 auto;
   float: left;
+  // filter: grayscale(77%);
 }
 
 .about-personal-info {
@@ -526,7 +528,7 @@ section {
 
 .abt-personal-info {
   .abt-personal-info-section {
-    font-size: 2.3rem;
+    font-size: 2.5rem;
     text-align: center;
     line-height: 1rem;
     margin-top: 7rem;
@@ -536,7 +538,8 @@ section {
       }
     }
     a:hover {
-      font-size: 3rem;
+      font-size: 2.7rem;
+      color: $darkgreen;
     }
 
   // margin-top: 15rem;
@@ -544,11 +547,10 @@ section {
   .abt-background {
     // background: rgba($green, 0.15);
     display: inline-block;
-    // margin: 0 auto;
+    margin-top: 5rem;
     padding-right: 1rem;
     padding-left: 1rem;
-    // margin-top: 7em;
-    // margin-left: -7.9rem;
+    width: 100%;
     i {
       padding: .34rem;
     }
