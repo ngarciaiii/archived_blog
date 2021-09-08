@@ -25,7 +25,7 @@
 .tags-expo {
   :target:before {
     content:"";
-    display:block;
+    // display:block;
     height:72px; /* fixed header height*/
     margin:-72px 0 0; /* negative fixed header height */
   }
@@ -41,6 +41,7 @@
     ul {
       list-style-type: circle;
       list-style-position: inside;
+      text-align:left;
       padding: 0;
       width: 100%;
       li {

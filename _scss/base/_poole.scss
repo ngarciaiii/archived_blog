@@ -442,8 +442,6 @@ a.pagination-item:hover {
 /* ADDED BY ME NICK G */
 
 .parallax {
-  // /* The image used */
-  // background-image: url('homepage.png');
 
   /* Set a specific height */
   min-height: 340px; 
@@ -502,12 +500,12 @@ section {
 
 .colright {
   float: right;
-  width: 35%;
+  // width: 35%;
 }
 
 .colleft {
   float: left;
-  width: 35%;
+  // width: 70%;
 }
 
 .prof_pic {
@@ -528,17 +526,19 @@ section {
 
 .abt-personal-info {
   .abt-personal-info-section {
-    font-size: 2.5rem;
+    // font-size: 2.5rem;
+    font-size: 2.7rem;
     text-align: center;
     line-height: 1rem;
-    margin-top: 7rem;
+    margin-top: -3rem;
     a, strong {
       color: $theme-color;;
       text-decoration: none;
       }
     }
     a:hover {
-      font-size: 2.7rem;
+      // font-size: 2.7rem;
+      font-size: 3.4rem;
       color: $darkgreen;
     }
 
