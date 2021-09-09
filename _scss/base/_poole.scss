@@ -485,6 +485,10 @@ section {
         list-style-type: disc;
         padding: 0 .5rem;
       }
+
+      a:hover {
+        text-decoration: none;
+      }
     }
   }
 

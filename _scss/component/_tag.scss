@@ -28,6 +28,7 @@
     // display:block;
     height:72px; /* fixed header height*/
     margin:-72px 0 0; /* negative fixed header height */
+    text-decoration: none;
   }
   .tags-expo-list {
     @media (min-width: 38em) {
@@ -37,7 +38,9 @@
       }
     }
   }
+  
   .tags-expo-section {
+    
     ul {
       list-style-type: circle;
       list-style-position: inside;
@@ -50,12 +53,12 @@
         &:hover {
           list-style-type: disc;
           padding: 0 .5rem;
+          text-decoration: none;
         }
       }
     }
-    a {
-      text-decoration: none;
-    }
+
+
     .post-date {
       text-transform: uppercase;
       display: inline-block;
