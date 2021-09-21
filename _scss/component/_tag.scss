@@ -13,10 +13,12 @@
     padding-right: .5em;
   }
   &:hover {
-    font-size: .97rem;
+    // font-size: .97rem;
     text-decoration: none;
     background: $green;
     color: $white;
+    // transition: ease-in 0.3s;
+    // color: $darkgreen;
 
   }
   @include transition(all .1s ease-in-out);

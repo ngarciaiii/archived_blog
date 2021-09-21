@@ -16,12 +16,12 @@
   // margin-left: 14.3rem;
   &:hover {
     text-decoration: none;
-    font-size: 2.73rem;
+    // font-size: 2.73rem;
     // margin-bottom: .37rem;
-    padding: .13rem;
+    // padding: .13rem;
     color: $darkgreen;
     // background-color: rgba($green, 0.15);
-    cursor: pointer;
+    // cursor: pointer;
   }
 }
 
@@ -79,11 +79,11 @@
     
     &:hover {
       text-decoration: none;
-      font-size: 2rem;
-      font-weight: 500;
+      // font-size: 2rem;
+      // font-weight: 500;
       // margin-bottom: .37rem;
-      padding: .13rem;
-      color: $darkgreen;
+      // padding: .13rem;
+      color: $green;
       // background-color: rgba($green, 0.15);
       width: 34%;
     }
@@ -102,10 +102,11 @@
       }
     }
     a:hover {
-      font-size: 3.4rem;
+      // font-size: 3.4rem;
       // font-weight: 730;
       // background: rgba($green, 0.15);
-      color: $darkgreen;
+      // transition: ease-in 0.5s;
+      color: $green;
     }
 
   margin-top: 12rem;
