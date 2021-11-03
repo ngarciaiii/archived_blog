@@ -2,7 +2,7 @@
 layout: post
 title: "Setting up Selenium on MacOs"
 date: 2021-11-21 19:08:30 -0400
-categories: [QA]
+categories: QA
 tags: [Selenium]
 years: ['2021']
 comments: true
