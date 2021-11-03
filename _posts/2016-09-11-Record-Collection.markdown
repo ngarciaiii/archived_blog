@@ -7,12 +7,12 @@ tags: [FreeCodeCamp]
 years: ['2016']
 comments: true
 ---
-
+<!-- 
 This problem is really interesting and fun. I have worked on it for <strong>DAYS</strong>. On the first day, I thought I solved it and got few red circles with x in them. I should have saved those <strong>TRIED SOLUTIONS</strong>. I've tried so <strong>MANY DIFFERENT APPROACHES</strong> that I forgot what they were. A day passed by, and another day of trying came and went. Every time when I thought I got it and then I crtl-enter'd to run the test. <strong>REJECTED</strong> my solutions and left me <strong>DEJECTED.</strong> <br>
 
 Sometimes there would be few <strong>x'd red circles</strong>, and sometimes there would be one <strong>x'd red circle</strong> and hindered me from going forward to the next problem. <strong>I finally gave in. I decided to google the solution to this problem.</strong> To my amazement... there were many "solutions" online to this specific problem. <strong>More than five different solutions </strong> and they <strong>all promised</strong> to be working and will successfully progress into the next problem. <strong>Some of them even looked like mine</strong>, and I wondered where I might have gone wrong or is it some kind of a bug? So with <strong>no dignity</strong> I <strong>copied and pasted</strong> them into FCC. They got rejected! None of them worked when they promised to work. Well I found <strong>two solutions that worked out so far.</strong><br>
 
-I found the solution on FCC's github. <strong>There wasn't any another solution ONLINE.</strong> Another solution was my close friend from college which you can follow her on [briennakh.github.io][briennakh]. She graduated from an university with Summa Cum Laude. She is a self taught programmer and a hardcore at it. Why did their solutions worked while most of other solutions promised to and failed? Apparently FCC had updated to prevent people from bypassing the problem without putting properties into an array.
+I found the solution on FCC's github. <strong>There wasn't any another solution ONLINE.</strong> Another solution was my close friend from college which you can follow her on [briennakh.github.io][briennakh]. She graduated from an university with Summa Cum Laude. She is a self taught programmer and a hardcore at it. Why did their solutions worked while most of other solutions promised to and failed? Apparently FCC had updated to prevent people from bypassing the problem without putting properties into an array. -->
 
 # The problem lies below:
 
@@ -102,7 +102,7 @@ function updateRecords(id, prop, value) {
 ```
 <br>
 
-Another solution which could be found in [briennakh-github][briennakh]:
+Another solution could be found in [briennakh-github][briennakh]:
 
 ``` javascript
 function updateRecords(id, prop, value) {
