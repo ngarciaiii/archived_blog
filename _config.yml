@@ -38,8 +38,8 @@ nav:
     - '/about/'
   Blog:
     - '/blog/'
-    # - { Categories: '/blog/categories/' }
-    # - { Tags: '/blog/tags/' }
+     - { Categories: '/blog/categories/' }
+     - { Tags: '/blog/tags/' }
   Categories: 
     - '/blog/categories/'
   TAGS:
