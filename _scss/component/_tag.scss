@@ -1,12 +1,13 @@
 .post-tag {
-  display: inline-block;
+  // display: inline-block;
   background: rgba($green, 0.15);
-  padding: .5rem;
+  padding: .34rem;
   margin-right: .5rem;
   border-radius: 4px;
   color: $green;
   font-family: $font-sans;
   font-size: .7rem;
+  line-height: 37px;
   &:before {
     content: "\f02b";
     font-family: $font-font-awesome;
@@ -74,4 +75,10 @@
     }
     font-family: $font-sans;
   }
+}
+
+@media only screen and (max-width: 770px) {
+  // .post-tag {
+  //   display: none;
+  // }
 }
