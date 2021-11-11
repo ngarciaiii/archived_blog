@@ -6,7 +6,7 @@
 
 .masthead {
   position:fixed;
-  padding-top:    1rem;
+  // padding-top:    1rem;
   padding-bottom: 1rem;
   margin-bottom: 3rem;
   border-bottom: 1px solid $green;
@@ -51,8 +51,6 @@
     padding: 0;
     margin: 0;
     margin-left: 2.7rem;
-
-
   }
 }
 
@@ -86,7 +84,6 @@
   }
 
   .masthead-title a {
-    // margin-left: -7.7rem;
     float: left;
   }
 }

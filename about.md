@@ -3,7 +3,7 @@ layout: default
 title: About
 ---
 
-<h3></h3>
+<!-- <h3></h3> -->
 ![profpic](/public/img/profpic.jpeg){: .colright, .prof_pic }
 
 <about-short> 
@@ -36,6 +36,11 @@ title: About
 {% endif %}
 
 <style >
+
+  .masthead {
+    /* margin-top: -1rem; */
+    top: 0;
+  }
   
   short-headline {
     font-size: 1.2rem;
@@ -52,6 +57,32 @@ title: About
     float:right;
     width: 50%;
     margin-top: -1.43rem;
+  }
+
+  @media only screen and (max-width: 997px) {
+
+    .prof_pic {
+      /* margin-top: 4.3rem; */
+      margin: 4.3rem 1.7rem 1.3rem;
+    }
+    
+    .colright {
+      float: none;
+    }
+
+    /* img {
+      top: 1rem;
+    } */
+    
+    about-short {
+      width: 100%;
+      bottom: 0;
+      text-align: center;
+    }
+
+    .abt-background {
+     margin: 0rem 3.4rem 0rem;
+    }
   }
 
 </style>
