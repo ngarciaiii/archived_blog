@@ -503,8 +503,15 @@ section {
 }
 
 .colright {
+  margin-top: -1.43rem;
   float: right;
-  // width: 35%;
+  width: 52%;
+  @media only screen and (max-width: 770px) {
+    float: none;
+    width: 100;
+    text-align: center;
+    margin: auto;
+  }
 }
 
 .colleft {
@@ -519,6 +526,12 @@ section {
   // margin: 0 auto;
   float: left;
   // filter: grayscale(77%);
+  @media only screen and (max-width: 770px) {
+    width: 52%;
+    height: auto;
+    float: none;
+    margin: 5.2rem auto;
+  }
 }
 
 .about-personal-info {
@@ -548,7 +561,7 @@ section {
 
   // margin-top: 15rem;
 
-  .abt-background {
+  .abt-icons {
     // background: rgba($green, 0.15);
     display: inline-block;
     text-align: left;
@@ -559,5 +572,14 @@ section {
     i {
       padding: .34rem;
     }
+    @media only screen and (max-width: 770px) {
+      text-align: center;
+    }
   }
+
+  // .about-short {
+  //   float:right;
+    // width: 43%;
+    // margin-top: -1.43rem;
+  // }
 }
