@@ -6,7 +6,7 @@ title: About
 <!-- <h3></h3> -->
 ![profpic](/public/img/profpic.jpeg){: .colright, .prof_pic }
 
-<div class= "about-short colright"> 
+<div class= "colright"> 
   <h1>Nicolas Garcia III</h1>
   <h1><a href="https://ngarciaiii.github.io/blog#">I blog what I learn</a></h1><h3></h3>
   <short-headline>Researchings, programmings, and things I apply in my life. <br><br/>

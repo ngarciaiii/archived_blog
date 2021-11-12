@@ -508,7 +508,7 @@ section {
   width: 52%;
   @media only screen and (max-width: 770px) {
     float: none;
-    width: 100;
+    width: 73%;
     text-align: center;
     margin: auto;
   }
@@ -562,12 +562,8 @@ section {
   // margin-top: 15rem;
 
   .abt-icons {
-    // background: rgba($green, 0.15);
     display: inline-block;
     text-align: left;
-    // margin-top: 5rem;
-    // padding-right: 1rem;
-    // padding-left: 1rem;
     width: 100%;
     i {
       padding: .34rem;
@@ -576,10 +572,4 @@ section {
       text-align: center;
     }
   }
-
-  // .about-short {
-  //   float:right;
-    // width: 43%;
-    // margin-top: -1.43rem;
-  // }
 }
