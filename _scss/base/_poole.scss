@@ -309,6 +309,7 @@ tbody tr:nth-child(odd) th {
  */
 
 .masthead {
+  top: 0;
   padding-top:    1rem;
   padding-bottom: 1rem;
   margin-bottom: 3rem;
@@ -502,6 +503,9 @@ section {
   }
 }
 
+
+/**** Mostly About Page *****/
+
 .colright {
   margin-top: -1.43rem;
   float: right;
@@ -534,6 +538,10 @@ section {
   }
 }
 
+.short-headline {
+  font-size: 1.2rem;
+}
+
 .about-personal-info {
 
   h1 {
@@ -543,7 +551,6 @@ section {
 
 .abt-personal-info {
   .abt-personal-info-section {
-    // font-size: 2.5rem;
     font-size: 2.7rem;
     text-align: center;
     line-height: 1rem;
@@ -554,12 +561,8 @@ section {
       }
     }
     a:hover {
-      // font-size: 2.7rem;
-      // font-size: 3.4rem;
       color: $green;
     }
-
-  // margin-top: 15rem;
 
   .abt-icons {
     display: inline-block;

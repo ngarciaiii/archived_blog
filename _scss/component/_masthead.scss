@@ -14,7 +14,8 @@
   width: 100%; /* Full width */
   transition: top 0.3s; /* Transition effect when sliding down (and up) */
   @media (min-width: 30rem) {
-    position: fixed;
+    position: none;
+    padding-top: 1rem;
     width: 100%;
   }
   .masthead-title {
@@ -42,6 +43,7 @@
       }
     }
   }
+
   .masthead-logo {
     position: relative;
     height: 30px;
@@ -55,7 +57,7 @@
 }
 
 .navbar {
-  display:block;
+  // display:block;
   font-size: 1.2rem;
   font-weight: 500;
   letter-spacing: .13rem;
