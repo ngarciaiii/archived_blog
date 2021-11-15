@@ -29,9 +29,16 @@ Click on `Apple Silicon` to install the VS Code, <strong>again this is for MacBo
 
 ## The next step, download Java for MacOS M1 Chip
 
-The thing to know, MacBook Pro with Apple M1 chip doesn't come with Java, so we will need to download Java from [Oracle][Oracle]. I created a short video clip below of how to install Java quickly
+The thing to know, MacBook Pro with Apple M1 chip doesn't come with Java, so we will need to download Java from [Oracle][Oracle]. I created a short video clip below of how to install Java quickly. I already installed and don't want to reinstall. Just follow through without cancelling unless you feel necessary.
 
-<iframe width="420" height="315" src="https://youtu.be/ABbsylwIlF4" frameborder="0"></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ABbsylwIlF4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+After installing Java SDK, open up terminal and then type `javac -version` and it should show the version.  I forgot to add, it is possble to open up terminal in Visual Studio Code. I use it to stay focused on the project. Visual Studio Code is changing things, more conventional 
+
+## Add Java Extension Pack in VS Code
+
+
+
 
 
 [Visual Studio Code]:https://code.visualstudio.com/
