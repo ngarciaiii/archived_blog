@@ -308,12 +308,13 @@ tbody tr:nth-child(odd) th {
  * Super small header above the content for site name and short description.
  */
 
-.masthead {
-  top: 0;
-  padding-top:    1rem;
-  padding-bottom: 1rem;
-  margin-bottom: 3rem;
-}
+// .masthead {
+//   top: 0;
+//   padding-top:    1rem;
+//   padding-bottom: 1rem;
+//   margin-bottom: 3rem;
+
+// }
 .masthead-title {
   // margin-top: 0;
   // margin-bottom: 0;
@@ -520,7 +521,7 @@ section {
 
 .colleft {
   float: left;
-  width: 70%;
+  width: 73%;
 }
 
 .prof_pic {
