@@ -54,7 +54,7 @@ Open up Visual Studio Code, click on explorer which has a icon of two files on u
 
 ![java_project](/public/img/java_project.png){:height="3.7%" width="auto"}
 
-Dropdown box will ask for which project type. Pick "No build tools". After that, it will pop up Mac's Finder application asking where you want to place your project in. I created a subfolder "firstTest" in Selenium folder.
+Dropdown box will ask for which project type. Pick "No build tools". After that, it will pop up Mac's Finder application asking where you want to place your project in. I created a subfolder "firstTest" in "Selenium" folder.
 
 ![no_build_tools](/public/img/no_build_tools.png)
 
@@ -68,6 +68,7 @@ What is [Selenium][Selenium]? It is a QA automation tool used to test browsers a
 
 ![selenjava](/public/img/selenjava.png){:height="auto" width="50%"}
 
+After downloading the stable zip file, open two finders. One in Downlaods folder and another where the project folder might be at. Create another folder "jars and drivers" in the project folder for. Open the zip and extract all `.jars` files and move over to project folder in Selenium folder. 
 
 [Visual Studio Code]:https://code.visualstudio.com/
 [Oracle]:https://www.oracle.com/index.html
