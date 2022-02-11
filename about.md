@@ -43,8 +43,4 @@ title: About
       /* font-weight: 510; */
       color: #70c137;
   }
-
-  .masthead {
-    position: none;
-  }
 </style>
