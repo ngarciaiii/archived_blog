@@ -52,7 +52,7 @@ I am basically repeating what https://funnelgarden.com/setup-selenium-with-java-
 
 Open up Visual Studio Code, click on explorer which has a icon of two files on upper left corner, and then click "Create Java Project" button on the bottom. 
 
-![java_project](/public/img/java_project.png){:height="3.7%" width="auto"}
+![java_project](/public/img/java_project.png){:height="500px" width="auto"}
 
 Dropdown box will ask for which project type. Pick "No build tools". After that, it will pop up Mac's Finder application asking where you want to place your project in. I created a subfolder "firstTest" in "Selenium" folder.
 
