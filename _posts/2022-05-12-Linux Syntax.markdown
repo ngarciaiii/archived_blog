@@ -25,6 +25,11 @@ There are several Linux distributions or people call them ***distros***. The mos
 - **Arch** - harder level linux, own package management Pacman, total control of your system
 - **openSUSE** - 2nd oldest linux distro, RPM package manager, good for beginner, secured
 
+There are much more Linux distros!
+
+![LinuxDistros](/public/img/linux_distros.webp)
+
+
 I recommend to use virtual machine, ***VM***, to install Linux distro. Look up youtube on how to install VM and take a pick. Ubuntu is the easiest to start with. I think most of distros are. I haven't tried Arch btw!
 
 ## Command Line
