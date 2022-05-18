@@ -8,7 +8,7 @@ years: ['2022']
 comments: true
 ---
 
-# Hack The Box Recaps
+# Brief Hack The Box Recaps
 
 I dabbled with [HackTheBox][HackTheBox] (HTB) before getting into [abatchy.com][abatchy.com]'s "How to prepare for PWK/OSCP, a noob-friendly guide". I am only using freebies for now at Starting Point level. I stopped at Tier 02: Very Easy Level's Vaccine retired box. **Box** is retired server with flags somewhere inside. Flag.txt would usually contain a hash that looks something like 0kljafa9w8ej9SDEfhwi34n9AFSd. My mentor don't recommend spending too much time on HTB, since it promotes brute-force and many other tools that are not allowed in the OSCP field.
 
@@ -44,11 +44,11 @@ I am debating whether I should do HTB recaps blog thoroughly because it is a tim
 
 ## I stopped at Vaccine, and didn't include Oopsie in the MS Excel
 
-Going further into HTB boxes, it gets harder and it becomes more than just one flag per box. MS Excel is not great to put down notes and it get messy. Higher level requires me to use more than couple of terminals. Sometimes jump over to browser and venture in there. Not easy to explain or note down in MS Excel. I use [Obsidan][Obsidian] now and it is much easier to organize and note down. I would use this blog but it would take a lot of time. One day I will publish my Obsidan online. I gotta get back to [Linux Journey][Linux Journey]. 
+Going further into HTB boxes, it gets harder and it becomes more than just one flag per box. MS Excel is not great to put down notes and it get messy. Higher level requires me to use more than couple of terminals. Sometimes jump over to browser and venture in there. Not easy to explain or note down in MS Excel. I use [Obsidian][Obsidian] now and it is much easier to organize and note down. I would use this blog but it would take a lot of time. One day I will publish my Obsidan online. I gotta get back to [Linux Journey][Linux Journey]. 
 
 
 [HackTheBox]:https:/www.hackthebox.com
 [abatchy.com]:https://www.abatchy.com/2017/03/how-to-prepare-for-pwkoscp-noob
 [NMAP.org]:https://www.nmap.org
-[Obsidan]:https://obsidian.md
+[Obsidian]:https://obsidian.md
 [Linux Journey]:https://linuxjourney.com
