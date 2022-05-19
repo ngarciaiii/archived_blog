@@ -87,7 +87,7 @@ $ echo $PATH
 
 ## the cut command, cut it out!
 
-Remember the old ctrl + c, or cmd + c to cut out something. Linux's cut is like a swiss army knife version. 
+Remember the old ctrl + c, or cmd + c to cut out something. Linux's `cut` is like a swiss army knife version. 
 
 
 ```bash
@@ -153,14 +153,6 @@ The quick brown fox
 ```
 
 ## That's enough for today, Im still a grasshopper. 
-
-
-
-
-
-
-
-
 
 
 [Linux Journey]:https://linuxjourney.com
