@@ -171,15 +171,28 @@ $ nl file1.txt
 
 ######################################
 
+# This is thing I definitely see all the times! grep
+# it search files for characters that match a ceretain pattern, or a string!
+$ grep fox sample.txt
 
+# grep can be case insenstive with -i flag
+$ grep -i somepattern somefile
 
+# more flexible
+$ env | grep -i user
 
+# can use regular expression in pattern
+# it returns all .txt in /somedir
+$ ls /somedir | grep '.txt$'
 
+# check out egrep and fgrep, use man
 
 ```
 
+## The End of Text-Fu section
+## Replace "INNER PEACE" with "LINUX KNOWLEDGE"
 
-
+<iframe src="https://giphy.com/embed/AF7lbthr7cTYI" width="480" height="407" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/quote-red-panda-relevant-AF7lbthr7cTYI"></a></p>
 
 
 
