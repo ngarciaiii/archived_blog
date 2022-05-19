@@ -103,6 +103,16 @@ $ cut -f 2 sample.txt
 # this cuts a field before delimiter ";" in the sample txt
 $ cut -f 1 -d ";" sample.txt
 
+# more tricks
+# cut all characters that are more than 4th, and print the cut characters
+$ cut -c 5- sample.txt
+
+# cut all character that are between 5th and 10th and print the cut characters
+$ cut -c 5-10 sample.txt
+
+# cut all characters that are less than 6th characters and print the cut characters
+$ cut -c -5 sample.txt
+
 ############
 
 ## paste is like cat, and has delimiter like in cut command. 
