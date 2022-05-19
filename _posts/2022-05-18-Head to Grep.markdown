@@ -109,11 +109,6 @@ $ sort -r file1.txt
 # to sort numerically
 $ sort -n file1.txt
 
-#########################################
-#
-# This is getting weirder! (;-_-)
-#
-#########################################
 ```
 
 All commands in codeblocks are barely scratched the surface. Check by adding `--help` next to each command and see how complicated all these could get!
@@ -123,6 +118,12 @@ All commands in codeblocks are barely scratched the surface. Check by adding `--
 
 
 ```bash
+
+#########################################
+#
+# This is getting weirder! (;-_-)
+#
+#########################################
 
 # tr for translate, set characters into another set of characters
 # lowcase to caps, have to enter into tr block, and then type hello afterward
