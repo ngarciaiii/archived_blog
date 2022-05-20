@@ -15,6 +15,7 @@ Regular expression is a tool that uses special notations as an universal languag
 
 ```bash
 # remove sample.txt if you already have it
+# actually don't need to, '>' will overwrite, I am just paranoid
 $ rm sample.txt
 
 # create a file with two lines string like this
@@ -64,7 +65,7 @@ vim  | emacs
 
 ## Vim, short for vi + IMproved
 
-I didn't know there's a text editor ***vi***, but apparently Vim is the imrpoved version. Gonna play with vim for awhile and using the same sample.txt from previous exercise. 
+I didn't know there's a text editor ***vi***, but apparently Vim is the improved version. Gonna play with vim for awhile and using the same sample.txt from previous exercise. 
 
 ```bash
 # type colon key --> : literally in the vim to start something
