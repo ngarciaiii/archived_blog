@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "OSCP Main Thing"
-Published: false
+published: false
 date: 2022-06-01 00:00:00 -0400
 categories: PWK
 tags: [OSCP]
