@@ -61,3 +61,6 @@ hero:
 mathjax: true # whether support mathjax
 google_analytics_token: 'UA-00000000-1' # leave blank if you don't want google analytics
 disqus_short_name: 'ngarciaiii-github-io' # leave blank if you don't want disqus
+
+# Port 4444 for listening on different port
+port: 4444
